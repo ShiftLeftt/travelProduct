@@ -1,4 +1,14 @@
 .LeftSide{
-  background-color: red;
+  background-color: #fff;
+  border-radius: 40px;
   
+}
+
+.leftSideTitle{
+  display: flex;
+  align-items: flex-start;
+}
+
+.leftSideTitle p{
+  font-size: 16px;
 }
