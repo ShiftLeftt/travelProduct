@@ -7,8 +7,13 @@
     "lucide-react": "^0.476.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+<<<<<<< HEAD
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.15"
+=======
+    "react-router-dom": "^7.2.0",
+    "react-scripts": "5.0.1"
+>>>>>>> 5c2a3f79b8406d593a05dbaf9fd8d3bd16fac25d
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,5 +38,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
