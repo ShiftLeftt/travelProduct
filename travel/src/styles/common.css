@@ -1,0 +1,49 @@
+html {
+  font-size:62.5%;
+}
+
+:root {
+  --main-color : #2D336B;
+  --point-color : #FC4E00;
+  --black : #000000;
+  --dark-black : #333333;
+  --dim-black : #555555;
+  --silver-black : #777777;
+  --light-black : #999999;
+  --dark-gray : #BDBDBD;
+  --dim-gray : #DDDDDD;
+  --sliver-gray : #EEEEEE;
+  --light-gray : #F5F5F5;
+  --cloudy-gray : #F9F9F9;
+  --white : #FFFFFF;
+  --font-12 : 1.2rem;
+  --font-16 : 1.6rem;
+  --font-20 : 2rem;
+  --font-24 : 2.4rem;
+  --font-28 : 2.8rem;
+  --font-32 : 3.2rem;
+  --font-36 : 3.6rem;
+  --font-40 : 4rem;
+  --font-44 : 4.4rem;
+  --font-60 : 6rem;
+  --font-64 : 6.4rem;
+  --font-68 : 6.8rem;
+  --font-92 : 9.2rem;
+  --font-96 : 9.6rem;
+  --font-100 : 10rem;
+  --weight-thin : 100;
+  --weight-extra-light : 200;
+  --weight-light : 300;
+  --weight-regular : 400;
+  --weight-medium : 500;
+  --weight-semi-bold : 600;
+  --weight-bold : 700;
+  --weight-extra-bold : 800;
+  --weight-black : 900;
+  --radius-12 : 1.2rem;
+  --radius-16 : 1.6rem;
+  --radius-20 : 2rem;
+  --radius-40 : 4rem;
+  --radius-100 : 10rem;
+  --radius-round : 50%;
+}
