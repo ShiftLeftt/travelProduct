@@ -2,7 +2,7 @@ import React from 'react'
 // import style from "/main.module.css";
 function LeftSide() {
   return (
-    <div className='left-side-bar'>
+    <div className={style.LeftSide}>
       <div>
         <p>
           고객님
