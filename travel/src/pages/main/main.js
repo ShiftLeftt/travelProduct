@@ -6,7 +6,7 @@ function Main() {
     <div>
       <header>
         <ul>
-          <li><img src="./public/img/home.svg" alt="홈 아이콘" /></li>
+          <li><img src="" alt="홈 아이콘" /></li>
           <li>추천지</li>
           <li>커뮤니티</li>
           <li>랜덤여행지</li>

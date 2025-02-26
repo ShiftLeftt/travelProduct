@@ -1,5 +1,6 @@
-import React from 'react'
-// import style from "/main.module.css";
+import React from 'react';
+import style from './leftSide.module.css'; // 상대 경로로 수정
+
 function LeftSide() {
   return (
     <div className={style.LeftSide}>
@@ -7,8 +8,8 @@ function LeftSide() {
         <p>
           고객님
           <br/>
-      어떤 여행을 <br/>
-      계획하시나요?
+          어떤 여행을 <br/>
+          계획하시나요?
         </p>
         <img src="" alt="" />
       </div>
@@ -24,7 +25,7 @@ function LeftSide() {
         </ul>
       </div>
     </div>
-  )
+  );
 }
 
-export default LeftSide
+export default LeftSide;
