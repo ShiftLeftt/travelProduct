@@ -1,5 +1,5 @@
 import React from 'react'
-import style from "/main.module.css";
+// import style from "/main.module.css";
 function LeftSide() {
   return (
     <div className='left-side-bar'>
@@ -16,11 +16,11 @@ function LeftSide() {
         <button>여행 계획 시작하기</button>
       </div>
       <div>
-        <h3></h3>
+        <h3>실시간 인기검색어</h3>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>삼척정월대보름제</li>
+          <li>삼척정월대보름제</li>
+          <li>삼척정월대보름제</li>
         </ul>
       </div>
     </div>

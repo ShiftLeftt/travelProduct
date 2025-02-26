@@ -1,11 +1,12 @@
 import React from 'react'
 // import style from "main.module.css";
-function rightSide() {
+function RightSide() {
   return (
-    <div>
-      
+    <div className='right-side-bar'>
+      <img src="" alt="" />
+      <img src="" alt="" />
     </div>
   )
 }
 
-export default rightSide
+export default RightSide
