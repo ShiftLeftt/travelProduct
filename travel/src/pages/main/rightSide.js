@@ -1,6 +1,6 @@
 import React from 'react'
 // import style from "main.module.css";
-function main() {
+function rightSide() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function main() {
   )
 }
 
-export default main
+export default rightSide
