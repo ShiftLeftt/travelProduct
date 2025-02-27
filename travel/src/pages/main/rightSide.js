@@ -9,7 +9,7 @@ function RightSide() {
       <button>
         <img src="/img/leftArrow.svg" alt="왼쪽방향 화살표" />
       </button>
-      <div>
+      <div className={style.logWrap}>
         <img src="/img/Journee_logo.webp" alt="" />
       </div>
       

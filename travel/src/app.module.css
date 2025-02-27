@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   height: 100vh;
   /* background-color: #999; */
@@ -7,7 +8,11 @@ body {
 #root {
 }
 .displayFlex {
+=======
+
+.displayFlex{
+>>>>>>> 249475f2c6237e7c0136844b54c5bb5bd320939e
   display: flex;
-  /* align-items: center; */
+  justify-content: space-between;
   height: 100vh;
 }
