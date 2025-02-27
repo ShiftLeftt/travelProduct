@@ -1,11 +1,18 @@
 import React from 'react'
 import style from './rightSide.module.css'; // 상대 경로로 수정
-// import style from "main.module.css";
+import '../../styles/common.css'; // 상대 경로로 수정
+import '../../styles/reset.css';
+
 function RightSide() {
   return (
     <div className={style.rightSideBar}>
-      <img src="" alt="" />
-      <img src="" alt="" />
+      <button>
+        <img src="/img/leftArrow.svg" alt="왼쪽방향 화살표" />
+      </button>
+      <div>
+        <img src="/img/Journee_logo.webp" alt="" />
+      </div>
+      
     </div>
   )
 }
