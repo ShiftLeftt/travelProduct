@@ -1,0 +1,13 @@
+body{
+  height: 100vh;
+  /* background-color: #999; */
+  background-image: url(../public/img/Journee_background.webp);
+  background-size: cover;
+}
+#root{
+}
+.displayFlex{
+  display: flex;
+  /* align-items: center; */
+  height: 100vh;
+}

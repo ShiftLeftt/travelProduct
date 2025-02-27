@@ -1,0 +1,15 @@
+.mainDiv{
+  background-color: #fff;
+  border-radius: 40px;
+}
+.mainDiv header{
+  display: flex;
+  justify-content: center;
+}
+.mainDiv header ul{
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10.2px rgba(0, 0, 0, 0.15);
+border-radius: 0px 20px 20px 0px;
+  /* width: 50%; */
+}

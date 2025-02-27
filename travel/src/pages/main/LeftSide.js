@@ -4,7 +4,7 @@ import style from './leftSide.module.css'; // 상대 경로로 수정
 function LeftSide() {
   return (
     <div className={style.LeftSide}>
-      <div>
+      <div className='{style.leftSideTitle}'>
         <p>
           고객님
           <br/>
