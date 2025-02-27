@@ -47,3 +47,12 @@ html {
   --radius-100 : 10rem;
   --radius-round : 50%;
 }
+
+/** setcss */
+body{
+  height: 100vh;
+  padding: 4rem;
+  /* background-color: #999; */
+  background-image: url(/public/img/Journee_background.webp);
+  background-size: cover;
+}

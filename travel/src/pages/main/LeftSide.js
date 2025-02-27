@@ -6,25 +6,37 @@ import '../../styles/reset.css'; // 상대 경로로 수정
 function LeftSide() {
   return (
     <div className={style.LeftSide}>
-      <div className={style.leftSideTitle}> {/* 중괄호로 수정 */}
-        <p>
-          고객님
-          <br />
-          어떤 여행을 <br />
-          계획하시나요?
-        </p>
-        <img src="/img/rightArrow.svg" alt="" />
-      </div>
       <div>
-        <button>여행 계획 시작하기</button>
+        <div className={style.leftSideTitle}> {/* 중괄호로 수정 */}
+          <p>
+            고객님,
+            <br />
+            <span>
+            어떤 여행을 <br />
+              계획하시나요?
+              </span>
+          </p>
+          <button>
+            <img src="/img/rightArrow.svg" alt="" />
+          </button>
+          
+        </div>
+        <div className={ style.leftSideMainBtn}>
+          <button>여행 계획 시작하기</button>
+        </div>
+        <div className={style.liveSearch}>
+          <h3>실시간 인기검색어</h3>
+          <ul>
+            <li>1. 삼척정월대보름제</li>
+            <li>2. 삼척정월대보름제</li>
+            <li>3. 삼척정월대보름제</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>실시간 인기검색어</h3>
-        <ul>
-          <li>삼척정월대보름제</li>
-          <li>삼척정월대보름제</li>
-          <li>삼척정월대보름제</li>
-        </ul>
+      <div className={style.bannerImgWrap}>
+        <img src="/img/Journee_banner01.webp" alt="" />
+        <img src="/img/Journee_banner02.webp" alt="" />
+        <img src="/img/Journee_banner03.webp" alt="" />
       </div>
     </div>
   );
