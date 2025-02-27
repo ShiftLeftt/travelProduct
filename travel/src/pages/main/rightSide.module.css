@@ -2,6 +2,7 @@
   background-color: #fff;
   border-radius: var(-radius-40);
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: space-between;
   width: 10%;
@@ -12,4 +13,10 @@
   width: 100px;
   transform: rotate(90deg);
 
+}
+
+.rightSideBar button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
