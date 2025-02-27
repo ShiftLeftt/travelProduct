@@ -15,13 +15,21 @@
 border-radius:var(--radius-40);
   /* width: 50%; */
 }
-
+.mainDiv header ul li{
+  position: relative;
+}
+.mainDiv header ul li a{
+  color: var(--black);
+}
+.mainDiv header ul li svg{
+  fill:var(--black);
+}
 header ul {
   display: flex;
   justify-content: center;
   gap: 40px;
   list-style: none;
-  padding: 0;
+  padding: 1.5rem 2rem;
   margin: 20px 0;
 }
 
