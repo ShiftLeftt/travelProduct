@@ -8,3 +8,6 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+
+document.getElementById('root').style.height = '100%';

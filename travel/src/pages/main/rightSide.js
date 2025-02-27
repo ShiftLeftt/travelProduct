@@ -12,7 +12,6 @@ function RightSide() {
       <div className={style.logWrap}>
         <img src="/img/Journee_logo.webp" alt="" />
       </div>
-      
     </div>
   )
 }
