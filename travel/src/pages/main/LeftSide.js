@@ -6,36 +6,23 @@ import "../../styles/reset.css"; // 상대 경로로 수정
 function LeftSide() {
   return (
     <div className={style.LeftSide}>
-<<<<<<< HEAD
-      <div className={style.leftSideTitle}>
-        {" "}
-        {/* 중괄호로 수정 */}
-        <p>
-          고객님
-          <br />
-          어떤 여행을 <br />
-          계획하시나요?
-        </p>
-        <img src="/img/rightArrow.svg" alt="" />
-      </div>
-=======
->>>>>>> 249475f2c6237e7c0136844b54c5bb5bd320939e
       <div>
-        <div className={style.leftSideTitle}> {/* 중괄호로 수정 */}
+        <div className={style.leftSideTitle}>
+          {" "}
+          {/* 중괄호로 수정 */}
           <p>
             고객님,
             <br />
             <span>
-            어떤 여행을 <br />
+              어떤 여행을 <br />
               계획하시나요?
-              </span>
+            </span>
           </p>
           <button>
             <img src="/img/rightArrow.svg" alt="" />
           </button>
-          
         </div>
-        <div className={ style.leftSideMainBtn}>
+        <div className={style.leftSideMainBtn}>
           <button>여행 계획 시작하기</button>
         </div>
         <div className={style.liveSearch}>

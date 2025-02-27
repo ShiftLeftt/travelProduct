@@ -1,7 +1,7 @@
-import React from 'react'
-import style from './rightSide.module.css'; // 상대 경로로 수정
-import '../../styles/common.css'; // 상대 경로로 수정
-import '../../styles/reset.css';
+import React from "react";
+import style from "./rightSide.module.css"; // 상대 경로로 수정
+import "../../styles/common.css"; // 상대 경로로 수정
+import "../../styles/reset.css";
 
 function RightSide() {
   return (
@@ -13,7 +13,7 @@ function RightSide() {
         <img src="/img/Journee_logo.webp" alt="" />
       </div>
     </div>
-  )
+  );
 }
 
-export default RightSide
+export default RightSide;
