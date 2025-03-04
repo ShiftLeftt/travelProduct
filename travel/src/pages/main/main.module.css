@@ -3,6 +3,7 @@
   border-radius: 40px;
   width: 65%;
   padding: 4rem 2rem;
+  margin: 0 4rem;
 }
 .mainDiv header{
   display: flex;
