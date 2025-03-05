@@ -4,9 +4,7 @@ import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css";
 
 function RightSide() {
-
     const [isClicked, setIsClicked] = React.useState(false);
-
     const toggle = () =>{
         setIsClicked(!isClicked);
     }
