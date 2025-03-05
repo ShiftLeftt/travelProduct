@@ -26,10 +26,8 @@ function App() {
                 </Main>
                 <RightSide/>
             </div>
-</Router>
+        </Router>
 
-)
-    ;
-}
+    )}
 
 export default App;
