@@ -56,3 +56,19 @@ body{
   background-image: url(/public/img/Journee_background.webp);
   background-size: cover;
 }
+/* 네비 배경색 변경 */
+
+.main_mainDiv__bo5eA header ul li a.active{
+  color: #fff;
+  background-color: var(--main-color);
+  position: relative;
+}
+.main_mainDiv__bo5eA header ul li a.nav-link{
+  transition: 0;
+}
+.main_mainDiv__bo5eA header ul li a.nav-link svg path{
+  fill: #333;
+}
+.main_mainDiv__bo5eA header ul li a.active svg path{
+  fill: #fff;
+}

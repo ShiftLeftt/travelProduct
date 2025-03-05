@@ -1,8 +1,9 @@
 .mainDiv{
   background-color: #fff;
-  border-radius: 40px;
-  width: 65%;
+  border-radius: 4rem;
+  width: 82%;
   padding: 4rem 2rem;
+  box-shadow: 0px 0px 21.8px rgba(0, 0, 0, 0.13);
 }
 .mainDiv header{
   display: flex;
@@ -11,33 +12,44 @@
 .mainDiv header ul{
   display: flex;
   align-items: center;
+  background-color: #ffffff25;
+  backdrop-filter: blur(8px);
   box-shadow: 0px 0px 10.2px rgba(0, 0, 0, 0.15);
-border-radius:var(--radius-40);
+  border-radius:var(--radius-20);
+  /* gap: 1rem; */
   /* width: 50%; */
 }
 .mainDiv header ul li{
   position: relative;
+  height: 100%;
+  /* border: 1px solid #000; */
 }
 .mainDiv header ul li a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  /* transition: 1s; */
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  border-radius: var(--radius-20);
   color: var(--black);
 }
 .mainDiv header ul li svg{
   fill:var(--black);
 }
-header ul {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  list-style: none;
-  padding: 1.5rem 2rem;
-  margin: 20px 0;
-}
 
 header ul li {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 2.4rem;
   cursor: pointer;
   transition: color 0.3s ease;
+}
+
+.aa{
+  background-color: var(--main-color);
+  height: 100%;
+  border: 1px solid #000;
+  position: absolute;
 }
 
 
