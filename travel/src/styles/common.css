@@ -94,10 +94,6 @@ body{
   width: 14.4rem;
 }
 
-.main_mainContainer__I3MA1 header a.nav-link svg path{
-  fill: #333;
-}
-
 .main_mainContainer__I3MA1 header a.active svg path{
   fill: #fff;
 }

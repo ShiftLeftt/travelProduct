@@ -11,25 +11,22 @@
   margin: auto;
   display: flex;
   align-items: center;
+  position: relative;
   background-color: #ffffff25;
   backdrop-filter: blur(8px);
   box-shadow: var(--boxShadow-02);
   border-radius:var(--radius-20);
-  position: relative;
-  background-color: #ffffff25;
-  backdrop-filter: blur(8px);
 }
 
 .mainContainer header a {
   height: 6rem;
   line-height: 2rem;
   padding: 2rem;
-  border-radius: var(--radius-20);
   color: var(--black);
   cursor: pointer;
   font-size: var(--font-24);
-  transition: color 0.3s ease;
   font-weight: var(--weight-regular);
+  transition: color 0.3s ease;
 }
 
 .mainContainer header a:nth-child(1) {
