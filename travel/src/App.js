@@ -17,17 +17,16 @@ function App() {
         <Router>
             <div className={styles.displayFlex}>
                 <LeftSide/>
-                <Main>
-                <Routes>
-                    <Route path="/community" element={<Community/>}/>
-                    <Route path="/random" element={<Random/>}/>
-                    <Route path="/seasons" element={<Seasons/>}/>
-                 </Routes>
-                </Main>
+                    <Main>
+                        <Routes>
+                            <Route path="/community" element={<Community/>}/>
+                            <Route path="/random" element={<Random/>}/>
+                            <Route path="/seasons" element={<Seasons/>}/>
+                        </Routes>
+                    </Main>
                 <RightSide/>
             </div>
         </Router>
-
     )}
 
 export default App;

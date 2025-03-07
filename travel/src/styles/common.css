@@ -46,9 +46,12 @@ html {
   --radius-40: 4rem;
   --radius-100: 10rem;
   --radius-round: 50%;
+  --boxShadow-01: 0px 0px 21.8px rgba(0, 0, 0, 0.13);
+  --boxShadow-02: 0px 0px 10.2px rgba(0, 0, 0, 0.15);
 }
 
-/** setcss */
+/** set css */
+
 body{
   height: 100vh;
   padding: 4rem;
@@ -56,19 +59,49 @@ body{
   background-image: url(/public/img/Journee_background.webp);
   background-size: cover;
 }
+
 /* 네비 배경색 변경 */
 
-.main_mainDiv__bo5eA header ul li a.active{
-  color: #fff;
+.activeHeader {
   background-color: var(--main-color);
-  position: relative;
+  height: 100%;
+  width: 7rem;
+  border-radius: var(--radius-20);
+  border: 1px solid #000;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  transition: .5s;
 }
-.main_mainDiv__bo5eA header ul li a.nav-link{
-  transition: 0;
+
+.main_mainContainer__I3MA1 header a:nth-child(1).active~.activeHeader{
+  left: 0px;
+  width: 7rem;
 }
-.main_mainDiv__bo5eA header ul li a.nav-link svg path{
+
+.main_mainContainer__I3MA1 header a:nth-child(2).active~.activeHeader{
+  left: 7rem;
+  width: 10.2rem;
+}
+
+.main_mainContainer__I3MA1 header a:nth-child(3).active~.activeHeader{
+  left: 17.2rem;
+  width: 12.3rem;
+}
+
+.main_mainContainer__I3MA1 header a:nth-child(4).active~.activeHeader{
+  left: 29.5rem;
+  width: 14.4rem;
+}
+
+.main_mainContainer__I3MA1 header a.nav-link svg path{
   fill: #333;
 }
-.main_mainDiv__bo5eA header ul li a.active svg path{
+
+.main_mainContainer__I3MA1 header a.active svg path{
   fill: #fff;
+}
+
+.main_mainContainer__I3MA1 header a.active{
+  color: #fff;
 }

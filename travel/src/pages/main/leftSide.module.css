@@ -14,21 +14,26 @@
   align-items: flex-start;
   justify-content: space-between;
 }
+
 .leftSideTitle button{
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
+
 .leftSideTitle p{
   font-size: var(--font-20);
 }
+
 .leftSideTitle p span{
   font-weight: var(--weight-semi-bold);
 }
+
 .leftSideMainBtn{
   margin-top: 2rem ;
   margin-bottom: 5rem;
 }
+
 .leftSideMainBtn button{
   width: 100%;
   font-size: var(--font-12);
@@ -39,21 +44,22 @@
   cursor: pointer;
 }
 
-.liveSearch{}
-
 .liveSearch h3{
   font-size: var(--font-16);
   margin-bottom: 1.5rem;
   
 }
+
 .liveSearch ul li{
   font-size: var(--font-12);
   margin-bottom: 1rem;
 }
+
 .bannerImgWrap img{
   width: 100%;
   margin-bottom: 1.6rem;
 }
+
 .bannerImgWrap img:last-child{
   margin-bottom: 0;
 }
