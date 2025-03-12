@@ -1,8 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import style from "./main.module.css";
 import '../../styles/common.css'; // 상대 경로로 수정
 import '../../styles/reset.css'; // 상대 경로로 수정
-import { NavLink } from 'react-router-dom';
+
 
 function Main({children}) {
 
