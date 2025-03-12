@@ -1,11 +1,11 @@
 import React from "react";
-import style from "./rightSide.module.css"; // 상대 경로로 수정
+import style from "./userLogin.module.css"; // CSS 모듈 import
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css";
 
-function RightSide() {
+function userLogin() {
   return (
-    <div className={style.rightSideBar}>
+    <div className={style.userLoginBar}>
       <button>
         <img src="/img/leftArrow.svg" alt="왼쪽방향 화살표" />
       </button>
@@ -16,4 +16,4 @@ function RightSide() {
   );
 }
 
-export default RightSide;
+export default userLogin;
