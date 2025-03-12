@@ -1,5 +1,5 @@
-.rightSideBar{
-  background-color: #fff;
+.userLoginBar{
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: var(-radius-40);
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@
   transform: rotate(90deg);
 }
 
-.rightSideBar button{
+.userLoginBar button{
   background-color: transparent;
   border: none;
   cursor: pointer;

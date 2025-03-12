@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Seasons from "./pages/seasons/seasons";
 import Community from "./pages/community/community";
 import Random from "./pages/random/random";
-import LeftSide from "./pages/main/LeftSide";
-import RightSide from "./pages/main/RightSide";
+import TravelPlan from "./pages/main/TravelPlan";
+import UserLogin from "./pages/main/UserLogin";
 import Main from "./pages/main/Main";
 import styles from "./app.module.css";
 import './styles/common.css';
@@ -16,7 +16,7 @@ function App() {
     return (
         <Router>
             <div className={styles.displayFlex}>
-                <LeftSide/>
+                <TravelPlan/>
                     <Main>
                         <Routes>
                             <Route path="/community" element={<Community/>}/>
@@ -24,7 +24,7 @@ function App() {
                             <Route path="/seasons" element={<Seasons/>}/>
                         </Routes>
                     </Main>
-                <RightSide/>
+                <UserLogin/>
             </div>
         </Router>
     )}
