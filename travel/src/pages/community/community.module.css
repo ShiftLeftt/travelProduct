@@ -1,0 +1,71 @@
+.communitySelect {
+  margin-top: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 셀렉트박스 */
+.selectBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selectBox select {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-bottom: 0.6rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid var(--dim-gray);
+}
+/* 검색 박스 */
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.6rem 1.6rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid var(--dim-gray);
+}
+.searchBox input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.searchBox button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 게시판 리스트 */
+.communityList {
+  margin-top: 2.4rem;
+}
+.communityList > div {
+  display: flex;
+  align-items: center;
+}
+.communityList > div p {
+  text-align: center;
+  width: 10%;
+}
+.communityList > div p b {
+  color: var(--point-color);
+  margin-right: 15px;
+}
+.communityList > div p:nth-child(2) {
+  width: 60%;
+  text-align: left;
+}
+.communityListTitle {
+  margin-bottom: 2.4rem;
+}
+.communityListContent {
+  cursor: pointer;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--dim-gray);
+}
