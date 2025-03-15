@@ -45,6 +45,20 @@ function Community() {
           <p>2025-02-12</p>
         </div>
       </div>
+      <div>
+        <button>글쓰기</button>
+      </div>
+      <div>
+        <img src="img/pagingnationfirst.svg" alt="" />
+        <img src="img/pagingnationleft.svg" alt="" />
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <img src="img/pagingnationright.svg" alt="" />
+        <img src="img/pagingnationright.svg" alt="" />
+      </div>
     </div>
   );
 }
