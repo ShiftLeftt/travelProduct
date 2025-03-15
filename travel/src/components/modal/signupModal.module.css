@@ -1,0 +1,101 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalOpen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalFrame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 500px;
+    max-width: 100%;
+
+}
+
+
+.modalHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 60%;
+}
+
+.modalHeader h1 {
+    margin-bottom: 1rem;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    margin: 1rem;
+    height: auto;
+    border-radius: 1rem;
+    overflow: scroll;
+    width: 100%;
+    border: 1px solid #000000;
+}
+.modalPersonalInfoHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.modalPersonalInfoHeader p {
+    margin: 1rem;
+    line-height: 2;
+    text-align: left;
+
+}
+
+.modalPersonalInfoContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+    height: auto;
+    overflow: scroll;
+    width: 100%;
+}
+
+.modalPersonalInfoContent ul li{
+    margin: 1rem;
+    line-height: 2;
+    text-align: left;
+}
+.modalClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2.6rem;
+    cursor: pointer;
+
+}
+

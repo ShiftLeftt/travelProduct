@@ -2,10 +2,21 @@ import React from 'react'
 import style from "./main.module.css";
 import '../../styles/common.css'; // 상대 경로로 수정
 import '../../styles/reset.css'; // 상대 경로로 수정
+import {useState}  from "react";
 
 import {Link } from "react-router-dom"; // react-router-dom을 사용해야 합니다.
+
+
+
 function Main({children}) {
-  return (
+
+    const [activeHeader, setActiveHeader] = useState(false)
+
+    const current = () =>{
+        setActiveHeader(!activeHeader)
+    }
+
+    return (
       <div className={style.mainDiv}>
           <header>
               <ul>

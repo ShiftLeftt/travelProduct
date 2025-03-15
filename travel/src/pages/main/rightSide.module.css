@@ -5,22 +5,22 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
-  width: 10%;
-
+  width: 5%;
   border-radius:var(--radius-40);
-  padding: 2rem;
+  padding: 2.5rem;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 
 }
 
 .clicked{
-  width: 30%;
+  width: 25%;
 }
 
 
 
+
 .logWrap img{
-  width: 100px;
+  width: 10rem;
   transform: rotate(90deg);
   padding-bottom: 2rem;
 }
@@ -28,6 +28,8 @@
 .clicked .logWrap img{
  display: none;
 }
+
+
 .rightSideButton{
   background-color: transparent;
   border: none;
@@ -39,4 +41,3 @@
 .clicked .rightSideButton {
   right: 2rem
 }
-
