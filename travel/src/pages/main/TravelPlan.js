@@ -1,18 +1,17 @@
 import React from "react";
-import style from "./leftSide.module.css"; // CSS 모듈 import
+import style from "./travelPlan.module.css"; // CSS 모듈 import
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css"; // 상대 경로로 수정
 
-function LeftSide() {
+function travelPlan() {
   return (
-    <div className={style.LeftSide}>
+    <div className={style.travelPlan}>
       <div>
-        <div className={style.leftSideTitle}>
+        <div className={style.travelPlanTitle}>
           {" "}
           {/* 중괄호로 수정 */}
           <p>
-            고객님,
-            <br />
+            고객님, <br />
             <span>
               어떤 여행을 <br />
               계획하시나요?
@@ -22,7 +21,7 @@ function LeftSide() {
             <img src="/img/rightArrow.svg" alt="" />
           </button>
         </div>
-        <div className={style.leftSideMainBtn}>
+        <div className={style.travelPlanMainBtn}>
           <button>여행 계획 시작하기</button>
         </div>
         <div className={style.liveSearch}>
@@ -43,4 +42,4 @@ function LeftSide() {
   );
 }
 
-export default LeftSide;
+export default travelPlan;
