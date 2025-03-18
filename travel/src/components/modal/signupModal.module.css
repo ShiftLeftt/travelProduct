@@ -98,4 +98,46 @@
     cursor: pointer;
 
 }
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.checkbox {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    background: #fc4e00;
+    border-color: #fc4e00;
+}
+
+.checkboxLabel {
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.nextButton {
+    align-self: center;
+    padding: 1rem 3rem;
+    background-color: #fc4e00;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nextButton:hover {
+    background-color: #fc4e00;
+}
+
+.nextButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
 
