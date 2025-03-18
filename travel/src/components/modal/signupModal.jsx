@@ -1,8 +1,7 @@
-"use client"
 
 import { useState } from "react"
 import style from "./signupModal.module.css"
-import CheckBox from "./checkboxFunction"
+import SignupForm from "./SignupForm"
 
 function SignupModal({ isOpen, onClose, children }) {
     const [modalStatus, setModalStatus] = useState(1)
@@ -94,7 +93,7 @@ function SignupModal({ isOpen, onClose, children }) {
                         </div>
                     </>
                 ) : (
-                   <></>
+                   <SignupForm />
                 )}
             </div>
         </div>
