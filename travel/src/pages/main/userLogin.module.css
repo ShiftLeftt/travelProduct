@@ -8,11 +8,13 @@
   width: 5%;
   border-radius:var(--radius-40);
   padding: 4rem 2rem;
-  box-shadow: 0px 0px 21.8px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 0px 21.8px var(--boxShadow-01);
+  transition: width .3s ease;
+  position: relative;
 }
 
 .logWrap img{
-  width: 9.21875vw;
+  width: 8vw;
   margin-bottom: 2.03125vw;
   transform: rotate(90deg);
 }
@@ -23,3 +25,108 @@
   cursor: pointer;
 }
 
+.isExpanded{
+  width: 23%;
+}
+
+.rotated{
+  transform: rotate(180deg) translate(430%);
+}
+
+/* loginArea */
+.loginArea{
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.loginArea h2{
+  font-size: 2rem;
+  margin: 4rem 0 2rem 0;
+}
+
+.loginInput{
+  width: 100%;
+}
+
+.loginInput input{
+  width: 90%;
+  height: 4rem;
+  padding: 0 2rem;
+  border-radius: 4rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--black);
+}
+
+.loginInput input:last-of-type{
+  margin-bottom: 2.5rem;
+}
+
+.loginInput input::placeholder{
+  color: var(--dark-gray);
+}
+
+.authButtons{
+  display: flex;
+  height: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.authButtons button{
+  flex: 1;
+  font-weight: bold;
+}
+
+.authButtons button:nth-child(1){
+  border-right: 1px solid var(--dark-gray);
+}
+
+.loginBtn img{
+  width: 1.5rem;
+  margin-right: 1rem;
+}
+
+.signupBtn img{
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.loginAd img{
+  width: 100%; 
+}
+
+.loginArea p{
+  color: var(--light-black);
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+  line-height: 1.5;
+}
+
+.loginAPI{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.loginAd img{
+  margin-bottom: .75rem;
+}
+
+.loginPlane{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 18rem;
+  border-radius: var(--radius-40);
+  background-color: var(--main-color);
+  color: var(--white);
+}
+
+.loginPlaneTouch{
+  width: 10%;
+}
