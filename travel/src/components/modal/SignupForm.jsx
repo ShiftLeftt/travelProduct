@@ -1,15 +1,22 @@
 import { useState } from "react";
 import styles from "./signupForm.module.css";
+import style from "./signupModal.module.css";
 
-function SignupForm() {
+function SignupForm({ onClose }) {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
     const [nickname, setNickname] = useState("");
     const [email, setEmail] = useState("");
 
-    const duplicationId = () => {};
-    const emailVerification = () => {};
+    const duplicationId = () => {
+        // TODO: 중복확인 로직
+    };
+
+    const emailVerification = () => {
+        // TODO: 이메일 인증 로직
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         alert("가입 완료!");
@@ -17,6 +24,9 @@ function SignupForm() {
 
     return (
         <div className={styles.formHeader}>
+            <button className={style.modalClose} onClick={onClose}>
+                ×
+            </button>
             <h1 className={styles.title}>회원가입</h1>
             <div className={styles.subtitleWrap}>
                 <p className={styles.subtitle}>회원이 되어 다양한 혜택을 경험해보세요!</p>
@@ -24,8 +34,6 @@ function SignupForm() {
             </div>
 
             <form onSubmit={handleSubmit}>
-
-                {/* 아이디 */}
                 <div className={styles.inputGroup}>
                     <label className={styles.label}>아이디<span className={styles.required}>*</span></label>
                     <div className={styles.inputWithButton}>
@@ -41,7 +49,6 @@ function SignupForm() {
                 </div>
                 <p className={styles.helperText}>6글자 이상의 영문 혹은 영문과 숫자 조합</p>
 
-                {/* 비밀번호 */}
                 <div className={styles.inputGroup}>
                     <label className={styles.label}>비밀번호<span className={styles.required}>*</span></label>
                     <input
@@ -54,7 +61,6 @@ function SignupForm() {
                 </div>
                 <p className={styles.helperText}>특수문자 포함 8자 이상</p>
 
-                {/* 비밀번호 확인 */}
                 <div className={styles.inputGroup}>
                     <label className={styles.label}>비밀번호 확인<span className={styles.required}>*</span></label>
                     <input
@@ -66,7 +72,6 @@ function SignupForm() {
                     />
                 </div>
 
-                {/* 닉네임 */}
                 <div className={styles.inputGroup}>
                     <label className={styles.label}>닉네임</label>
                     <input
@@ -79,7 +84,6 @@ function SignupForm() {
                 </div>
                 <p className={styles.helperText}>6글자까지 가능</p>
 
-                {/* 이메일 */}
                 <div className={styles.inputGroup}>
                     <label className={styles.label}>이메일<span className={styles.required}>*</span></label>
                     <div className={styles.inputWithButton}>
@@ -95,7 +99,6 @@ function SignupForm() {
                 </div>
                 <p className={styles.helperText}>예 : example123@gmail.com</p>
 
-                {/* 가입하기 */}
                 <button type="submit" className={styles.submitButton}>가입하기</button>
             </form>
         </div>
