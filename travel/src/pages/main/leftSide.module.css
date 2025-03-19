@@ -1,7 +1,7 @@
 .LeftSide{
   background-color: #fff;
-  border-radius: var(--);
-  width: 20%;
+
+  width: 15%;
   border-radius:var(--radius-40);
   padding: 4rem 2rem;
   display: flex;
