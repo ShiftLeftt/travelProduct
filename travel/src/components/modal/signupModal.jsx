@@ -1,21 +1,20 @@
+import { useState } from "react";
+import style from "./signupModal.module.css";
+import SignupForm from "./SignupForm";
 
-import { useState } from "react"
-import style from "./signupModal.module.css"
-import SignupForm from "./SignupForm"
-
-function SignupModal({ isOpen, onClose, children }) {
-    const [modalStatus, setModalStatus] = useState(1)
-    const [isChecked, setIsChecked] = useState(false)
+function SignupModal({ isOpen, onClose }) {
+    const [modalStatus, setModalStatus] = useState(1);
+    const [isChecked, setIsChecked] = useState(false);
 
     const handleCheckboxChange = (checked) => {
-        setIsChecked(checked)
-    }
+        setIsChecked(checked);
+    };
 
     const handleNextStep = () => {
         if (isChecked) {
-            setModalStatus(2)
+            setModalStatus(2);
         }
-    }
+    };
 
     return (
         <div className={`${style.modal} ${isOpen ? style.modalOpen : ""}`}>
@@ -93,12 +92,11 @@ function SignupModal({ isOpen, onClose, children }) {
                         </div>
                     </>
                 ) : (
-                   <SignupForm />
+                    <SignupForm onClose={onClose} />
                 )}
             </div>
         </div>
-    )
+    );
 }
 
-export default SignupModal
-
+export default SignupModal;

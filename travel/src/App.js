@@ -6,6 +6,7 @@ import Random from "./pages/random/random"
 import LeftSide from "./pages/main/LeftSide";
 import RightSide from "./pages/main/RightSide";
 import Main from "./pages/main/Main";
+import Home from "./pages/home/home"
 import styles from "./app.module.css"
 import './styles/common.css'
 // import './styles/fonts.css'
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/community" element={<Community/>}/>
                     <Route path="/random" element={<Random/>}/>
                     <Route path="/seasons" element={<Seasons/>}/>
+                    <Route path="/home" element={<Home/>}/>
                  </Routes>
                 </Main>
                 <RightSide/>

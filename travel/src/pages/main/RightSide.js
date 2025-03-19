@@ -3,6 +3,7 @@ import style from "./rightSide.module.css";
 import "../../styles/common.css";
 import "../../styles/reset.css";
 import SignupModal from "../../components/modal/signupModal";
+import SignupForm from "../../components/modal/SignupForm";
 
 function RightSide() {
     const [signupOpen, setSignupOpen] = useState(false);
@@ -23,9 +24,10 @@ function RightSide() {
                     <button onClick={openSignup} className={style.signupBtn}>버튼</button>
                 )}
             </div>
-            <SignupModal isOpen={signupOpen} onClose={closeSignup}>
+            <SignupModal isOpen={signupOpen} onClose={closeSignup}/>
 
-            </SignupModal>
+
+
         </div>
     );
 }
