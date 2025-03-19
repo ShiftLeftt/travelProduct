@@ -3,18 +3,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Seasons from "./pages/seasons/seasons";
 import Community from "./pages/community/community";
 import Random from "./pages/random/random";
-// import TravelPlan from "./pages/main/TravelPlan";
-// import UserLogin from "./pages/main/UserLogin";
+import TravelPlan from "./pages/main/TravelPlan";
+import UserLogin from "./pages/main/UserLogin";
 import Main from "./pages/main/Main";
-import RightSide from "./pages/main/RightSide";
-import LeftSide from "./pages/main/LeftSide";
-// <<<<<<< HEAD
+// import RightSide from "./pages/main/RightSide";
+// import LeftSide from "./pages/main/LeftSide";
+
 import Home from "./pages/home/home";
 import styles from "./app.module.css";
 import "./styles/common.css";
 
 import "./styles/reset.css";
-// * =======
+
 // import Home from "./pages/home/home"
 // import styles from "./app.module.css"
 // import './styles/common.css'
@@ -39,7 +39,7 @@ function App() {
                 
                 <UserLogin/>
 ======= */}
-        <LeftSide />
+        <TravelPlan />
         <Main>
           <Routes>
             <Route path="/community" element={<Community />} />
@@ -48,7 +48,7 @@ function App() {
             <Route path="/home" element={<Home />} />
           </Routes>
         </Main>
-        <RightSide />
+        <UserLogin />
         {/* >>>>>>> origin/signupTask */}
       </div>
     </Router>
