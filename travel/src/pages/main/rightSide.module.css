@@ -1,0 +1,23 @@
+.rightSideBar{
+  background-color: #fff;
+  border-radius: var(-radius-40);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 10%;
+  border-radius:var(--radius-40);
+  padding: 4rem 2rem;
+}
+.logWrap img{
+  width: 100px;
+  transform: rotate(90deg);
+
+}
+
+.rightSideBar button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
