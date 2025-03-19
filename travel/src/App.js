@@ -22,8 +22,10 @@ function App() {
                             <Route path="/community" element={<Community/>}/>
                             <Route path="/random" element={<Random/>}/>
                             <Route path="/seasons" element={<Seasons/>}/>
+                            {/* <Route path="/loginSuccess" element={<SuccessLogin/>}/> */}
                         </Routes>
                     </Main>
+                
                 <UserLogin/>
             </div>
         </Router>

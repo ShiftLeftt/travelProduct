@@ -7,20 +7,24 @@ function UserLogin() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
+  const kakao = () => {
+    window.location.href = "http://34.47.116.81:8080/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/loginSuccess";
+  }
+
   const handleClick =()=>{
     setIsExpanded(!isExpanded);
     setIsVisible(false);
   }
   return (
     <div className={`${style.userLoginBar} ${isExpanded ? style.isExpanded: ""}`}>
+
       <button onClick={handleClick} className={style.toggleButton}>
         <img src="/img/leftArrow.svg" alt="왼쪽방향 화살표" className={isExpanded ? style.rotated:""}/>
       </button>
-      {isVisible && (
+
         <div className={style.logWrap}>
           <img src="/img/Journee_logo.webp" alt="Journee" />
         </div>
-      )}
       {isExpanded && (
         <div className={style.loginArea}>
           <h2>로그인</h2>
@@ -40,7 +44,7 @@ function UserLogin() {
           </div>
           <div className={style.loginAPI}>
             <img src="/img/naver.png" alt="네이버로 로그인" />
-            <img src="/img/kakao.png" alt="카카오로 로그인" />
+            <img onClick={kakao} src="/img/kakao.png" alt="카카오로 로그인" />
             <img src="/img/google.png" alt="구글로 로그인" />
           </div>
           <p>
