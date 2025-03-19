@@ -21,7 +21,7 @@ function Main({children}) {
                 <NavLink to="/Random" className={({ isActive }) => (isActive ? "active" : "")}>랜덤여행지</NavLink>
                 <span className='activeHeader'></span>
             </header>
-            <div className={style.mainContent}></div>
+            <div className={style.mainContent}>{children}</div>
         </div>
     )
 }
