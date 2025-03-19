@@ -1,9 +1,9 @@
 import React from 'react'
-import style from "./home.css";
+import style from "./home.module.css";
 import '../../styles/common.css'; // 상대 경로로 수정
 import '../../styles/reset.css'; // 상대 경로로 수정
 
-const home = () => {
+const Home = () => {
   return (
     <div className={style.mainTextContainer}>
             <div className={style.backgroundElement}>
@@ -40,4 +40,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home;

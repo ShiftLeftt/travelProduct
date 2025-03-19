@@ -23,7 +23,7 @@ function App() {
                             <Route path="/community" element={<Community/>}/>
                             <Route path="/random" element={<Random/>}/>
                             <Route path="/seasons" element={<Seasons/>}/>
-                            <Route path="/home" element={<Home/>}/>
+                            <Route path="/Home" element={<Home/>}/>
                         </Routes>
                     </Main>
                 <UserLogin/>
