@@ -2,10 +2,12 @@ import React, { useState }  from "react";
 import style from "./userLogin.module.css"; // CSS 모듈 import
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css";
+import SignupModal from "../../components/modal/signupModal";
 
 function UserLogin() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [show, setShow] = useState(false);
 
   const handleClick =()=>{
     setIsExpanded(!isExpanded);
@@ -33,7 +35,8 @@ function UserLogin() {
               <img src="/img/loginBtn01.png" alt="LOGIN" />
               LOGIN
             </button>
-            <button className={style.signupBtn}>
+            <button onClick={()=>setShow(true)} className={style.signupBtn}
+                    {show && <SignupModal/>}>
               <img src="/img/loginBtn02.png" alt="SIGN UP" />
               SIGN UP
             </button>
