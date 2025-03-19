@@ -3,7 +3,7 @@ import style from "./travelPlan.module.css"; // CSS 모듈 import
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css"; // 상대 경로로 수정
 
-function travelPlan() {
+function TravelPlan() {
   return (
     <div className={style.travelPlan}>
       <div>
@@ -42,4 +42,4 @@ function travelPlan() {
   );
 }
 
-export default travelPlan;
+export default TravelPlan;
