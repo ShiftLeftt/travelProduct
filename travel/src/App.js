@@ -33,9 +33,14 @@ function App() {
                             <Route path="/community" element={<Community/>}/>
                             <Route path="/random" element={<Random/>}/>
                             <Route path="/seasons" element={<Seasons/>}/>
+<<<<<<< HEAD
                             <Route path="/home" element={<Home/>}/>
+=======
+                            {/* <Route path="/loginSuccess" element={<SuccessLogin/>}/> */}
+>>>>>>> origin/yeoni
                         </Routes>
                     </Main>
+                
                 <UserLogin/>
 ======= */}
         <LeftSide />
