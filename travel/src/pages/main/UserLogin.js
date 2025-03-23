@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import style from "./userLogin.module.css"; // CSS 모듈 import
+import KakaoLogin from "../../components/AuthProvider/KakaoLogin";
+import GoogleLogin from "../../components/AuthProvider/GoogleLogin";
+import NaverLogin from "../../components/AuthProvider/NaverLogin";
+import SignupForm from "../../components/modal/SignupForm";
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css";
 import SignupModal from "../../components/modal/signupModal";
@@ -9,16 +13,16 @@ function UserLogin() {
   const [isVisible, setIsVisible] = useState(true);
   const [show, setShow] = useState(false);
 
-  const kakao = () => {
-    window.location.href =
-      "http://34.47.116.81:8080/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/loginSuccess";
-  };
+
 
   const handleClick = () => {
     setIsExpanded(!isExpanded);
     setIsVisible(false);
   };
   return (
+      <>
+        {show && <SignupModal onClose={() => setShow(false)} />}
+
     <div
       className={`${style.userLoginBar} ${isExpanded ? style.isExpanded : ""}`}
     >
@@ -30,7 +34,7 @@ function UserLogin() {
         />
       </button>
 
-      <div className={style.logWrap}>
+      <div className={isExpanded ? style.logoHidden : style.logWrap}>
         <img src="/img/Journee_logo.webp" alt="Journee" />
       </div>
       {isExpanded && (
@@ -48,16 +52,17 @@ function UserLogin() {
             <button
               onClick={() => setShow(true)}
               className={style.signupBtn}
-              {...(show && <SignupModal />)}
+
             >
               <img src="/img/loginBtn02.png" alt="SIGN UP" />
               SIGN UP
             </button>
+
           </div>
           <div className={style.loginAPI}>
-            <img src="/img/naver.png" alt="네이버로 로그인" />
-            <img onClick={kakao} src="/img/kakao.png" alt="카카오로 로그인" />
-            <img src="/img/google.png" alt="구글로 로그인" />
+            <NaverLogin/>
+            <GoogleLogin/>
+            <KakaoLogin/>
           </div>
           <p>
             회원가입 없이 이용 가능하며 첫 로그인시 이용약관 및 개인정보처리방침
@@ -73,7 +78,8 @@ function UserLogin() {
         </div>
       )}
     </div>
-  );
+      </>
+    )
 }
 
 export default UserLogin;

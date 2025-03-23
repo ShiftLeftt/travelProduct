@@ -19,6 +19,10 @@
   transform: rotate(90deg);
 }
 
+.logoHidden{
+    display: none;
+}
+
 .userLoginBar button{
   background-color: transparent;
   border: none;
