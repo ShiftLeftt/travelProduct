@@ -3,7 +3,6 @@ import style from "./userLogin.module.css"; // CSS 모듈 import
 import KakaoLogin from "../../components/AuthProvider/KakaoLogin";
 import GoogleLogin from "../../components/AuthProvider/GoogleLogin";
 import NaverLogin from "../../components/AuthProvider/NaverLogin";
-import SignupForm from "../../components/modal/SignupForm";
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css";
 import SignupModal from "../../components/modal/signupModal";
@@ -49,6 +48,7 @@ function UserLogin() {
               <img src="/img/loginBtn01.png" alt="LOGIN" />
               LOGIN
             </button>
+
             <button
               onClick={() => setShow(true)}
               className={style.signupBtn}
