@@ -1,56 +1,68 @@
 .mainTextContainer {
   width: 100%;
   height: 100%;
-  border: 1px solid #f90404;
   position: relative;
 }
 
 .backgroundElement{
-  position: absolute;
+  position: fixed; 
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100vh; 
+  pointer-events: none; 
+  z-index: 999; 
 }
 
 .Line01 {
-  width: 31%;
+  width: 20%;
   height: auto;
   position: absolute;
-  top: -2rem;
-  left: -2rem;
+  top: 4rem;
+  left: 24rem;
+  z-index: 1000;
 
 }
 .Line02 {
-    width: 25%;
-    height: auto;
-    position: absolute;
-    bottom: -62.5rem;
-    right: -2rem;
+  width: 14%;
+  height: auto;
+  position: absolute;
+  bottom: 4rem;
+  right: 13.6rem;
+  z-index: 1000;
 }
 
 .star01{
+  width: 2%;
+  height: auto;
+  position: absolute;
+  top: 49rem;
+  left: 48rem;
+}
+.star02{
+  width: 5%;
+  height: auto;
+  position: absolute;
+  left: 71rem;
+  top: 36rem;
+}
+.star03{
   width: 4%;
   height: auto;
   position: absolute;
-  bottom: -26rem;
-  left: 21rem;
-}
-.star02{
-  width: 6%;
-  height: auto;
-  position: absolute;
-}
-.star03{
-  width: 6%;
-  height: auto;
-  position: absolute;
+  right: 64rem;
+  top: 42rem;
 }
 .star04{
   width: 4%;
   height: auto;
   position: absolute;
+  top: 32rem;
+  right: 39rem;
 }
 
 .mainTextContent{
-  margin-top: 3.7rem;
+  margin-top: 5.7rem;
 }
 
 .mainTextContent h1 {
@@ -86,6 +98,7 @@
 
 .titleR {
   animation: floatR 3s infinite ease-in-out;
+  z-index: 1000;
 }
 
 @keyframes floatR {
