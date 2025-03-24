@@ -64,3 +64,21 @@
 .bannerImgWrap img:last-child{
   margin-bottom: 0;
 }
+
+.locationBox {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 20rem;
+  border-radius: var(--radius-40);
+  box-shadow: 0 0 6rem rgba(0, 0, 0, 0.25);
+  background-color: white;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out; 
+}
+
+.locationBoxVisible {
+  width: 42.5rem;
+  padding: 4rem 2rem; 
+}
