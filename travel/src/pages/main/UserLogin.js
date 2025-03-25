@@ -6,11 +6,37 @@ import NaverLogin from "../../components/AuthProvider/NaverLogin";
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css";
 import SignupModal from "../../components/modal/signupModal";
+import TravelScroll from "../../components/TravelSchedule/TravelScroll";
 
 function UserLogin() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [show, setShow] = useState(false);
+
+  // 예제 데이터
+  // 스케줄이 이런 식으로 받아와졌을 때
+const schedules = [
+    {
+        day: 1,
+        places: [
+            "도시철도 3호선 구포역 3번 출구",
+            "구포장터 3.1운동 기념비",
+            "구포은행",
+        ],
+    },
+    {
+        day: 2,
+        places: [
+            "구포만세거리",
+            "구포시장",
+           "구포해수욕장",
+        ],
+    },
+    {
+        day: 3,
+        places: ["도시철도 2호선 덕천역 1번 출구"],
+    },
+];
 
 
 
@@ -73,6 +99,8 @@ function UserLogin() {
             <img src="/img/loginAd02.png" alt="광고" />
           </div>
           <div className={style.loginPlane}>
+            <TravelScroll travelSchedules={schedules}/>
+
             <div className={style.loginPlaneTouch}></div>
           </div>
         </div>

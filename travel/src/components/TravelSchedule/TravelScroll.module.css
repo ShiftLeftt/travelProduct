@@ -1,0 +1,84 @@
+.TravelScroll {
+    height: 16rem;
+    overflow-y: auto;
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+
+}
+.TravelScroll::-webkit-scrollbar {
+    width: 0.4rem;
+}
+
+.daySection {
+    margin-bottom: 2rem;
+}
+
+.daySection h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--sliver-gray);
+    font-weight: bold;
+}
+
+.daySection ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.daySection li {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.daySection li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+}
+
+.horizontalTimeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 3rem 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.horizontalTimeline::before {
+    content: "";
+    position: absolute;
+    top: 3.2rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--main-color);
+    border-bottom: 2px dotted var(--sliver-gray);
+    z-index: 0;
+}
+
+.point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dot {
+        width: 1.2rem;
+        height: 1.2rem;
+        background-color: var(--sliver-gray);
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+}
+
+.placeName {
+    font-size: 1.1rem;
+    text-align: center;
+    width: 6rem;
+}
