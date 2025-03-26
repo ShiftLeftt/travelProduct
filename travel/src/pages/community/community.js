@@ -11,7 +11,7 @@ function Community() {
     navigate("/CommunityModify");
   };
   return (
-    <div>
+    <div className={style.communityMain}>
       <h1>커뮤니티</h1>
       <div className={style.communitySelect}>
         <div className={style.selectBox}>
