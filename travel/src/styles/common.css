@@ -101,3 +101,16 @@ body{
 .main_mainContainer__I3MA1 header a.active{
   color: #fff;
 }
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+  content: unset;
+}
+
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{
+  content: unset;
+}
+
+.swiper-button-prev svg, .swiper-button-next svg{
+  width: unset;
+  height: unset;
+}

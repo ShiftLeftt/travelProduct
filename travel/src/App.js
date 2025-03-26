@@ -5,7 +5,7 @@ import Community from "./pages/community/community";
 import Random from "./pages/random/random";
 import TravelPlan from "./pages/main/TravelPlan";
 import UserLogin from "./pages/main/UserLogin";
-import Main from "./pages/main/main";
+import Main from "./pages/main/Main";
 import styles from "./app.module.css";
 import './styles/common.css';
 // import './styles/fonts.css'
