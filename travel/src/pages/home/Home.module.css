@@ -3,9 +3,10 @@
   height: 100%;
   border: 1px solid #f90404;
   position: relative;
+  /* margin: 0; */
 }
 
-.backgroundElement{
+.backgroundElement {
   position: absolute;
   width: 100%;
 }
@@ -16,40 +17,39 @@
   position: absolute;
   top: -2rem;
   left: -2rem;
-
 }
 .Line02 {
-    width: 25%;
-    height: auto;
-    position: absolute;
-    bottom: -62.5rem;
-    right: -2rem;
+  width: 25%;
+  height: auto;
+  position: absolute;
+  bottom: -62.5rem;
+  right: -2rem;
 }
 
-.star01{
+.star01 {
   width: 4%;
   height: auto;
   position: absolute;
   bottom: -26rem;
   left: 21rem;
 }
-.star02{
+.star02 {
   width: 6%;
   height: auto;
   position: absolute;
 }
-.star03{
+.star03 {
   width: 6%;
   height: auto;
   position: absolute;
 }
-.star04{
+.star04 {
   width: 4%;
   height: auto;
   position: absolute;
 }
 
-.mainTextContent{
+.mainTextContent {
   margin-top: 3.7rem;
 }
 
@@ -79,9 +79,15 @@
 }
 
 @keyframes floatT {
-  0% { transform: translateY(0); }
-  40% { transform: translateY(2rem); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .titleR {
@@ -89,9 +95,15 @@
 }
 
 @keyframes floatR {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(2.5rem); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .titleA {
@@ -99,9 +111,15 @@
 }
 
 @keyframes floatA {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(2rem); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .titleV {
@@ -109,9 +127,15 @@
 }
 
 @keyframes floatV {
-  0% { transform: translateY(0); }
-  40% { transform: translateY(1.8rem); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(1.8rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .titleE {
@@ -119,9 +143,15 @@
 }
 
 @keyframes floatE {
-  0% { transform: translateY(0); }
-  60% { transform: translateY(2.2rem); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(2.2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .titleL {
@@ -129,9 +159,15 @@
 }
 
 @keyframes floatL {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(1rem); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .mainTextSuvContent {
@@ -155,7 +191,7 @@
   color: var(--black8);
 }
 
-.indentText p:nth-child(2){
+.indentText p:nth-child(2) {
   display: block;
   margin-left: -9rem;
 }
