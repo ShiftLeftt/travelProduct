@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Home.module.css";
+import style from "./home.module.css";
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css"; // 상대 경로로 수정
 

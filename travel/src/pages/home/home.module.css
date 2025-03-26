@@ -1,0 +1,174 @@
+.mainTextContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.backgroundElement{
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; 
+  pointer-events: none; 
+  z-index: 999; 
+}
+
+.Line01 {
+  width: 20%;
+  height: auto;
+  position: absolute;
+  top: 4rem;
+  left: 24rem;
+  z-index: 1000;
+
+}
+.Line02 {
+  width: 14%;
+  height: auto;
+  position: absolute;
+  bottom: 4rem;
+  right: 13.6rem;
+  z-index: 1000;
+}
+
+.star01{
+  width: 2%;
+  height: auto;
+  position: absolute;
+  top: 49rem;
+  left: 48rem;
+}
+.star02{
+  width: 5%;
+  height: auto;
+  position: absolute;
+  left: 71rem;
+  top: 36rem;
+}
+.star03{
+  width: 4%;
+  height: auto;
+  position: absolute;
+  right: 64rem;
+  top: 42rem;
+}
+.star04{
+  width: 4%;
+  height: auto;
+  position: absolute;
+  top: 32rem;
+  right: 39rem;
+}
+
+.mainTextContent{
+  margin-top: 5.7rem;
+}
+
+.mainTextContent h1 {
+  font-size: 8rem;
+  font-weight: var(--weight-black);
+  color: var(--main-color);
+  text-align: center;
+}
+
+.mainTextImg {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainTextImg img {
+  width: 10%;
+  height: 10%;
+}
+
+.titleT {
+  animation: floatT 3s infinite ease-in-out;
+}
+
+@keyframes floatT {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(2rem); }
+  100% { transform: translateY(0); }
+}
+
+.titleR {
+  animation: floatR 3s infinite ease-in-out;
+  z-index: 1000;
+}
+
+@keyframes floatR {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(2.5rem); }
+  100% { transform: translateY(0); }
+}
+
+.titleA {
+  animation: floatA 3s infinite ease-in-out;
+}
+
+@keyframes floatA {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(2rem); }
+  100% { transform: translateY(0); }
+}
+
+.titleV {
+  animation: floatV 3s infinite ease-in-out;
+}
+
+@keyframes floatV {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(1.8rem); }
+  100% { transform: translateY(0); }
+}
+
+.titleE {
+  animation: floatE 3s infinite ease-in-out;
+}
+
+@keyframes floatE {
+  0% { transform: translateY(0); }
+  60% { transform: translateY(2.2rem); }
+  100% { transform: translateY(0); }
+}
+
+.titleL {
+  animation: floatL 3s infinite ease-in-out;
+}
+
+@keyframes floatL {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(1rem); }
+  100% { transform: translateY(0); }
+}
+
+.mainTextSuvContent {
+  margin-top: 12rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainTextSuvContent img {
+  width: 10%;
+  height: 10%;
+  margin-bottom: 4rem;
+}
+
+.mainTextSuvContent p {
+  font-size: var(--font-20);
+  line-height: var(--font-36);
+  font-weight: var(--weight-regular);
+  color: var(--black8);
+}
+
+.indentText p:nth-child(2){
+  display: block;
+  margin-left: -9rem;
+}
