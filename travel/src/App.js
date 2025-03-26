@@ -8,37 +8,16 @@ import UserLogin from "./pages/main/UserLogin";
 import Main from "./pages/main/Main";
 // import RightSide from "./pages/main/RightSide";
 // import LeftSide from "./pages/main/LeftSide";
-
+import OauthCallback  from "./pages/callback/OauthCallback";
 import Home from "./pages/home/home";
 import styles from "./app.module.css";
 import "./styles/common.css";
-
 import "./styles/reset.css";
-
-// import Home from "./pages/home/home"
-// import styles from "./app.module.css"
-// import './styles/common.css'
-// // import './styles/fonts.css'
-// import './styles/reset.css'
-// >>>>>>> origin/signupTask
 
 function App() {
   return (
     <Router>
       <div className={styles.displayFlex}>
-        {/* <<<<<<< HEAD
-                <TravelPlan/>
-                    <Main>
-                        <Routes>
-                            <Route path="/community" element={<Community/>}/>
-                            <Route path="/random" element={<Random/>}/>
-                            <Route path="/seasons" element={<Seasons/>}/>
-
-                        </Routes>
-                    </Main>
-                
-                <UserLogin/>
-======= */}
         <TravelPlan />
         <Main>
           <Routes>
@@ -46,10 +25,11 @@ function App() {
             <Route path="/random" element={<Random />} />
             <Route path="/seasons" element={<Seasons />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/oauth/callback" element={<OauthCallback />} />
           </Routes>
         </Main>
         <UserLogin />
-        {/* >>>>>>> origin/signupTask */}
+
       </div>
     </Router>
   );

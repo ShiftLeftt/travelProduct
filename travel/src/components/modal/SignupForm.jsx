@@ -17,12 +17,45 @@ function SignupForm({ onClose }) {
         // TODO: 이메일 인증 로직
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert("가입 완료!");
-    };
+        if (!id || !password || !passwordCheck || !email) {
+            alert("필수 입력 항목을 모두 입력해주세요.");
 
-    return (
+        }
+        if (password !== passwordCheck) {
+            alert("비밀번호가 일치하지 않습니다.");
+            return;
+        }
+        try{
+            // 임시 주소 (바꿔도 됨)
+            const res = await fetch('http://localhost:3000/api/users',{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({ email, nick: nickname, password, }),
+            });
+            if(!res.ok) {
+                alert("회원가입에 실패했습니다.");
+                return;
+            }
+            alert("회원가입이 완료되었습니다.");
+            onClose();
+        } catch (err) {
+            console.error("회원가입 중 오류 발생:", err);
+
+
+    }
+        };
+        // 백앤드 요청 받을 주소랑 구조
+        // method: POST   url :/api/signup
+        // Content-Type: application/json
+        // body:
+        // { username, password, nickname, email }
+
+
+        return (
         <div className={styles.formHeader}>
             <button className={style.modalClose} onClick={onClose}>
                 ×
