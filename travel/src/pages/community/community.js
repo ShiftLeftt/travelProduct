@@ -1,8 +1,15 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import style from "./community.module.css";
 
 function Community() {
+  const navigate = useNavigate();
+  const detailHandleClick = () => {
+    navigate("/CommunityDetail");
+  };
+  const mmodifyHandleClick = () => {
+    navigate("/CommunityModify");
+  };
   return (
     <div>
       <h1>커뮤니티</h1>
@@ -34,7 +41,7 @@ function Community() {
           <p>닉네임</p>
           <p>작성시간</p>
         </div>
-        <div className={style.communityListContent}>
+        <div className={style.communityListContent} onClick={detailHandleClick}>
           <p>1</p>
           <p>
             <b>NEW</b>
@@ -45,19 +52,19 @@ function Community() {
           <p>2025-02-12</p>
         </div>
       </div>
-      <div>
+      <div onClick={mmodifyHandleClick} className={style.communityBtn}>
         <button>글쓰기</button>
       </div>
-      <div>
+      <div className={style.pagingnationWrap}>
         <img src="img/pagingnationfirst.svg" alt="" />
         <img src="img/pagingnationleft.svg" alt="" />
-        <p>1</p>
+        <p className={style.pagingnationClick}>1</p>
         <p>2</p>
         <p>3</p>
         <p>4</p>
         <p>5</p>
         <img src="img/pagingnationright.svg" alt="" />
-        <img src="img/pagingnationright.svg" alt="" />
+        <img src="img/pagingnationfirstlast.svg" alt="" />
       </div>
     </div>
   );

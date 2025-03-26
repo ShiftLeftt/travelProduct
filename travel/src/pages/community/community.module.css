@@ -11,6 +11,7 @@
   justify-content: space-between;
 }
 .selectBox select {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   outline: none;
@@ -52,6 +53,7 @@
 .communityList > div p {
   text-align: center;
   width: 10%;
+  font-size: 1.5rem;
 }
 .communityList > div p b {
   color: var(--point-color);
@@ -68,4 +70,44 @@
   cursor: pointer;
   padding: 1rem 0;
   border-bottom: 1px solid var(--dim-gray);
+}
+
+.communityBtn {
+  margin-top: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.communityBtn button {
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 0.5rem 1.4rem;
+  color: #fff;
+  background-color: var(--main-color);
+  border-radius: var(--radius-40);
+}
+
+/* 페이징 */
+.pagingnationWrap {
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.4rem;
+}
+.pagingnationWrap p,
+.pagingnationWrap img {
+  cursor: pointer;
+}
+.pagingnationClick {
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }

@@ -8,10 +8,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom"; // react-router-dom을 사용해야 합니다.
 
 function Main({ children }) {
+
   const [activeHeader, setActiveHeader] = useState(false);
 
   const current = () => {
+
     setActiveHeader(!activeHeader);
+    
   };
 
   return (
