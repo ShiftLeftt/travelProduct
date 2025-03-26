@@ -6,7 +6,7 @@ import SignupModal from "../../components/modal/signupModal";
 
 function UserLogin() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  // const [isVisible, setIsVisible] = useState(true);
   const [show, setShow] = useState(false);
 
   const kakao = () => {
@@ -16,7 +16,7 @@ function UserLogin() {
 
   const handleClick = () => {
     setIsExpanded(!isExpanded);
-    setIsVisible(false);
+    // setIsVisible(false);
   };
   return (
     <div
