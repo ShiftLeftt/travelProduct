@@ -1,6 +1,7 @@
 import { useState } from "react";
 import style from "./signupModal.module.css";
 import SignupForm from "./SignupForm";
+import REACTDOM from "react-dom";
 
 function SignupModal({ isOpen, onClose }) {
     const [modalStatus, setModalStatus] = useState(1);
@@ -16,7 +17,7 @@ function SignupModal({ isOpen, onClose }) {
         }
     };
 
-    return (
+    return REACTDOM.createPortal (
         <div className={`${style.modal} ${isOpen ? style.modalOpen : ""}`}>
             <div className={style.modalFrame}>
                 {modalStatus === 1 ? (
@@ -95,7 +96,8 @@ function SignupModal({ isOpen, onClose }) {
                     <SignupForm onClose={onClose} />
                 )}
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }
 

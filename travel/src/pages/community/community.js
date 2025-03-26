@@ -7,7 +7,7 @@ function Community() {
   const detailHandleClick = () => {
     navigate("/CommunityDetail");
   };
-  const mmodifyHandleClick = () => {
+  const modifyHandleClick = () => {
     navigate("/CommunityModify");
   };
   return (
@@ -52,7 +52,7 @@ function Community() {
           <p>2025-02-12</p>
         </div>
       </div>
-      <div onClick={mmodifyHandleClick} className={style.communityBtn}>
+      <div onClick={modifyHandleClick} className={style.communityBtn}>
         <button>글쓰기</button>
       </div>
       <div className={style.pagingnationWrap}>

@@ -8,21 +8,12 @@ import Random from "./pages/random/random";
 import TravelPlan from "./pages/main/TravelPlan";
 import UserLogin from "./pages/main/UserLogin";
 import Main from "./pages/main/Main";
-// import RightSide from "./pages/main/RightSide";
-// import LeftSide from "./pages/main/LeftSide";
-
+import OauthCallback from "./pages/callback/OauthCallback";
 import Home from "./pages/home/Home";
+
 import styles from "./app.module.css";
 import "./styles/common.css";
-
 import "./styles/reset.css";
-
-// import Home from "./pages/home/home"
-// import styles from "./app.module.css"
-// import './styles/common.css'
-// // import './styles/fonts.css'
-// import './styles/reset.css'
-// >>>>>>> origin/signupTask
 
 function App() {
   return (
@@ -37,10 +28,10 @@ function App() {
             <Route path="/random" element={<Random />} />
             <Route path="/seasons" element={<Seasons />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/oauth/callback" element={<OauthCallback />} />
           </Routes>
         </Main>
         <UserLogin />
-        {/* >>>>>>> origin/signupTask */}
       </div>
     </Router>
   );

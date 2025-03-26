@@ -19,6 +19,10 @@
   transform: rotate(90deg);
 }
 
+.logoHidden{
+    display: none;
+}
+
 .userLoginBar button{
   background-color: transparent;
   border: none;
@@ -129,4 +133,12 @@
 
 .loginPlaneTouch{
   width: 10%;
+}
+
+.notLoggedInMessage {
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--dark-gray);
+  padding: 4rem 2rem;
+  white-space: pre-line;
 }
