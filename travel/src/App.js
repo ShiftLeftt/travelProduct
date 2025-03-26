@@ -10,10 +10,10 @@ import UserLogin from "./pages/main/UserLogin";
 import Main from "./pages/main/Main";
 import OauthCallback from "./pages/callback/OauthCallback";
 import Home from "./pages/home/Home";
-
 import styles from "./app.module.css";
-import "./styles/common.css";
-import "./styles/reset.css";
+import './styles/common.css';
+// import './styles/fonts.css'
+import './styles/reset.css';
 
 function App() {
   return (
