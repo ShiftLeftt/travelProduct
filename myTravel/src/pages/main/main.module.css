@@ -1,5 +1,6 @@
 .mainContainer {
   width: 82%;
+  height: 90vh;
   background-color: var(--white);
   border-radius: var(--radius-40);
   padding: 4rem 2rem;
@@ -7,14 +8,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 5;
 }
 
 .mainContainer header {
   width: fit-content;
   margin: auto;
-  display: flex;
-  align-items: center;
   position: relative;
   background-color: #ffffff25;
   backdrop-filter: blur(8px);
@@ -22,7 +20,13 @@
   border-radius: var(--radius-20);
 }
 
-.mainContainer header a {
+.navMenu {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.link {
   height: 6rem;
   line-height: 2rem;
   padding: 2rem;
@@ -31,17 +35,14 @@
   font-size: var(--font-24);
   font-weight: var(--weight-regular);
   transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
-.mainContainer header a:nth-child(1) {
+.navMenu a:first-child {
   padding: 1.5rem 2rem;
 }
 
-.mainContainer header svg {
-  fill: var(--black);
-}
-
-/*
 .activeHeader {
   background-color: var(--main-color);
   height: 100%;
@@ -50,38 +51,38 @@
   border: 1px solid #000;
   position: absolute;
   top: 0;
-  z-index: -1;
-  transition: .5s;
+  left: 0;
+  z-index: 0;
+  transition: .5s ease;
 }
 
-.mainContainer header ul li:nth-child(1):hover~.activeHeader{
-  left: 0px;
+.navMenu a:nth-child(1).active ~ .activeHeader {
+  left: 0;
   width: 7rem;
 }
 
-.mainContainer header ul li:nth-child(2):hover~.activeHeader{
+.navMenu a:nth-child(2).active ~ .activeHeader {
   left: 7rem;
   width: 10.2rem;
 }
 
-.mainContainer header ul li:nth-child(3):hover~.activeHeader{
+.navMenu a:nth-child(3).active ~ .activeHeader {
   left: 17.2rem;
   width: 12.3rem;
 }
 
-.mainContainer header ul li:nth-child(4):hover~.activeHeader{
+.navMenu a:nth-child(4).active ~ .activeHeader {
   left: 29.5rem;
   width: 14.4rem;
 }
 
-.mainContainer header ul li:hover a{
+.link.active {
   color: var(--white);
 }
 
-.mainContainer header ul li:hover a svg path{
+.link.active svg path {
   fill: var(--white);
 }
-*/
 
 .mainContent {
   flex-grow: 1;
