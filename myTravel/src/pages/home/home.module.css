@@ -5,60 +5,60 @@
 }
 
 .backgroundElement {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: auto;
   pointer-events: none;
 }
 
 .Line01 {
-  width: 20vw;
+  width: 16vw;
   height: auto;
   position: absolute;
-  top: 5vh;
-  left: 14vw;
+  top: 0;
+  left: -1vw;
 }
 
 .Line02 {
   width: 14vw;
   height: auto;
   position: absolute;
-  bottom: 6vh;
-  right: 8vw;
+  bottom: -66vh;
+  right: -1vw;
 }
 
 .star01 {
   width: 2vw;
   height: auto;
   position: absolute;
-  top: 58vh;
-  left: 28vw;
+  top: 33vh;
+  left: 12vw;
 }
 
 .star02 {
   width: 5vw;
   height: auto;
   position: absolute;
-  top: 40vh;
-  left: 41vw;
+  top: 16.5vh;
+  left: 24.5vw;
 }
 
 .star03 {
   width: 4vw;
   height: auto;
   position: absolute;
-  top: 50vh;
-  right: 37vw;
+  top: 26vh;
+  right: 27vw;
 }
 
 .star04 {
   width: 3vw;
   height: auto;
   position: absolute;
-  top: 37vh;
-  right: 24vw;
+  top: 15vh;
+  right: 13vw;
 }
 
 
