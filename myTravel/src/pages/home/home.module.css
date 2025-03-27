@@ -11,54 +11,56 @@
   width: 100%;
   height: 100vh;
   pointer-events: none;
-  z-index: 999;
 }
 
 .Line01 {
-  width: 20%;
+  width: 20vw;
   height: auto;
   position: absolute;
-  top: 4rem;
-  left: 24rem;
-  z-index: 1000;
+  top: 5vh;
+  left: 14vw;
 }
+
 .Line02 {
-  width: 14%;
+  width: 14vw;
   height: auto;
   position: absolute;
-  bottom: 4rem;
-  right: 13.6rem;
-  z-index: 1000;
+  bottom: 6vh;
+  right: 8vw;
 }
 
 .star01 {
-  width: 2%;
+  width: 2vw;
   height: auto;
   position: absolute;
-  top: 49rem;
-  left: 48rem;
+  top: 58vh;
+  left: 28vw;
 }
+
 .star02 {
-  width: 5%;
+  width: 5vw;
   height: auto;
   position: absolute;
-  left: 71rem;
-  top: 36rem;
+  top: 40vh;
+  left: 41vw;
 }
+
 .star03 {
-  width: 4%;
+  width: 4vw;
   height: auto;
   position: absolute;
-  right: 64rem;
-  top: 42rem;
+  top: 50vh;
+  right: 37vw;
 }
+
 .star04 {
-  width: 4%;
+  width: 3vw;
   height: auto;
   position: absolute;
-  top: 32rem;
-  right: 39rem;
+  top: 37vh;
+  right: 24vw;
 }
+
 
 .mainTextContent {
   margin-top: 5.7rem;
@@ -103,7 +105,6 @@
 
 .titleR {
   animation: floatR 3s infinite ease-in-out;
-  z-index: 1000;
 }
 
 @keyframes floatR {
