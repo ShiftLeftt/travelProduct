@@ -43,45 +43,44 @@
   padding: 1.5rem 2rem;
 }
 
+.link.active {
+  color: var(--white);
+}
+
+.link svg path {
+  fill: currentColor;
+}
+
 .activeHeader {
   background-color: var(--main-color);
   height: 100%;
-  width: 7rem;
   border-radius: var(--radius-20);
   border: 1px solid #000;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 
-.navMenu a:nth-child(1).active ~ .activeHeader {
+.Home {
   left: 0;
   width: 7rem;
 }
 
-.navMenu a:nth-child(2).active ~ .activeHeader {
+.Seasons {
   left: 7rem;
   width: 10.2rem;
 }
 
-.navMenu a:nth-child(3).active ~ .activeHeader {
+.Community {
   left: 17.2rem;
   width: 12.3rem;
 }
 
-.navMenu a:nth-child(4).active ~ .activeHeader {
+.Random {
   left: 29.5rem;
   width: 14.4rem;
-}
-
-.link.active {
-  color: var(--white);
-}
-
-.link.active svg path {
-  fill: var(--white);
 }
 
 .mainContent {
@@ -97,3 +96,4 @@
   position: relative;
   z-index: 15;
 }
+
