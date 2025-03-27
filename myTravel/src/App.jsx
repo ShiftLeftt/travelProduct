@@ -19,6 +19,7 @@ function App() {
         <TravelPlan />
         <Main>
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/Community" element={<Community />} />
             <Route path="/CommunityDetail" element={<CommunityDetail />} />
             <Route path="/CommunityModify" element={<CommunityModify />} />
