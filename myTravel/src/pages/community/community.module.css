@@ -1,0 +1,117 @@
+.communitySelect {
+  margin-top: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 셀렉트박스 */
+.selectBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selectBox select {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-bottom: 0.6rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid var(--dim-gray);
+}
+/* 검색 박스 */
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.6rem 1.6rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid var(--dim-gray);
+}
+.searchBox input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.searchBox button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 게시판 리스트 */
+.communityList {
+  margin-top: 2.4rem;
+}
+.communityList > div {
+  display: flex;
+  align-items: center;
+}
+.communityList > div p {
+  text-align: center;
+  width: 10%;
+  font-size: 1.5rem;
+}
+.communityList > div p b {
+  color: var(--point-color);
+  margin-right: 15px;
+}
+.communityList > div p:nth-child(2) {
+  width: 60%;
+  text-align: left;
+}
+.communityListTitle {
+  margin-bottom: 2.4rem;
+}
+.communityListContent {
+  cursor: pointer;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--dim-gray);
+}
+
+.communityBtn {
+  margin-top: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.communityBtn button {
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 0.5rem 1.4rem;
+  color: #fff;
+  background-color: var(--main-color);
+  border-radius: var(--radius-40);
+}
+
+/* 페이징 */
+.pagingnationWrap {
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.4rem;
+}
+.pagingnationWrap p,
+.pagingnationWrap img {
+  cursor: pointer;
+}
+.pagingnationClick {
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.communityMain {
+  width: 100%;
+}
