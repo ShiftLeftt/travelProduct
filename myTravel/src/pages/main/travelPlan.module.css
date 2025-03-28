@@ -1,41 +1,42 @@
-.travelPlan{
+.travelPlan {
   background-color: rgba(255, 255, 255, 0.8);
   width: 10.7916vw;
-  border-radius:var(--radius-40);
+  border-radius: var(--radius-40);
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0px 0px 21.8px rgba(0, 0, 0, 0.13);
+  z-index: 10;
 }
 
-.travelPlanTitle{
+.travelPlanTitle {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-.travelPlanTitle button{
+.travelPlanTitle button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.travelPlanTitle p{
+.travelPlanTitle p {
   font-size: var(--font-20);
   line-height: 2.4rem;
 }
 
-.travelPlanTitle p span{
+.travelPlanTitle p span {
   font-weight: var(--weight-semi-bold);
 }
 
-.travelPlanMainBtn{
-  margin-top: 2rem ;
+.travelPlanMainBtn {
+  margin-top: 2rem;
   margin-bottom: 3.5rem;
 }
 
-.travelPlanMainBtn button{
+.travelPlanMainBtn button {
   width: 100%;
   font-size: var(--font-12);
   background-color: var(--main-color);
@@ -45,23 +46,22 @@
   cursor: pointer;
 }
 
-.liveSearch h3{
+.liveSearch h3 {
   font-size: var(--font-16);
   margin-bottom: 1.5rem;
-  
 }
 
-.liveSearch ul li{
+.liveSearch ul li {
   font-size: var(--font-12);
   margin-bottom: 1rem;
 }
 
-.bannerImgWrap img{
+.bannerImgWrap img {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-.bannerImgWrap img:last-child{
+.bannerImgWrap img:last-child {
   margin-bottom: 0;
 }
 
@@ -75,12 +75,26 @@
   box-shadow: 0 0 6rem rgba(0, 0, 0, 0.25);
   background-color: white;
   overflow: hidden;
-  transition: width 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: width 0.3s ease-in-out, opacity 0.2s ease;
 }
 
 .travelPlanBoxVisible {
   width: 184%;
-  padding: 4rem 2rem; 
+  padding: 4rem 2rem;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.travelPlanBoxContent {
+  height: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s;
+}
+
+.travelPlanBoxVisible .travelPlanBoxContent {
+  opacity: 1;
 }
 
 .scheduleText {
@@ -88,7 +102,7 @@
 }
 
 .scheduleText h1 {
-  font-size: var(  --font-28);
+  font-size: var(--font-28);
   font-weight: var(--weight-medium);
   color: var(--point-color);
 }
@@ -102,7 +116,7 @@
 
 .calendar {
   position: relative;
-  padding-bottom: 1rem; 
+  padding-bottom: 1rem;
   border-bottom: 0.1rem solid var(--dim-gray);
   width: 90%;
   margin: 0 auto;
@@ -117,78 +131,82 @@
 
 .selectedDateInfo p {
   margin-bottom: 0.8rem;
+  font-size: var(--font-16);
+  white-space: nowrap;
 }
 
 .selectedDatePoint {
   color: var(--point-color);
 }
 
-.regionSelect {
-  padding: 3rem 2rem;
+.select {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 1rem 2rem;
 }
 
-.regionToggle {
+.regionSelect, .citySelect {
   width: 40%;
+  position: relative;
+}
+
+.regionToggle, .cityToggle {
+  width: 100%;
   background: transparent;
   border: none;
   font-size: var(--font-16);
   color: var(--dim-black);
   cursor: pointer;
   text-align: left;
-  margin-top: 20px;
-  position: relative;
+  margin-top: 1rem;
   padding-bottom: 10px;
+  position: relative;
 }
 
-.dropdownIcon {
-  position: absolute;
-  right: 1rem;
-  bottom: 1.5rem;
-}
-
-.regionToggle::after {
+.regionToggle::after, .cityToggle::after {
   content: "";
   display: block;
   width: 100%;
   height: 0.1rem;
   background: var(--dim-gray);
   position: absolute;
-  bottom: 0; 
+  bottom: 0;
   left: 0;
 }
 
-.regions {
-  width: 40%;
-  margin-top: 5px;
-  max-height: 15rem;
-  overflow-y: auto;
+.dropdownIcon, .cityDropdownIcon {
+  position: absolute;
+  right: 1rem;
+  bottom: 1.5rem;
 }
 
-.regions::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-.regions::-webkit-scrollbar-thumb {
-  background: var(--light-black); 
-  border-radius: 1rem; 
-}
-
-.regions::-webkit-scrollbar-track {
-  background: var(--cloudy-gray); 
-  border-radius: 1rem;
-}
-
-.regions button {
+.regions, .cityList {
   width: 100%;
-  padding: 0.8rem;
+  max-height: 10vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.regions button, .cityList button {
+  width: 100%;
+  padding: 0.8rem 1rem;
   background: none;
   border: none;
   font-size: var(--font-12);
   text-align: left;
+  white-space: nowrap;
   cursor: pointer;
 }
 
-.regions button:hover {
+.regions button:hover, .cityList button:hover {
   background: var(--cloudy-gray);
 }
 
