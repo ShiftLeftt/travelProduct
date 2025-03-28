@@ -1,9 +1,8 @@
 .react-calendar {
-  max-width: 27rem;
-  min-width: 20rem;
-  height: auto;
+  width: 350px;
+  max-width: 100%;
   line-height: 1.9em;
-  margin: 4rem auto 0 auto;
+  margin-top: 4rem;
 }
 
 .react-calendar,
@@ -60,11 +59,6 @@
   font-weight: var(--weight-semi-bold);
   margin-top: 1rem;
   display: flex;
-}
-
-.react-calendar__month-view__weekdays__weekday abbr {
-  text-decoration: none;
-  cursor: default;
 }
 
 .react-calendar__month-view__weekdays__weekday {
@@ -132,4 +126,30 @@
   background: var(--point-color);
   color: white;
   border-radius: 100%;
+}
+
+.rangeStart,
+.rangeEnd {
+  background: var(--point-color);
+  color: white;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.inRange {
+  background: #fff3ED;
+  color: var(--dark-black);
+  border-radius: 0;
+}
+
+/* 🎯 왼쪽 둥글게 */
+.leftRounded {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+/* 🎯 오른쪽 둥글게 */
+.rightRounded {
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
