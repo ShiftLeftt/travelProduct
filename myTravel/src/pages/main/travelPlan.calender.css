@@ -142,13 +142,11 @@
   border-radius: 0;
 }
 
-/* 🎯 왼쪽 둥글게 */
 .leftRounded {
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
 }
 
-/* 🎯 오른쪽 둥글게 */
 .rightRounded {
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
