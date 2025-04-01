@@ -1,0 +1,72 @@
+.communitySelect {
+  margin-top: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 셀렉트박스 */
+.selectBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selectBox select {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-bottom: 0.6rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid var(--dim-gray);
+}
+/* 검색 박스 */
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.6rem 1.6rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid var(--dim-gray);
+}
+.searchBox input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.searchBox button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 커뮤니티 메인 div */
+.communityMain {
+  width: 100%;
+}
+
+/* 커뮤니티 작성 */
+.CommunityModifyTitleWrap {
+  margin-top: 2.5rem;
+}
+.CommunityModifyTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  /* justify-content: space-between; */
+}
+.CommunityModifyTitle input,
+.CommunityModifyTitle textarea {
+  padding: 1rem;
+  border: 1px solid #d9d9d9;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+}
+.CommunityModifyTitle p {
+  font-size: var(--font-20);
+  color: var(--dim-black);
+  width: 100px;
+}
