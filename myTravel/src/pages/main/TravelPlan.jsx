@@ -75,7 +75,7 @@ function TravelPlan() {
   };
 
   return (
-    <div className={style.travelPlan} style={{ position: "relative" }}>
+    <div className={style.travelPlan}>
       <div>
         <div className={style.travelPlanTitle}>
           <p>
