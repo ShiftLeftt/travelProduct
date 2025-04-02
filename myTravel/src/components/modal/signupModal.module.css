@@ -52,6 +52,10 @@
     margin-bottom: 1rem;
 }
 
+.modalHeader p{
+    font-size: 1.25rem;
+}
+
 .modalContent {
     flex: 1;
     overflow-y: auto;
@@ -109,19 +113,21 @@
     text-align: left;
 }
 
-
 .modalClose {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 3.5rem;
+    right: 4.5rem;
     background: none;
     border: none;
-    font-size: 2.4rem;
     cursor: pointer;
-    color:#333333;
-    padding:0.5rem;
-
+    color: #333333;
+    padding: 0.5rem;
 }
+
+.modalClose img{
+    width:  2rem;
+}
+
 .checkboxContainer {
     display: flex;
     align-items: center;
@@ -142,7 +148,6 @@
 .checkboxLabel {
     font-size: 1.5rem;
     color: #333;
-
     cursor: pointer;
 }
 

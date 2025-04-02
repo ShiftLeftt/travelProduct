@@ -113,11 +113,27 @@ function TravelPlan() {
                   formatMonthYear={(locale, date) => `${date.getFullYear()}년 ${date.getMonth() + 1}월`}
                   formatShortWeekday={(locale, date) => ["일", "월", "화", "수", "목", "금", "토"][date.getDay()]}
                   tileClassName={({ date }) => {
-                    if (!Array.isArray(selectedDates) || selectedDates.length === 0) return null;
+                    if (!Array.isArray(selectedDates) || selectedDates.length !== 2) return null;
                     const [start, end] = selectedDates;
-                    const isSelected = start && end && date >= start && date <= end;
-                    return isSelected ? style.selectedDate : null;
+                  
+                    const isSameDay = (d1, d2) =>
+                      d1.getFullYear() === d2.getFullYear() &&
+                      d1.getMonth() === d2.getMonth() &&
+                      d1.getDate() === d2.getDate();
+                    if (isSameDay(date, start)) return "rangeStart";
+                    if (isSameDay(date, end)) return "rangeEnd";
+                    if (date > start && date < end) {
+                      const nextToStart = new Date(start);
+                      nextToStart.setDate(start.getDate() + 1);
+                      const prevToEnd = new Date(end);
+                      prevToEnd.setDate(end.getDate() - 1);
+                      if (isSameDay(date, nextToStart)) return "inRange leftRounded";
+                      if (isSameDay(date, prevToEnd)) return "inRange rightRounded";
+                      return "inRange";
+                    }
+                    return null;
                   }}
+                  
                 />
                 <div className={style.calendarDivider}></div>
               </div>
