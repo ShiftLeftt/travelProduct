@@ -26,7 +26,7 @@ function SignupModal({ isOpen, onClose }) {
                             <h1>회원가입</h1>
                             <p>회원이 되어 다양한 혜택을 경험해보세요!</p>
                             <button className={style.modalClose} onClick={onClose}>
-                                ×
+                                <img src= "/img/closeBtn.svg" alt="닫기" />
                             </button>
                         </div>
 
