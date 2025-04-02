@@ -1,0 +1,124 @@
+.communityMain {
+  width: 100%;
+}
+.communityMain h1 {
+  font-size: var(--font-36);
+}
+
+/** 게시판 제목, 날짜 */
+.CommunityDetailTitle {
+  display: flex;
+  align-items: flex-end;
+}
+.CommunityDetailTitle p {
+  color: var(--dim-black);
+  font-size: var(--font-24);
+}
+.CommunityDetailTitle span {
+  display: inline-block;
+  margin-left: 1.5rem;
+  font-size: var(--font-16);
+  color: var(--silver-black);
+}
+
+.CommunityDetailTitleWrap {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.CommunityDetailTitleWrap > .CommunityDetailTitleDate > div,
+.CommunityDetailTitleWrap > .CommunityDetailTitleDate {
+  display: flex;
+  align-items: center;
+}
+.CommunityDetailTitleDate p,
+.CommunityDetailTitleDate span {
+  font-size: var(--font-16);
+  color: var(--dark-gray);
+}
+
+.CommunityDetailTitleDate > div img {
+  margin-left: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+/** 게시판 내용 */
+.CommunityDetailContent {
+  padding: 2.5rem;
+  margin-top: 2.5rem;
+  border: 1px solid #d9d9d9;
+}
+
+.CommunityDetailContent p {
+  color: var(--ligth-black);
+  font-size: var(--font-16);
+}
+
+/** 댓글 인풋 */
+
+.CommunityDetailContentComment {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2.5rem;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.CommunityDetailContentComment input {
+  color: var(--ligth-black);
+  font-size: var(--font-16);
+  background-color: transparent;
+  border: none;
+  width: 80%;
+  outline: none;
+}
+
+.CommunityDetailContentComment button {
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 0.5rem 1.4rem;
+  color: #fff;
+  background-color: var(--main-color);
+  border-radius: var(--radius-40);
+}
+
+/** 댓글 리스트 */
+.CommunityDetailCommentList {
+  /* display: flex;
+  align-items: center; */
+  /* justify-content: space-between; */
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--dim-gray);
+  padding-bottom: 10px;
+}
+.CommunityDetailCommentList > div {
+  display: flex;
+  align-items: center;
+}
+.CommunityDetailCommentCheck {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.CommunityDetailCommentList > div button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  margin-left: 0.5rem;
+  align-items: center;
+}
+.CommunityDetailCommentList > div span,
+.CommunityDetailCommentList > div p {
+  font-size: var(--font-16);
+}
+
+.CommunityDetailCommentCheck span {
+  color: var(--light-black);
+}
+
+.CommunityDetailCommentCheck p {
+  color: var(--dim-black);
+}

@@ -34,7 +34,7 @@
 }
 
 .rotated{
-  transform: rotate(180deg) translate(430%);
+  transform: rotate(180deg) translate(12rem);
 }
 
 /* loginArea */
@@ -80,6 +80,9 @@
 .authButtons button{
   flex: 1;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .authButtons button:nth-child(1){

@@ -100,6 +100,9 @@
 .pagingnationWrap img {
   cursor: pointer;
 }
+.pagingnationWrap p {
+  font-size: var(--font-16);
+}
 .pagingnationClick {
   width: 30px;
   height: 30px;
