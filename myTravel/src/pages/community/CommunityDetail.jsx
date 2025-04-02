@@ -24,7 +24,7 @@ function CommunityDetail() {
       </div>
       <div className={style.CommunityDetailContent}>
         <p>
-          📢 [공지] 여행 커뮤니티 이용 안내 🌍 안녕하세요, Journee 가족 여러분!
+          📢 [공지] 여행 커뮤니티 이용 안내 🌍 안녕하세요, Journee 가족 여러분!
           우리는 여행을 사랑하는 사람들이 모인 공간입니다. 새로운 여행지를
           발견하고, 유용한 팁을 나누며, 여러분의 멋진 여행 이야기를 공유해요!
           😊✈️
