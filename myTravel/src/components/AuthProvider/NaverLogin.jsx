@@ -1,7 +1,8 @@
 // 네이버 로그인 컴포넌트
 const NaverLogin = () => {
     const handleNaverLogin = () => {
-        window.location.href = process.env.NAVER_AUTH_URL;
+        window.location.href = import.meta.env.VITE_NAVER_AUTH_URL;
+
     };
     return (
         <img

@@ -1,7 +1,7 @@
 // KakaoLogin.js
 const GoogleLogin = () => {
     const handleGoogleLogin = () => {
-        window.location.href = process.env.GOOGLE_AUTH_URL;
+        window.location.href = import.meta.env.VITE_GOOGLE_AUTH_URL;
     };
     return (
         <img
