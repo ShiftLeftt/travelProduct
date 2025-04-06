@@ -24,7 +24,7 @@ function SignupModal({ isOpen, onClose }) {
                     <>
                         <div className={style.modalHeader}>
                             <h1>회원가입</h1>
-                            <p>회원이 되어 다양한 혜택을 경험해보세요!</p>
+                            <p>회원이 되어 다양한 혜택을 경험해보세요 !</p>
                             <button className={style.modalClose} onClick={onClose}>
                                 <img src= "/img/closeBtn.svg" alt="닫기" />
                             </button>
@@ -32,18 +32,15 @@ function SignupModal({ isOpen, onClose }) {
 
                         <div className={style.modalContent}>
                             <div className={style.modalPersonalInfoContainer}>
-                                <div className={style.modalPersonalInfoHeader}>
-                                    <h1>개인정보 수집 이용 및 동의</h1>
-                                </div>
-
+                                <h1>개인정보 수집 이용 및 동의</h1>
                                 <div className={style.modalPersonalInfoWrapper}>
                                     <div className={style.modalPersonalInfoIntro}>
-                                        <p>안녕하세요, Journee를 찾아주셔서 감사합니다.</p>
                                         <p>
+                                            안녕하세요, Journee를 찾아주셔서 감사합니다. <br />
                                             저희는 고객님께 맞춤형 여행 정보와 편리한 서비스 경험을 제공하기 위해 아래와 같이 개인정보를
-                                            수집·이용하고 있습니다.
+                                            수집·이용하고 있습니다. <br />
+                                            안전한 서비스 이용을 위해 반드시 읽어보시고 동의해 주세요.
                                         </p>
-                                        <p>안전한 서비스 이용을 위해 반드시 읽어보시고 동의해 주세요.</p>
                                     </div>
 
                                     <div className={style.modalPersonalInfoContent}>
