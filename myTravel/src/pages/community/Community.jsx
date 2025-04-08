@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./community.module.css";
+// import CommunityApi from "./CommunityApi.js";
 
 function Community() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function Community() {
   const modifyHandleClick = () => {
     navigate("/CommunityModify");
   };
+  // CommunityApi();
   return (
     <div className={style.communityMain}>
       <h1>커뮤니티</h1>
