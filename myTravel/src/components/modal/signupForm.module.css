@@ -1,11 +1,4 @@
-.formContainer {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-    box-sizing: border-box;
-}
-.subtitleWrap {
+.formTitle {
     position: relative;
     padding-bottom: 2.4rem;
     border-bottom: 2px solid #000;
