@@ -43,7 +43,11 @@ function Community() {
           <p>닉네임</p>
           <p>작성시간</p>
         </div>
-        <div className={style.communityListContent} onClick={detailHandleClick}>
+        <div
+          id="communityListContainer"
+          className={style.communityListContent}
+          onClick={detailHandleClick}
+        >
           <p>1</p>
           <p>
             <b>NEW</b>
