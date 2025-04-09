@@ -14,4 +14,4 @@ function CheckBox() {
     )
 }
 
-export default CheckBox
+export default CheckBox;

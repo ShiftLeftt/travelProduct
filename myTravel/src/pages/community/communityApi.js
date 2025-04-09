@@ -18,7 +18,16 @@ async function CommunityApi() {
     const communityApi = await fetch(url);
     const communityData = await communityApi.json();
     communityData.forEach((element) => {
-      console.log(element);
+      communityList.innerHTML += `
+      <p>1</p>
+          <p>
+            <b>NEW</b>
+            게시글입니다.게시글입니다.게시글입니다.게시글입니다.게시글입니다.
+          </p>
+          <p>대전광역시</p>
+          <p>연꽃이나</p>
+          <p>2025-02-12</p>
+      `;
     });
   } catch (err) {
     console.log("에러발생", err);
