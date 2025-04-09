@@ -5,7 +5,7 @@ import GoogleLogin from "../../components/AuthProvider/GoogleLogin";
 import NaverLogin from "../../components/AuthProvider/NaverLogin";
 import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css";
-import SignupModal from "../../components/modal/signupModal";
+//import SignupModal from "../../components/modal/signupModal";
 import TravelScroll from "../../components/TravelSchedule/TravelScroll";
 
 function UserLogin() {

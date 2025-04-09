@@ -1,6 +1,6 @@
-import { useState } from "react";
+import react, { useState } from "react";
+import styles from "./signupModal.module.css";
 import styles from "./signupForm.module.css";
-import style from "./signupModal.module.css";
 
 function SignupForm({ onClose }) {
   const [id, setId] = useState("");
@@ -55,16 +55,16 @@ function SignupForm({ onClose }) {
         // { username, password, nickname, email }
 
 
-        return (
-        <div className={styles.formHeader}>
-            <button className={style.modalClose} onClick={onClose}>
-                ×
-            </button>
+      return (
+      <div className={styles.formHeader}>
+        <button className={styles.modalClose} onClick={onClose}>
+          <img src= "/img/closeBtn.svg" alt="닫기" />
+        </button>
+        <div className={styles.formTitle}>
             <h1 className={styles.title}>회원가입</h1>
-            <div className={styles.subtitleWrap}>
-                <p className={styles.subtitle}>회원이 되어 다양한 혜택을 경험해보세요!</p>
-                <p className={styles.requiredNotice}>* 필수입력사항</p>
-            </div>
+            <p className={styles.subtitle}>회원이 되어 다양한 혜택을 경험해보세요!</p>
+            <em className={styles.requiredNotice}>* 필수입력사항</em>
+        </div>
 
       <form onSubmit={handleSubmit}>
         <div className={styles.inputGroup}>
