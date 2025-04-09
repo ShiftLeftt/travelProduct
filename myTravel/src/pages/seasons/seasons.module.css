@@ -100,7 +100,6 @@
   font-size: var(--font-24);
   cursor: pointer;
   color: #929292;
-  z-index: 100;
   width: 5.5rem;
   height: 5.5rem;
   border-radius: var(--radius-round);
