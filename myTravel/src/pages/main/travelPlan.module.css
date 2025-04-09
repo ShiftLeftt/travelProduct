@@ -333,6 +333,7 @@
 }
 
 .searchBar input {
+  all: unset;
   flex: 1;
   font-size: var(--font-16);
   font-weight: var(--weight-medium);
@@ -354,11 +355,10 @@
 }
 
 .tabMenu {
-  margin-top: 3rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0 2rem;
+  padding: 2rem 2rem 1rem 2rem;
 }
 
 .tab {
@@ -386,7 +386,25 @@
   font-weight: var(--weight-semi-bold);
 }
 
-.tabContent{
-  padding: 0 2rem;
-  border: 1px solid #000;
+.tabContent {
+  margin: 0 2rem;
+  /* border: 1px solid #ff0000; */
+  min-height: 40rem;
+  max-height: 40rem;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.tabContent::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.tabContent::-webkit-scrollbar-track {
+  background: var(--dim-gray);
+  border-radius: 1rem;
+}
+
+.tabContent::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 1rem;
 }
