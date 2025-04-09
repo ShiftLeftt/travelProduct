@@ -44,7 +44,7 @@ function UserLogin() {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/api/userLogin", {
+      const res = await fetch(import.meta.env.VITE_LOGIN_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

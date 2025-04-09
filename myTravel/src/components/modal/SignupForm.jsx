@@ -29,12 +29,12 @@ function SignupForm({ onClose }) {
         }
         try{
             // 임시 주소 (바꿔도 됨)
-            const res = await fetch('http://localhost:3000/api/users',{
+            const res = await fetch(import.meta.env.VITE_SIGNUP_URL,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
                 },
-                body: JSON.stringify({ email, nick: nickname, password, }),
+                body: JSON.stringify({ email, name, password, }),
             });
             if(!res.ok) {
                 alert("회원가입에 실패했습니다.");
