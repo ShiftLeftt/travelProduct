@@ -12,6 +12,10 @@ function TravelPlan() {
   const [selectedCity, setSelectedCity] = useState("");
   const [isRegionDropdownOpen, setIsRegionDropdownOpen] = useState(false);
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
+  const [step, setStep] = useState(1);
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [activeTab, setActiveTab] = useState("명소");
+  const [tab, setTab] = useState("select");
 
   const toggleBox = () => {
     setIsBoxVisible((prev) => !prev);
@@ -34,36 +38,26 @@ function TravelPlan() {
     if (selectedDates.length === 2) {
       const [start, end] = selectedDates;
       const diff = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
-      return `${diff}박 ${diff + 1}일 일정`;
+      return `${diff - 1}박 ${diff}일 일정`;
     }
     return "";
   };
 
+  const handleSearch = () => {
+    console.log("검색어:", searchKeyword);
+  };
+
   const regions = [
-    "특별시",
-    "광역시",
-    "특별자치시",
-    "충청북도",
-    "충청남도",
-    "경기도",
-    "전라북도",
-    "전라남도",
-    "강원특별자치도",
-    "경상북도",
-    "경상남도",
-    "제주특별자치도",
+    "특별시", "광역시", "특별자치시", "충청북도", "충청남도",
+    "경기도", "전라북도", "전라남도", "강원특별자치도",
+    "경상북도", "경상남도", "제주특별자치도",
   ];
 
   const regionCities = {
     특별시: ["서울특별시"],
     광역시: ["광주광역시", "대구광역시", "대전광역시", "부산광역시", "울산광역시", "인천광역시"],
     특별자치시: ["세종특별자치시"],
-    경기도: [
-      "고양시", "과천시", "광명시", "광주시", "구리시", "군포시", "김포시",
-      "남양주시", "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시",
-      "안성시", "안양시", "양주시", "여주시", "오산시", "용인시", "의왕시",
-      "의정부시", "이천시", "파주시", "평택시", "포천시", "하남시", "화성시"
-    ],
+    경기도: ["고양시", "과천시", "광명시", "광주시", "구리시", "군포시", "김포시", "남양주시", "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시", "안성시", "안양시", "양주시", "여주시", "오산시", "용인시", "의왕시", "의정부시", "이천시", "파주시", "평택시", "포천시", "하남시", "화성시"],
     충청북도: ["제천시", "청주시", "충주시"],
     충청남도: ["공주시", "논산시", "당진시", "보령시", "서산시", "아산시", "계룡시", "천안시"],
     전라북도: ["군산시", "김제시", "남원시", "전주시", "정읍시", "익산시"],
@@ -73,6 +67,24 @@ function TravelPlan() {
     경상남도: ["거제시", "김해시", "밀양시", "사천시", "양산시", "창원시", "진주시", "통영시"],
     제주특별자치도: ["서귀포시", "제주시"]
   };
+
+  const PlaceList = () => (
+    <ul>
+      <li>명소</li>
+    </ul>
+  );
+  
+  const FoodList = () => (
+    <ul>
+      <li>음식</li>
+    </ul>
+  );
+  
+  const CafeList = () => (
+    <ul>
+      <li>카페</li>
+    </ul>
+  );
 
   return (
     <div className={style.travelPlan}>
@@ -95,131 +107,195 @@ function TravelPlan() {
 
         <div className={`${style.travelPlanBox} ${isBoxVisible ? style.travelPlanBoxVisible : ""}`}>
           <div className={style.travelPlanBoxContent}>
-            <div className={style.scheduleBox}>
-              <div className={style.scheduleText}>
-                <h1>Journee와 함께 떠나는</h1>
-                <p>여행 기간이 어떻게 되시나요?</p>
-              </div>
-
-              <div className={style.calendar}>
-                <Calendar
-                  onChange={handleDateChange}
-                  value={selectedDates}
-                  selectRange={true}
-                  formatDay={(locale, date) => date.getDate()}
-                  next2Label={null}
-                  prev2Label={null}
-                  locale="en-US"
-                  formatMonthYear={(locale, date) => `${date.getFullYear()}년 ${date.getMonth() + 1}월`}
-                  formatShortWeekday={(locale, date) => ["일", "월", "화", "수", "목", "금", "토"][date.getDay()]}
-                  tileClassName={({ date }) => {
-                    if (!Array.isArray(selectedDates) || selectedDates.length !== 2) return null;
-                    const [start, end] = selectedDates;
-                  
-                    const isSameDay = (d1, d2) =>
-                      d1.getFullYear() === d2.getFullYear() &&
-                      d1.getMonth() === d2.getMonth() &&
-                      d1.getDate() === d2.getDate();
-                    if (isSameDay(date, start)) return "rangeStart";
-                    if (isSameDay(date, end)) return "rangeEnd";
-                    if (date > start && date < end) {
-                      const nextToStart = new Date(start);
-                      nextToStart.setDate(start.getDate() + 1);
-                      const prevToEnd = new Date(end);
-                      prevToEnd.setDate(end.getDate() - 1);
-                      if (isSameDay(date, nextToStart)) return "inRange leftRounded";
-                      if (isSameDay(date, prevToEnd)) return "inRange rightRounded";
-                      return "inRange";
-                    }
-                    return null;
-                  }}
-                  
-                />
-                <div className={style.calendarDivider}></div>
-              </div>
-
-              {selectedDates.length === 2 && (
-                <div className={style.selectedDateInfo}>
-                  <p>
-                    {formatDate(selectedDates[0])} ~ {formatDate(selectedDates[1])}
-                  </p>
-                  <span className={style.selectedDatePoint}>{getDuration()}</span>
+            {step === 1 && (
+              <div>
+                <div className={style.scheduleText}>
+                  <h1>Journee와 함께 떠나는</h1>
+                  <p>여행 기간이 어떻게 되시나요?</p>
                 </div>
-              )}
-            </div>
 
-            <div className={style.select}>
-              <div className={style.regionSelect}>
-                <h1>지역 선택</h1>
-                <button
-                  className={style.regionToggle}
-                  onClick={() => {
-                    setIsRegionDropdownOpen((prev) => !prev);
-                    setIsCityDropdownOpen(false);
-                  }}
-                >
-                  <span>{selectedRegion || "지역"}</span>
-                  <img
-                    src={isRegionDropdownOpen ? "/img/collapseBtn.svg" : "/img/dropdownBtn.svg"}
-                    alt="dropdown button"
-                    className={style.dropdownIcon}
+                <div className={style.calendar}>
+                  <Calendar
+                    onChange={handleDateChange}
+                    value={selectedDates}
+                    selectRange={true}
+                    formatDay={(locale, date) => date.getDate()}
+                    next2Label={null}
+                    prev2Label={null}
+                    locale="en-US"
+                    formatMonthYear={(locale, date) => `${date.getFullYear()}년 ${date.getMonth() + 1}월`}
+                    formatShortWeekday={(locale, date) => ["일", "월", "화", "수", "목", "금", "토"][date.getDay()]}
+                    tileClassName={({ date }) => {
+                      if (!Array.isArray(selectedDates) || selectedDates.length !== 2) return null;
+                      const [start, end] = selectedDates;
+
+                      const isSameDay = (d1, d2) =>
+                        d1.getFullYear() === d2.getFullYear() &&
+                        d1.getMonth() === d2.getMonth() &&
+                        d1.getDate() === d2.getDate();
+
+                      if (isSameDay(date, start)) return "rangeStart";
+                      if (isSameDay(date, end)) return "rangeEnd";
+
+                      if (date > start && date < end) {
+                        const nextToStart = new Date(start);
+                        nextToStart.setDate(start.getDate() + 1);
+                        const prevToEnd = new Date(end);
+                        prevToEnd.setDate(end.getDate() - 1);
+
+                        if (isSameDay(date, nextToStart)) return "inRange leftRounded";
+                        if (isSameDay(date, prevToEnd)) return "inRange rightRounded";
+                        return "inRange";
+                      }
+
+                      return null;
+                    }}
                   />
-                </button>
-                {isRegionDropdownOpen && (
-                  <div className={style.regions}>
-                    {regions.map((region) => (
-                      <button
-                        key={region}
-                        onClick={() => {
-                          setSelectedRegion(region);
-                          setSelectedCity("");
-                          setIsRegionDropdownOpen(false);
-                        }}
-                      >
-                        {region}
-                      </button>
-                    ))}
+                  <div className={style.calendarDivider}></div>
+                </div>
+
+                {selectedDates.length === 2 && (
+                  <div className={style.selectedDateInfo}>
+                    <p>{formatDate(selectedDates[0])} ~ {formatDate(selectedDates[1])}</p>
+                    <span className={style.selectedDatePoint}>{getDuration()}</span>
                   </div>
                 )}
-              </div>
 
-              <div className={style.citySelect}>
-                <h1 style={{ visibility: "hidden" }}>도시 선택</h1>
-                <button
-                  className={style.cityToggle}
-                  onClick={() => {
-                    if (!selectedRegion) return;
-                    setIsCityDropdownOpen((prev) => !prev);
-                    setIsRegionDropdownOpen(false);
-                  }}
-                  disabled={!selectedRegion}
-                >
-                  <span>{selectedCity || "도시"}</span>
-                  <img
-                    src={isCityDropdownOpen ? "/img/collapseBtn.svg" : "/img/dropdownBtn.svg"}
-                    alt="dropdown button"
-                    className={style.cityDropdownIcon}
-                  />
-                </button>
-                {selectedRegion && isCityDropdownOpen && (
-                  <div className={style.cityList}>
-                    {regionCities[selectedRegion]?.map((city) => (
-                      <button
-                        key={city}
-                        onClick={() => {
-                          setSelectedCity(city);
-                          setIsCityDropdownOpen(false);
-                        }}
-                      >
-                        {city}
-                      </button>
-                    ))}
+                <div className={style.select}>
+                  <div className={style.regionSelect}>
+                    <h1>지역 선택</h1>
+                    <button
+                      className={style.regionToggle}
+                      onClick={() => {
+                        setIsRegionDropdownOpen((prev) => !prev);
+                        setIsCityDropdownOpen(false);
+                      }}
+                    >
+                      <span>{selectedRegion || "지역"}</span>
+                      <img
+                        src={isRegionDropdownOpen ? "/img/collapseBtn.svg" : "/img/dropdownBtn.svg"}
+                        alt="dropdown"
+                        className={style.dropdownIcon}
+                      />
+                    </button>
+                    {isRegionDropdownOpen && (
+                      <div className={style.regions}>
+                        {regions.map((region) => (
+                          <button
+                            key={region}
+                            onClick={() => {
+                              setSelectedRegion(region);
+                              setSelectedCity("");
+                              setIsRegionDropdownOpen(false);
+                            }}
+                          >
+                            {region}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            </div>
 
-            <button className={style.nextBtn}>다음 단계</button>
+                  <div className={style.citySelect}>
+                    <h1 style={{ visibility: "hidden" }}>도시 선택</h1>
+                    <button
+                      className={style.cityToggle}
+                      onClick={() => {
+                        if (!selectedRegion) return;
+                        setIsCityDropdownOpen((prev) => !prev);
+                        setIsRegionDropdownOpen(false);
+                      }}
+                      disabled={!selectedRegion}
+                    >
+                      <span>{selectedCity || "도시"}</span>
+                      <img
+                        src={isCityDropdownOpen ? "/img/collapseBtn.svg" : "/img/dropdownBtn.svg"}
+                        alt="dropdown"
+                        className={style.cityDropdownIcon}
+                      />
+                    </button>
+                    {selectedRegion && isCityDropdownOpen && (
+                      <div className={style.cityList}>
+                        {regionCities[selectedRegion]?.map((city) => (
+                          <button
+                            key={city}
+                            onClick={() => {
+                              setSelectedCity(city);
+                              setIsCityDropdownOpen(false);
+                            }}
+                          >
+                            {city}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <button className={style.nextBtn} onClick={() => setStep(2)}>다음 단계</button>
+              </div>
+            )}
+
+            {step === 2 && (
+              <div>
+                <div className={style.regionText}>
+                  <h1>{selectedCity || selectedRegion || "지역을 선택해주세요"}</h1>
+                  <p>{selectedDates.length === 2 ? `${formatDate(selectedDates[0])} - ${formatDate(selectedDates[1])}` : "날짜를 선택해주세요"}</p>
+                </div>
+                <div className={style.tabWrapper}>
+                  <button
+                    className={`${style.tabLocation} ${tab === "select" ? style.active : ""}`}
+                    onClick={() => setTab("select")}
+                  >
+                    장소 선택
+                  </button>
+                  <button
+                    className={`${style.tabLocation} ${tab === "new" ? style.active : ""}`}
+                    onClick={() => setTab("new")}
+                  >
+                    신규 장소 등록
+                  </button>
+                </div>
+                {tab === "select" && (
+                  <>
+                    <div className={style.searchBar}>
+                      <input
+                        type="text"
+                        placeholder="장소를 입력해주세요"
+                        value={searchKeyword}
+                        onChange={(e) => setSearchKeyword(e.target.value)}
+                      />
+                      <button onClick={handleSearch}>
+                        <img src="img/search.svg" alt="돋보기" />
+                      </button>
+                    </div>
+                
+                    <div className={style.tabMenu}>
+                      {["명소", "음식", "카페"].map((tabName) => (
+                        <button
+                          key={tabName}
+                          className={activeTab === tabName ? style.activeTab : style.tab}
+                          onClick={() => setActiveTab(tabName)}
+                        >
+                          {tabName}
+                        </button>
+                      ))}
+                    </div>
+                    <div className={style.tabContent}>
+                      {activeTab === "명소" && <PlaceList />}
+                      {activeTab === "음식" && <FoodList />}
+                      {activeTab === "카페" && <CafeList />}
+                    </div>
+                  </>
+                )}
+                {tab === "new" && (
+                  <>
+                  </>
+                )}
+                <button className={style.prevBtn} onClick={() => setStep(1)}>이전 단계</button>
+                <button className={style.confirmedBtn}>플랜확정</button>
+              </div>
+            )}
           </div>
         </div>
 
@@ -240,9 +316,9 @@ function TravelPlan() {
       </div>
 
       <div className={style.bannerImgWrap}>
-        <img src="/img/Journee_banner01.webp" alt="" />
-        <img src="/img/Journee_banner02.webp" alt="" />
-        <img src="/img/Journee_banner03.webp" alt="" />
+        <img src="/img/Journee_banner01.webp" alt="배너" />
+        <img src="/img/Journee_banner02.webp" alt="배너" />
+        <img src="/img/Journee_banner03.webp" alt="배너" />
       </div>
     </div>
   );
