@@ -7,7 +7,7 @@ import "../../styles/common.css"; // 상대 경로로 수정
 import "../../styles/reset.css";
 import SignupModal from "../../components/modal/signupModal";
 import TravelScroll from "../../components/TravelSchedule/TravelScroll";
-
+import validation from "../../functions/validation.js";
 function UserLogin() {
   const [isExpanded, setIsExpanded] = useState(false);
   // const [isVisible, setIsVisible] = useState(true);
@@ -15,6 +15,7 @@ function UserLogin() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const isLoggedIn = !!localStorage.getItem("accessToken");
+  const isValid = validation(userId, password,);
 
   // 예제 데이터
   // 스케줄이 이런 식으로 받아와졌을 때
@@ -39,10 +40,8 @@ function UserLogin() {
 
   //로그인 액션
   const handleLogin = async () => {
-    if (!userId.trim() || !password.trim()) {
-      alert("아이디와 비밀번호를 모두 입력해주세요.");
-      return;
-    }
+    // 유효성 검사
+    if(!isValid) return;
     try {
       const res = await fetch(import.meta.env.VITE_LOGIN_URL, {
         method: "POST",
