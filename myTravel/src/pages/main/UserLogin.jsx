@@ -68,6 +68,14 @@ function UserLogin() {
     setIsExpanded(!isExpanded);
     // setIsVisible(false);
   };
+
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    alert("로그아웃 되었습니다.");
+  }
+
+
   return (
     <>
       {show && <SignupModal onClose={() => setShow(false)} />}
