@@ -92,8 +92,8 @@ function UserLogin() {
           <div className={style.loginArea}>
             <h2>로그인</h2>
             <div className={style.loginInput}>
-              <input type="text" placeholder="아이디를 입력해주세요" />
-              <input type="password" placeholder="비밀번호를 입력해주세요" />
+              <input type="text" placeholder="아이디를 입력해주세요" onChange={(e)=>{setUserId(e.target.value)}} />
+              <input type="password" placeholder="비밀번호를 입력해주세요" onChange={(e)=>{setPassword(e.target.value)}} />
             </div>
             <div className={style.authButtons}>
               <button
