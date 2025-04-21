@@ -52,6 +52,14 @@ function TravelPlanBox({
   const PlaceList = () => <ul><li>명소</li></ul>;
   const FoodList = () => <ul><li>음식</li></ul>;
   const CafeList = () => <ul><li>카페</li></ul>;
+  const handleSelect = () =>{
+    if(!selectedRegion || !selectedCity) {
+      alert("지역과 도시를 선택해주세요.");
+      return;
+    }
+    setStep(2);
+
+  }
 
   return (
     <div className={`${styles.travelPlanBox} ${step ? styles.travelPlanBoxVisible : ""}`}>
@@ -164,12 +172,15 @@ function TravelPlanBox({
                         }}
                       >{city}</button>
                     ))}
+
                   </div>
                 )}
               </div>
             </div>
 
-            <button className={styles.nextBtn} onClick={() => setStep(2)}>다음 단계</button>
+
+            <button className={styles.nextBtn} onClick={handleSelect}>다음 단계</button>
+
           </div>
         )}
 
