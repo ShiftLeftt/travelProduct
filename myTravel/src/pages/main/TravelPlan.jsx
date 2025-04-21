@@ -91,6 +91,8 @@ function TravelPlan() {
           />
         )}
 
+
+
         <div className={styles.travelPlanMainBtn}>
           <button onClick={toggleBox}>여행 계획 시작하기</button>
         </div>

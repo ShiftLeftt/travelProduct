@@ -53,8 +53,8 @@ function TravelPlanBox({
   const FoodList = () => <ul><li>음식</li></ul>;
   const CafeList = () => <ul><li>카페</li></ul>;
   const handleSelect = () =>{
-    if(!selectedRegion || !selectedCity) {
-      alert("지역과 도시를 선택해주세요.");
+    if(!selectedRegion || !selectedCity || !selectedDates.length){
+      alert("지역, 도시, 날짜를 모두 선택해주세요");
       return;
     }
     setStep(2);
