@@ -17,7 +17,7 @@ const KakaoMap = () => {
     return (
         <Map
             center={{ lat: 36.34919223450624, lng: 127.3775870994268 }}
-            style={{ width: "100vw", height: "100%" }}
+            style={{ width: "100vw", height: "100%", borderRadius: "1rem" }}
             level={3}
             onClick={(map, event) => {
                 const latlng = event.latLng;

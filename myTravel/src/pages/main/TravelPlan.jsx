@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./travelPlan.module.css";
 import TravelPlanBox from "../../components/TravelSchedule/TravelPlanBox";
+import { useLocation } from "react-router-dom";
 
 import "../../styles/common.css";
 import "../../styles/reset.css";
 
 function TravelPlan() {
-  const [isBoxVisible, setIsBoxVisible] = useState(false);
+  const [isBoxVisible, setIsBoxVisible] = useState(false);const location = useLocation();
   const [selectedDates, setSelectedDates] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
@@ -16,6 +17,14 @@ function TravelPlan() {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [activeTab, setActiveTab] = useState("명소");
   const [tab, setTab] = useState("select");
+
+  useEffect(() => {
+    if (location.state?.openBox) {
+      setIsBoxVisible(true);
+    } else{
+        setIsBoxVisible(false);
+    }
+  }, [location.state]);
 
   const toggleBox = () => {
     setIsBoxVisible((prev) => !prev);
