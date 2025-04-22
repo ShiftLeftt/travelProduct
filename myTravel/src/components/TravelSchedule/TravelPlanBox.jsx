@@ -5,7 +5,9 @@ import styles from './travelPlanBox.module.css';
 import './travelPlanBox.calender.css';
 import '../../styles/common.css';
 import '../../styles/reset.css';
-import {sqlinjectionValidation} from "../../util/Validation.js";
+import {sqlInjectionValidation} from "../../util/Validation.js";
+import {useSearch} from "../../hooks/useSearch.js";
+import SearchList from "../MapUtil/SearchList.jsx";
 
 export default function TravelPlanBox({ formatDate, getDuration }) {
   const {
@@ -16,7 +18,18 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
     step, setStep,
     tab, setTab,
     activeTab, setActiveTab,
+      map
   } = useContext(LocationContext);
+
+
+
+  const {places, pagination} = useSearch(searchKeyword, map);
+  const [hoveredPlace, setHoveredPlace] = useState(null);
+
+  const handlePageChange = page => {
+    if (pagination) pagination.gotoPage(page);
+  };
+
 
   // 드롭다운 열림/닫힘 상태: 로컬 컴포넌트 상태로 관리
   const [isRegionDropdownOpen, setIsRegionDropdownOpen] = useState(false);
@@ -74,7 +87,7 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
     }
 
     // SQL Injection 방지
-    if(sqlinjectionValidation){
+    if(sqlInjectionValidation(kw)){
         alert('SQL Injection 방지를 위해 특수문자 사용이 제한됩니다.');
         setInputKeyword('');
         return;
@@ -171,21 +184,31 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
                             onChange={e => setInputKeyword(e.target.value)}
                             placeholder="장소를 입력해주세요"
                         />
-                        <button type="submit"><img src="img/search.svg" alt="돋보기" /></button>
+                        <button type="submit"><img src="img/search.svg" alt="돋보기"/></button>
                       </form>
                       <div className={styles.tabMenu}>
-                        {['명소','음식','카페'].map(name => (
-                            <button key={name} className={activeTab===name?styles.activeTab:styles.tab} onClick={()=>setActiveTab(name)}>{name}</button>
+                        {['명소', '음식', '카페'].map(name => (
+                            <button key={name} className={activeTab === name ? styles.activeTab : styles.tab}
+                                    onClick={() => setActiveTab(name)}>{name}</button>
                         ))}
                       </div>
                       <div className={styles.tabContent}>
-                        {activeTab==='명소' && <PlaceList />}
-                        {activeTab==='음식' && <FoodList />}
-                        {activeTab==='카페' && <CafeList />}
+                        {activeTab === '명소' && <PlaceList/>}
+                        {activeTab === '음식' && <FoodList/>}
+                        {activeTab === '카페' && <CafeList/>}
                       </div>
+
+                      <SearchList
+                          places={places}
+                          pagination={pagination}
+                          onItemHover={(place, idx) => setHoveredPlace({place, idx})}
+                          onPageChange={handlePageChange}
+                      />
+
+
                     </>
                 )}
-                <button className={styles.prevBtn} onClick={()=>setStep(1)}>이전 단계</button>
+                <button className={styles.prevBtn} onClick={() => setStep(1)}>이전 단계</button>
                 <button className={styles.confirmedBtn}>플랜확정</button>
               </>
           )}

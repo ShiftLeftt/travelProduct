@@ -36,8 +36,6 @@ function App() {
             <Route path="/map" element={<KakaoMap/>} />
 
 
-
-
           </Routes>
         </Main>
         <UserLogin />

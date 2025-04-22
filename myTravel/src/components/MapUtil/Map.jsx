@@ -8,8 +8,8 @@ const regionOfficeMap = {
 };
 
 export default function KakaoMap() {
-    const { selectedRegion, selectedCity, searchKeyword } = useContext(LocationContext);
-    const [map, setMap] = useState(null);
+    const { selectedRegion, selectedCity, searchKeyword, map,setMap } = useContext(LocationContext);
+
     const [mapLoad, setMapLoad] = useState(false);
     // 기본 좌표: 대전광역시
     const [center, setCenter] = useState({ lat: 36.3504119, lng:127.3845475 });
@@ -60,7 +60,7 @@ export default function KakaoMap() {
     if (!mapLoad) return <div>지도 로딩 중...</div>;
 
     return (
-        <Map center={center} level={4} style={{ flex: 1, height: '100%' }} onCreate={setMap}>
+        <Map center={center} level={4} style={{ flex: 1, height: '100%' }}onCreate={mapInstanc => {setMap(mapInstanc)} }>
             <MapMarker position={center} />
             {markers.map((m, i) => (
                 <MapMarker key={i} position={m.position} title={m.title} />

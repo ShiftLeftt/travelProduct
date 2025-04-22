@@ -13,6 +13,7 @@ export function LocationProvider({ children }) {
     const [step, setStep] = useState(1);
     const [tab, setTab] = useState('select');
     const [activeTab, setActiveTab] = useState('명소');
+    const [map, setMap] = useState(null);
 
     return (
         <LocationContext.Provider value={{
@@ -24,6 +25,7 @@ export function LocationProvider({ children }) {
             step, setStep,
             tab, setTab,
             activeTab, setActiveTab,
+            map,setMap
         }}>
             {children}
         </LocationContext.Provider>
