@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import style from "./main.module.css";
@@ -24,7 +25,7 @@ function Main({ children }) {
           <NavLink to="/Seasons" className={`${style.link} ${currentMenu === 'Seasons' ? style.active : ''}`}>추천지</NavLink>
           <NavLink to="/Community" className={`${style.link} ${currentMenu === 'Community' ? style.active : ''}`}>커뮤니티</NavLink>
           <NavLink to="/Random" className={`${style.link} ${currentMenu === 'Random' ? style.active : ''}`}>랜덤여행지</NavLink>
-          <NavLink to="/Map" state={{ openBox: true }}  className={`${style.link} ${currentMenu === 'Map' ? style.active : ''}`}>지도</NavLink>
+          <NavLink to="/Map" state={{ openBox: true, }}  className={`${style.link} ${currentMenu === 'Map' ? style.active : ''}`}>지도</NavLink>
             <span className={`${style.activeHeader} ${style[currentMenu]}`}></span>
         </nav>
       </header>
