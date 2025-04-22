@@ -5,6 +5,7 @@ import styles from './travelPlanBox.module.css';
 import './travelPlanBox.calender.css';
 import '../../styles/common.css';
 import '../../styles/reset.css';
+import {sqlinjectionValidation} from "../../util/Validation.js";
 
 export default function TravelPlanBox({ formatDate, getDuration }) {
   const {
@@ -17,8 +18,11 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
     activeTab, setActiveTab,
   } = useContext(LocationContext);
 
+  // 드롭다운 열림/닫힘 상태: 로컬 컴포넌트 상태로 관리
   const [isRegionDropdownOpen, setIsRegionDropdownOpen] = useState(false);
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
+
+  // 검색어 입력 폼의 로컬 상태: inputKeyword -> 검색 버튼 클릭 시 Context로 전달
   const [inputKeyword, setInputKeyword] = useState('');
 
   const regions = [
@@ -46,6 +50,13 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
   const FoodList = () => <ul><li>음식</li></ul>;
   const CafeList = () => <ul><li>카페</li></ul>;
 
+
+
+  /**
+   * handleSelect: step 1에서 "다음 단계" 버튼 클릭 시 호출
+   * - 날짜(2일 범위), 시·도, 도시가 모두 선택됐는지 검증
+   * - 조건 충족 시 Context의 step을 2로 변경 → step 2 UI로 전환
+   */
   const handleSelect = () => {
     if (!selectedRegion || !selectedCity || selectedDates.length !== 2) {
       alert('지역, 도시, 날짜를 모두 선택해주세요');
@@ -60,6 +71,13 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
     if (!kw) {
       alert('검색어를 입력해주세요');
       return;
+    }
+
+    // SQL Injection 방지
+    if(sqlinjectionValidation){
+        alert('SQL Injection 방지를 위해 특수문자 사용이 제한됩니다.');
+        setInputKeyword('');
+        return;
     }
     setSearchKeyword(kw);
   };

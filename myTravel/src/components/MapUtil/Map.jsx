@@ -11,7 +11,8 @@ export default function KakaoMap() {
     const { selectedRegion, selectedCity, searchKeyword } = useContext(LocationContext);
     const [map, setMap] = useState(null);
     const [mapLoad, setMapLoad] = useState(false);
-    const [center, setCenter] = useState({ lat: 37.5665, lng: 126.9780 });
+    // 기본 좌표: 대전광역시
+    const [center, setCenter] = useState({ lat: 36.3504119, lng:127.3845475 });
     const [markers, setMarkers] = useState([]);
 
     useEffect(() => {
