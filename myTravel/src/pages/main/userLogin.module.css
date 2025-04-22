@@ -34,114 +34,141 @@
 }
 
 .rotated{
-  transform: rotate(180deg) translate(12rem);
+  transform: rotate(180deg);
 }
 
-/* loginArea */
-.loginArea{
-  width: 80%;
-  height: 100%;
-  margin: auto;
+/* loginPanel */
+.loginPanel {
+  position: fixed;
+  top: 4rem;
+  right: 14rem;
+  width: 0;
+  opacity: 0;
+  height: calc(100vh - 10rem);
+  border-radius: 2rem;
+  background-color: #fff;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+  padding: 11rem 5rem 0 5rem;
+  z-index: 1001;
+  overflow-y: auto;
+  transition: width 0.4s ease, opacity 0.4s ease;
+}
+
+.slideIn {
+  width: 33rem;
+  opacity: 1;
+}
+
+.slideOut {
+  width: 0;
+  opacity: 0;
+}
+
+.loginPanel h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-.loginArea h2{
-  font-size: 2rem;
-  margin: 4rem 0 2rem 0;
-}
-
-.loginInput{
+.loginInput {
   width: 100%;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.loginInput input{
-  width: 90%;
-  height: 4rem;
-  padding: 0 2rem;
-  border-radius: 4rem;
-  margin-bottom: 1rem;
+.loginInput input {
+  all: unset;
+  width: 100%;
+  max-width: 99%;
+  height: 3.5rem;
+  border-radius: 2rem;
   border: 1px solid var(--black);
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
-.loginInput input:last-of-type{
-  margin-bottom: 2.5rem;
-}
-
-.loginInput input::placeholder{
+.loginInput input::placeholder {
   color: var(--dark-gray);
+  padding-left: 1rem;
 }
 
-.authButtons{
+.authButtons {
   display: flex;
-  height: 2rem;
-  margin-bottom: 2.5rem;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
 }
 
-.authButtons button{
+.authButtons button {
   flex: 1;
-  font-weight: bold;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.authButtons button:nth-child(1){
-  border-right: 1px solid var(--dark-gray);
+.loginBtn img,
+.signupBtn img {
+  margin-right: 0.5rem;
 }
 
-.loginBtn img{
+.loginBtn img {
   width: 1.5rem;
-  margin-right: 1rem;
 }
 
-.signupBtn img{
+.signupBtn img {
   width: 2rem;
-  margin-right: 1rem;
 }
 
-.loginAd img{
-  width: 100%; 
+.loginAPI {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
-.loginArea p{
+.loginPanel p {
+  font-size: 1rem;
   color: var(--light-black);
-  font-size: 1.2rem;
+  text-align: center;
   margin-bottom: 4rem;
   line-height: 1.5;
 }
 
-.loginAPI{
-  width: 80%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 2rem;
+.loginAd{
+  margin-bottom: 4rem;
 }
 
-.loginAd img{
-  margin-bottom: .75rem;
+.loginAd img {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.loginPlane{
+.loginPlane {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 18rem;
-  border-radius: var(--radius-40);
+  left: 0;
+  right: 0;
+  height: 22rem;
   background-color: var(--main-color);
   color: var(--white);
+  border-radius: var(--radius-40);
+  padding: 2rem;
+  text-align: center;
 }
 
-.loginPlaneTouch{
-  width: 10%;
+.loginPlaneTouch {
+  margin-top: 1rem;
+  height: 2rem;
 }
 
 .notLoggedInMessage {
-  text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--dark-gray);
-  padding: 4rem 2rem;
+  padding: 3rem 1rem;
   white-space: pre-line;
 }
