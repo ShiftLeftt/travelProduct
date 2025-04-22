@@ -79,6 +79,7 @@ function TravelPlan() {
             handleSearch={handleSearch}
             formatDate={formatDate}
             getDuration={getDuration}
+            onClose={() => setIsBoxVisible(false)}
           />
         )}
 

@@ -27,6 +27,7 @@ function TravelPlanBox({
   handleSearch,
   formatDate,
   getDuration,
+  onClose,
 }) {
   const regions = [
     "특별시", "광역시", "특별자치시", "충청북도", "충청남도",
@@ -49,7 +50,30 @@ function TravelPlanBox({
     제주특별자치도: ["서귀포시", "제주시"]
   };
 
-  const PlaceList = () => <ul><li>명소</li></ul>;
+  const PlaceList = () => 
+  <ul>
+    <li>
+      <div className={styles.listWrap}>
+        <div className={styles.listBox}>
+          <div className={styles.listImg}>
+            <img src="/img/임시이미지.jpg" alt="임시" />
+          </div>
+          <div className={styles.listText}>
+            <div className={styles.listTitle}>
+              <span>추천</span>
+              <h5>다정이김밥 제주공동점</h5>
+            </div>
+            <p>
+            15년 전통, 온가족이 운영하는 다정이네 김밥이 정말 맛있어하는 김밥집입니다.ssssssssssssss
+            </p>
+          </div>
+          <button className={styles.listBtnSelect}>
+            <img src="/img/plusBtn.svg" alt="plusBtn" />
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>;
   const FoodList = () => <ul><li>음식</li></ul>;
   const CafeList = () => <ul><li>카페</li></ul>;
 
@@ -181,7 +205,7 @@ function TravelPlanBox({
             </div>
             <div className={styles.tabWrapper}>
               <button className={`${styles.tabLocation} ${tab === "select" ? styles.active : ""}`} onClick={() => setTab("select")}>장소 선택</button>
-              <button className={`${styles.tabLocation} ${tab === "new" ? styles.active : ""}`} onClick={() => setTab("new")}>신규 장소 등록</button>
+              <button className={`${styles.tabLocation} ${tab === "new" ? styles.active : ""}`} onClick={() => setTab("new")}>여행할 장소</button>
             </div>
             {tab === "select" && (
               <>
@@ -211,7 +235,7 @@ function TravelPlanBox({
               </>
             )}
             <button className={styles.prevBtn} onClick={() => setStep(1)}>이전 단계</button>
-            <button className={styles.confirmedBtn}>플랜확정</button>
+            <button className={styles.confirmedBtn} onClick={onClose}>플랜확정</button>
           </div>
         )}
       </div>
