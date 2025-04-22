@@ -1,22 +1,29 @@
-// src/contexts/LocationContext.jsx
+//props 덩어리들 다 여기서 가져다 쓰는 용도
+
+
+
 import React, { createContext, useState } from 'react';
 
-export const LocationContext = createContext({
-    selectedRegion: '',
-    setSelectedRegion: () => {},
-    selectedCity: '',
-    setSelectedCity: () => {},
-});
-
+export const LocationContext = createContext({});
 export function LocationProvider({ children }) {
+    const [selectedDates, setSelectedDates] = useState([]);
     const [selectedRegion, setSelectedRegion] = useState('');
     const [selectedCity, setSelectedCity] = useState('');
+    const [searchKeyword, setSearchKeyword] = useState('');
+    const [step, setStep] = useState(1);
+    const [tab, setTab] = useState('select');
+    const [activeTab, setActiveTab] = useState('명소');
+
     return (
         <LocationContext.Provider value={{
-            selectedRegion,
-            setSelectedRegion,
-            selectedCity,
-            setSelectedCity,
+
+            selectedDates, setSelectedDates,
+            selectedRegion, setSelectedRegion,
+            selectedCity, setSelectedCity,
+            searchKeyword, setSearchKeyword,
+            step, setStep,
+            tab, setTab,
+            activeTab, setActiveTab,
         }}>
             {children}
         </LocationContext.Provider>
