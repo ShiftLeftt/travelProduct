@@ -49,7 +49,7 @@
   background-color: #fff;
   box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
   padding: 11rem 5rem 0 5rem;
-  z-index: 1001;
+  z-index: 10;
   overflow-y: auto;
   transition: width 0.4s ease, opacity 0.4s ease;
 }
