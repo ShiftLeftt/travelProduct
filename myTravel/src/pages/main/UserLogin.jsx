@@ -1,21 +1,22 @@
 import React, { useState } from "react";
-import style from "./userLogin.module.css"; // CSS 모듈 import
 import KakaoLogin from "../../components/AuthProvider/KakaoLogin";
 import GoogleLogin from "../../components/AuthProvider/GoogleLogin";
 import NaverLogin from "../../components/AuthProvider/NaverLogin";
-import "../../styles/common.css"; // 상대 경로로 수정
-import "../../styles/reset.css";
 import SignupModal from "../../components/modal/signupModal";
 import TravelScroll from "../../components/TravelSchedule/TravelScroll";
-import validation from "../../functions/validation.js";
+
+// CSS
+import style from "./userLogin.module.css";
+import "../../styles/common.css";
+import "../../styles/reset.css";
+
 function UserLogin() {
   const [isExpanded, setIsExpanded] = useState(false);
-  // const [isVisible, setIsVisible] = useState(true);
   const [show, setShow] = useState(false);
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const isLoggedIn = !!localStorage.getItem("accessToken");
-  const isValid = validation(userId, password,);
+  // const isValid = validation(userId, password);
 
   // 예제 데이터
   // 스케줄이 이런 식으로 받아와졌을 때
@@ -41,7 +42,7 @@ function UserLogin() {
   //로그인 액션
   const handleLogin = async () => {
     // 유효성 검사
-    if(!isValid) return;
+    if (!isValid) return;
     try {
       const res = await fetch(import.meta.env.VITE_LOGIN_URL, {
         method: "POST",
@@ -64,26 +65,14 @@ function UserLogin() {
   };
 
   const handleClick = () => {
-    setIsExpanded(!isExpanded);
-    // setIsVisible(false);
+    setIsExpanded((prev) => !prev);
   };
-
-
-  const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    alert("로그아웃 되었습니다.");
-  }
-
 
   return (
     <>
       {show && <SignupModal onClose={() => setShow(false)} />}
 
-      <div
-        className={`${style.userLoginBar} ${
-          isExpanded ? style.isExpanded : ""
-        }`}
-      >
+      <div className={style.userLoginBar}>
         <button onClick={handleClick} className={style.toggleButton}>
           <img
             src="/img/leftArrow.svg"
@@ -91,58 +80,73 @@ function UserLogin() {
             className={isExpanded ? style.rotated : ""}
           />
         </button>
-
-        <div className={isExpanded ? style.logoHidden : style.logWrap}>
+        <div className={style.logWrap}>
           <img src="/img/Journee_logo.webp" alt="Journee" />
         </div>
-        {isExpanded && (
-          <div className={style.loginArea}>
-            <h2>로그인</h2>
-            <div className={style.loginInput}>
-              <input type="text" placeholder="아이디를 입력해주세요" onChange={(e)=>{setUserId(e.target.value)}} />
-              <input type="password" placeholder="비밀번호를 입력해주세요" onChange={(e)=>{setPassword(e.target.value)}} />
-            </div>
-            <div className={style.authButtons}>
-              <button
-                type={"submit"}
-                className={style.loginBtn}
-                onClick={handleLogin}
-              >
-                <img src="/img/loginBtn01.png" alt="LOGIN" />
-                LOGIN
-              </button>
+      </div>
 
-              <button onClick={() => setShow(true)} className={style.signupBtn}>
-                <img src="/img/loginBtn02.png" alt="SIGN UP" />
-                SIGN UP
-              </button>
-            </div>
-            <div className={style.loginAPI}>
-              <NaverLogin />
-              <GoogleLogin />
-              <KakaoLogin />
-            </div>
-            <p>
-              회원가입 없이 이용 가능하며 첫 로그인시 이용약관 및
-              개인정보처리방침 동의로 간주됩니다.
-            </p>
-            <div className={style.loginAd}>
-              <img src="/img/loginAd01.png" alt="광고" />
-              <img src="/img/loginAd02.png" alt="광고" />
-            </div>
-            <div className={style.loginPlane}>
-              {isLoggedIn ? (
-                <TravelScroll travelSchedules={schedules} />
-              ) : (
-                <div className={style.notLoggedInMessage}>
-                  로그인 후 확인하실 수 있습니다.
-                </div>
-              )}
+      <div
+        className={`${style.loginPanel} ${
+          isExpanded ? style.slideIn : style.slideOut
+        }`}
+      >
+        <h2>로그인</h2>
+        <div className={style.loginInput}>
+          <input
+            type="text"
+            placeholder="아이디를 입력해주세요"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
 
-              <div className={style.loginPlaneTouch}></div>
+        <div className={style.authButtons}>
+          <button
+            type="submit"
+            className={style.loginBtn}
+            onClick={handleLogin}
+          >
+            <img src="/img/loginBtn01.png" alt="LOGIN" />
+            LOGIN
+          </button>
+          <button onClick={() => setShow(true)} className={style.signupBtn}>
+            <img src="/img/loginBtn02.png" alt="SIGN UP" />
+            SIGN UP
+          </button>
+        </div>
+
+        <div className={style.loginAPI}>
+          <NaverLogin />
+          <GoogleLogin />
+          <KakaoLogin />
+        </div>
+
+        <p>
+          회원가입 없이 이용 가능하며 첫 로그인시 이용약관 및 개인정보처리방침
+          동의로 간주됩니다.
+        </p>
+
+        <div className={style.loginAd}>
+          <img src="/img/loginAd01.png" alt="광고" />
+          <img src="/img/loginAd02.png" alt="광고" />
+        </div>
+
+        <div className={style.loginPlane}>
+          {isLoggedIn ? (
+            <TravelScroll travelSchedules={schedules} />
+          ) : (
+            <div className={style.notLoggedInMessage}>
+              로그인 후 확인하실 수 있습니다.
             </div>
-          </div>
-        )}
+          )}
+          <div className={style.loginPlaneTouch}></div>
+        </div>
       </div>
     </>
   );
