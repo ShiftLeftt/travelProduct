@@ -341,3 +341,67 @@
   background: var(--black);
   border-radius: 1rem;
 }
+
+.listWrap {
+  margin-top: 0.5rem;
+}
+.listBox {
+  width: 30rem;
+  display: flex;
+}
+.listImg {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 2rem;
+}
+.listImg img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+}
+.listText {
+  width: 18rem;
+  margin-right: 2rem;
+}
+.listTitle {
+  display: flex;
+  gap: 0.5rem; 
+  white-space: nowrap;
+  margin-bottom: 0.5rem;
+}
+.listTitle span {
+  border: 1px solid var(--point-color);
+  border-radius: 0.75rem;
+  padding: 0 0.5rem;
+  color: var(--point-color);
+  font-size: var(--font-12);
+  font-weight: var(--weight-semi-bold);
+  line-height: 1.3;
+}
+.listTitle h5 {
+  font-size: var(--font-16);
+  font-weight: var(--weight-semi-bold);
+
+}
+.listText p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;         
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;       
+  line-height: 1.3;             
+  max-height: calc(1.5em * 2);   
+}
+.listBtnSelect {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+.listBtnSelect img {
+  transition: transform 0.3s ease;
+  transform-origin: center center; 
+}
+.listBtnSelect:hover img{
+  transform: rotate(90deg);
+}
