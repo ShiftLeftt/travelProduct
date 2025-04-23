@@ -12,6 +12,24 @@ const regions = {
   경상도: ["창원시", "김해시", "진주시", "양산시", "거제시", "통영시", "사천시", "밀양시", "포항시", "경주시", "구미시", "안동시", "김천시", "상주시", "문경시", "영주시"],
 };
 
+const rotateValues = [
+  [-20, 300],
+  [125, 355],
+  [280, 338],
+  [415, 253],
+  [500, 118],
+  [520, -38],
+  [470, -185],
+  [350, -297],
+  [210 ,-348],
+  [55, -330],
+  [-75, -250],
+  [-160, -120],
+  [-180, 40],
+  [-130, 190]
+];
+
+
 const Roulette = ({ onSelect }) => {
   const [rotateDeg, setRotateDeg] = useState(0);
   const center = 250;
@@ -87,6 +105,8 @@ const Roulette = ({ onSelect }) => {
           {cities.map((city, i) => {
             const start = i * angle;
             const end = start + angle;
+            const [x, y] = rotateValues[i];
+
             return (
               <g key={i}>
                 <path
@@ -95,12 +115,12 @@ const Roulette = ({ onSelect }) => {
                   stroke="#fff"
                 />
                 <text
-                  x={center}
-                  y={center - radius + 40}
-                  transform={`rotate(${angle * i + angle / 2} ${center} ${center})`}
+                  x = {x}
+                  y = {y}
+                  transform={`rotate(${360 / 14 * (i - 3)})`}
                   textAnchor="middle"
                   fill="#fff"
-                  fontSize="10"
+                  fontSize="20"
                   alignmentBaseline="middle"
                 >
                   {city}
