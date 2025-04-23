@@ -1,35 +1,54 @@
 // 게시판 세부사항
 import React from "react";
-
+// import { useState, useEffect } from "react";
 import style from "./CommunityDetail.module.css";
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import CommunityApi from "./CommunityApi.js";
+// import CommunityApi from "./CommunityApi.js";/
 
 function CommunityDetail() {
+  const location = useLocation();
+  const { id } = location.state || {};
+  const [CommunityApiData, setCommunityApiData] = useState([]);
+  useEffect(() => {
+    const communityData = async () => {
+      const data = await CommunityApi("select");
+      setCommunityApiData(data);
+      // id에 해당하는 데이터 찾기
+      const selectedData = data.find((item) => item.id === id);
+      setCommunityApiData(selectedData);
+    };
+    communityData();
+  }, [id]);
+  console.log(CommunityApiData);
   return (
     <div className={style.communityMain}>
       <h1>커뮤니티</h1>
-      <div>
-        <div className={style.CommunityDetailTitleWrap}>
-          <div className={style.CommunityDetailTitle}>
-            <p>커뮤니티 게시글 안내</p>
-            <span>by 관리자</span>
-          </div>
-          <div className={style.CommunityDetailTitleDate}>
-            <p>2025. 02.12</p>
-            <div>
-              <img src="./public/img/view.svg" alt="" />
-              <span>114</span>
+      {CommunityApiData ? (
+        <>
+          <div>
+            <div className={style.CommunityDetailTitleWrap}>
+              <div className={style.CommunityDetailTitle}>
+                <p>{CommunityApiData.title}</p>
+                <span>by {CommunityApiData.name}</span>
+              </div>
+              <div className={style.CommunityDetailTitleDate}>
+                <p>{CommunityApiData.date}</p>
+                <div>
+                  <img src="./public/img/view.svg" alt="" />
+                  <span>114</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className={style.CommunityDetailContent}>
-        <p>
-          📢 [공지] 여행 커뮤니티 이용 안내 🌍 안녕하세요, Journee 가족 여러분!
-          우리는 여행을 사랑하는 사람들이 모인 공간입니다. 새로운 여행지를
-          발견하고, 유용한 팁을 나누며, 여러분의 멋진 여행 이야기를 공유해요!
-          😊✈️
-        </p>
-      </div>
+          <div className={style.CommunityDetailContent}>
+            <p>{CommunityApiData.content}</p>
+          </div>
+        </>
+      ) : (
+        <p>로딩 중...</p>
+      )}
       <div className={style.CommunityDetailContentComment}>
         <input
           type="text"

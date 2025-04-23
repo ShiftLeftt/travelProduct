@@ -96,14 +96,16 @@
   align-items: center;
   margin-top: 2.4rem;
 }
-.pagingnationWrap p,
-.pagingnationWrap img {
+.pagingnationWrap button {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
-.pagingnationWrap p {
+.pagingnationWrap button {
   font-size: var(--font-16);
 }
-.pagingnationClick {
+button.pagingnationClick {
   width: 30px;
   height: 30px;
   padding: 10px;
