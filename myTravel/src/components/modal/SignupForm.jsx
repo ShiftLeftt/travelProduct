@@ -1,6 +1,7 @@
 import react, { useState } from "react";
 
 import styles from "./signupForm.module.css";
+import validation from "../../functions/validation.js";
 
 function SignupForm({ onClose }) {
   const [id, setId] = useState("");
@@ -8,6 +9,7 @@ function SignupForm({ onClose }) {
   const [passwordCheck, setPasswordCheck] = useState("");
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
+
 
   const duplicationId = () => {
     // TODO: 중복확인 로직
@@ -17,13 +19,13 @@ function SignupForm({ onClose }) {
     // TODO: 이메일 인증 로직
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!id || !password || !passwordCheck || !email) {
-      alert("필수 입력 항목을 모두 입력해주세요.");
-    }
-    if (password !== passwordCheck) {
-      alert("비밀번호가 일치하지 않습니다.");
+    const result = validation(id, password, passwordCheck, email); // 순서도 맞게
+    if (!result.valid) {
+      alert(result.message);
       return;
     }
     try {
@@ -33,7 +35,12 @@ function SignupForm({ onClose }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, name, password }),
+        body: JSON.stringify({
+          username: id,
+          password,
+          nickname,
+          email,
+        }),
       });
       if (!res.ok) {
         alert("회원가입에 실패했습니다.");

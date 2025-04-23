@@ -83,6 +83,11 @@
   width: 14.4rem;
 }
 
+.Map {
+  left: 43.9rem;
+  width: 8rem;
+}
+
 .mainContent {
   flex-grow: 1;
   display: flex;
