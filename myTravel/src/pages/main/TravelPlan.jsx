@@ -57,12 +57,6 @@ function TravelPlan() {
       <div>
         <div className={styles.travelPlanTitle}>
           <p>고객님, <br /><span>어떤 여행을 <br />계획하시나요?</span></p>
-          <button onClick={toggleBox}>
-            <img
-              src={isBoxVisible ? "/img/leftArrow.svg" : "/img/rightArrow.svg"}
-              alt="arrow icon"
-            />
-          </button>
         </div>
 
         {isBoxVisible && (

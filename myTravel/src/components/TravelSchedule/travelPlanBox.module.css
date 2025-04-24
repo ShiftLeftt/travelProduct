@@ -1,4 +1,3 @@
-
 .travelPlanBox {
   width: 0;
   height: 100%;
@@ -33,6 +32,7 @@
 
 .scheduleText {
   text-align: center;
+  white-space: nowrap;
 }
 
 .scheduleText h1 {
@@ -99,6 +99,9 @@
   margin-top: 1rem;
   padding-bottom: 10px;
   position: relative;
+}
+.cityToggle {
+  margin-top: 3rem;
 }
 
 .regionToggle::after,

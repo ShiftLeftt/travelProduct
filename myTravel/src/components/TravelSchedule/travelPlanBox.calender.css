@@ -164,3 +164,10 @@
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
 }
+
+.react-calendar__tile:disabled {
+  background-color: transparent !important;
+  color: var(--light-black); 
+  opacity: 1;
+  cursor: not-allowed;
+}

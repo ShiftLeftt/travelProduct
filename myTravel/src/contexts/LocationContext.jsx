@@ -25,7 +25,7 @@ export function LocationProvider({ children }) {
             step, setStep,
             tab, setTab,
             activeTab, setActiveTab,
-            map,setMap
+            map,setMap,
         }}>
             {children}
         </LocationContext.Provider>

@@ -9,7 +9,7 @@ import {sqlInjectionValidation} from "../../util/Validation.js";
 import {useSearch} from "../../hooks/useSearch.js";
 import SearchList from "../MapUtil/SearchList.jsx";
 
-export default function TravelPlanBox({ formatDate, getDuration }) {
+export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
   const {
     selectedDates, setSelectedDates,
     selectedRegion, setSelectedRegion,
@@ -18,7 +18,7 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
     step, setStep,
     tab, setTab,
     activeTab, setActiveTab,
-      map
+    map
   } = useContext(LocationContext);
 
 
@@ -128,26 +128,42 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
                   <p>여행 기간이 어떻게 되시나요?</p>
                 </div>
                 <div className={styles.calendar}>
-                  <Calendar
-                      onChange={date => setSelectedDates(Array.isArray(date) ? date : [date])}
-                      value={selectedDates}
-                      selectRange
-                      formatDay={(locale, date) => date.getDate()}
-                      next2Label={null}
-                      prev2Label={null}
-                      locale="en-US"
-                      formatMonthYear={(locale, date) => `${date.getFullYear()}년 ${date.getMonth()+1}월`}
-                      formatShortWeekday={(locale, date) => ['일','월','화','수','목','금','토'][date.getDay()]}
-                      tileClassName={({ date }) => {
-                        if (!selectedDates || selectedDates.length !== 2) return null;
-                        const [start, end] = selectedDates;
-                        const isSame = (d1,d2) => d1.getFullYear()===d2.getFullYear() && d1.getMonth()===d2.getMonth() && d1.getDate()===d2.getDate();
-                        if (isSame(date, start)) return 'rangeStart';
-                        if (isSame(date, end)) return 'rangeEnd';
-                        if (date > start && date < end) return 'inRange';
-                        return null;
-                      }}
-                  />
+                <Calendar
+                  onChange={date => setSelectedDates(Array.isArray(date) ? date : [date])}
+                  value={selectedDates}
+                  selectRange
+                  minDate={new Date()}
+                  formatDay={(locale, date) => date.getDate()}
+                  next2Label={null}
+                  prev2Label={null}
+                  locale="en-US"
+                  formatMonthYear={(locale, date) => `${date.getFullYear()}년 ${date.getMonth() + 1}월`}
+                  formatShortWeekday={(locale, date) => ['일', '월', '화', '수', '목', '금', '토'][date.getDay()]}
+                  tileClassName={({ date }) => {
+                    if (!Array.isArray(selectedDates) || selectedDates.length !== 2) return null;
+                
+                    const [start, end] = selectedDates;
+                
+                    const isSameDay = (d1, d2) =>
+                      d1.getFullYear() === d2.getFullYear() &&
+                      d1.getMonth() === d2.getMonth() &&
+                      d1.getDate() === d2.getDate();
+                
+                    const nextToStart = new Date(start);
+                    nextToStart.setDate(start.getDate() + 1);
+                
+                    const prevToEnd = new Date(end);
+                    prevToEnd.setDate(end.getDate() - 1);
+                
+                    if (isSameDay(date, start)) return "rangeStart";
+                    if (isSameDay(date, end)) return "rangeEnd";
+                    if (isSameDay(date, nextToStart)) return "inRange leftRounded";
+                    if (isSameDay(date, prevToEnd)) return "inRange rightRounded";
+                    if (date > start && date < end) return "inRange";
+                
+                    return null;
+                  }}
+                />
                   <div className={styles.calendarDivider}></div>
                 </div>
                 {selectedDates.length === 2 && (
@@ -196,7 +212,7 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
                 </div>
                 <div className={styles.tabWrapper}>
                   <button className={`${styles.tabLocation} ${tab==='select'?styles.active:''}`} onClick={()=>setTab('select')}>장소 선택</button>
-                  <button className={`${styles.tabLocation} ${tab==='new'?styles.active:''}`} onClick={()=>setTab('new')}>신규 장소 등록</button>
+                  <button className={`${styles.tabLocation} ${tab==='new'?styles.active:''}`} onClick={()=>setTab('new')}>여행할 장소</button>
                 </div>
                 {tab==='select' && (
                     <>
@@ -232,7 +248,7 @@ export default function TravelPlanBox({ formatDate, getDuration }) {
                     </>
                 )}
                 <button className={styles.prevBtn} onClick={() => setStep(1)}>이전 단계</button>
-                <button className={styles.confirmedBtn}>플랜확정</button>
+                <button className={styles.confirmedBtn} onClick={onClose}>플랜확정</button>
               </>
           )}
         </div>
