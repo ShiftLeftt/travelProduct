@@ -1,3 +1,18 @@
+.modalClose {
+    position: absolute;
+    top: 4.5rem;
+    right: 4.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333333;
+    padding: 0.5rem;
+}
+
+.modalClose img{
+    width: 2rem;
+}
+
 .formTitle {
     position: relative;
     padding-bottom: 2.4rem;
@@ -9,7 +24,7 @@
     font-size: 2.4rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .subtitle {
@@ -17,11 +32,11 @@
     color: #555;
     text-align: center;
 }
+
 .requiredNotice {
     position: absolute;
     right: 0;
-    top: 1.5rem;
-
+    top: 5rem;
     font-size: 1.2rem;
     color: #ff3b30;
 }
@@ -36,6 +51,8 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.8rem;
+    width: 80rem;
+    margin-top: 3rem;
 }
 
 .label {
@@ -49,7 +66,7 @@
 .inputWithButton {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 1rem;
     flex: 1;
 }
 
@@ -61,14 +78,16 @@
     border-radius: 0.4rem;
     font-size: 1.4rem;
 }
+
 .required{
     color: #1751e8;
 }
+
 .helperText {
-    margin-left: 90px;
+    margin-left: 10rem;
     font-size: 1.2rem;
     color: #666;
-    margin-bottom: 1.2rem;
+    margin-bottom: 2rem;
 }
 
 .verifyButton {

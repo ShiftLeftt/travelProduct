@@ -1,6 +1,5 @@
 .userLoginBar{
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: var(-radius-40);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -44,8 +43,8 @@
   right: 14rem;
   width: 0;
   opacity: 0;
-  height: calc(100vh - 10rem);
-  border-radius: 2rem;
+  height: calc(100vh - 9rem);
+  border-radius: 5rem;
   background-color: #fff;
   box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
   padding: 11rem 5rem 0 5rem;
