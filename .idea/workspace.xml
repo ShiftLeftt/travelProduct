@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69d5d5e2-5f4f-4a10-9225-0d23cf2affdc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/travelProduct.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myTravel/src/components/MapUtil/SearchList.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/myTravel/src/components/MapUtil/SearchList.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myTravel/src/components/TravelSchedule/TravelPlanBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/myTravel/src/components/TravelSchedule/TravelPlanBox.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myTravel/src/functions/regionCities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myTravel/src/components/MapUtil/Map.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/myTravel/src/components/MapUtil/Map.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myTravel/src/contexts/LocationContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/myTravel/src/contexts/LocationContext.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JSX File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -116,7 +115,7 @@
       <workItem from="1745598775229" duration="145000" />
       <workItem from="1745847299075" duration="9193000" />
       <workItem from="1745856878588" duration="137000" />
-      <workItem from="1745857043587" duration="1464000" />
+      <workItem from="1745857043587" duration="3680000" />
     </task>
     <servers />
   </component>

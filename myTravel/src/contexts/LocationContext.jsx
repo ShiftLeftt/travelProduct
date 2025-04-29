@@ -1,7 +1,5 @@
 //props 덩어리들 다 여기서 가져다 쓰는 용도
 
-
-
 import React, { createContext, useState } from 'react';
 
 export const LocationContext = createContext({});
@@ -14,6 +12,7 @@ export function LocationProvider({ children }) {
     const [tab, setTab] = useState('select');
     const [activeTab, setActiveTab] = useState('명소');
     const [map, setMap] = useState(null);
+    const [center, setCenter] = useState({ lat: 36.3504, lng: 127.3845 });
 
     return (
         <LocationContext.Provider value={{
@@ -26,6 +25,7 @@ export function LocationProvider({ children }) {
             tab, setTab,
             activeTab, setActiveTab,
             map,setMap,
+            center,setCenter
         }}>
             {children}
         </LocationContext.Provider>
