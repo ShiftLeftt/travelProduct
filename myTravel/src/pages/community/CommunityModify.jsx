@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./CommunityModify.module.css";
 import { useState } from "react";
-
+// import { communityApi } from "./CommunityApi.js";
 function CommunityModify() {
   // const location = useLocation();
   // const { id } = location.state || {};
@@ -40,6 +40,7 @@ function CommunityModify() {
       console.error("에러", error);
     }
   };
+
   return (
     <div className={style.communityMain}>
       <h1>커뮤니티</h1>

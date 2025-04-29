@@ -22,6 +22,17 @@ function CommunityDetail() {
     communityData();
   }, [id]);
   console.log(CommunityApiData);
+  const communityDeleteBtn = async () => {
+    const deleteResponse = await CommunityApi("delete", "post", { id });
+    if (deleteResponse.success) {
+      alert("삭제되었습니다.");
+      // 삭제 후 페이지 이동
+      // window.location.href = "/Community";
+    } else {
+      alert("실패했습니다.");
+    }
+  };
+
   return (
     <div className={style.communityMain}>
       <h1>커뮤니티</h1>
@@ -49,6 +60,10 @@ function CommunityDetail() {
       ) : (
         <p>로딩 중...</p>
       )}
+      <div className={style.CommunityDetailContentBtn}>
+        <button>수정</button>
+        <button onClick={communityDeleteBtn}>삭제</button>
+      </div>
       <div className={style.CommunityDetailContentComment}>
         <input
           type="text"
