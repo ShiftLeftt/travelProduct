@@ -235,14 +235,15 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
                         {activeTab === '명소' && <PlaceList/>}
                         {activeTab === '음식' && <FoodList/>}
                         {activeTab === '카페' && <CafeList/>}
-                      </div>
-
-                      <SearchList
+                        <SearchList
                           places={places}
                           pagination={pagination}
                           onItemHover={(place, idx) => setHoveredPlace({place, idx})}
                           onPageChange={handlePageChange}
-                      />
+                        />
+                      </div>
+
+
 
 
                     </>

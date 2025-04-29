@@ -24,7 +24,8 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 20rem;
+    margin-top: 1rem;
+    max-height: 25rem;
     overflow-y: auto;
 }
 .placesList::-webkit-scrollbar {
@@ -88,7 +89,7 @@
     background-color: var(--color-hover);
 }
 .pagination .on {
-    background-color: var(--color-active);
+    background-color: var(--main-color);
     color: #fff;
 }
 
