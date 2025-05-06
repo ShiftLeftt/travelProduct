@@ -2,9 +2,10 @@ import styles from './SearchList.module.css';
 
 
 
-export default function SearchList({ places,pagination,onPageChange,onItemHover, onAdd }) {
+export default function SearchList({ places,onItemHover, pagination, onAdd }) {
 
     return (
+
         <div className={styles.resultsWrap}>
             <ul className={styles.placesList}>
                 {places.map((p, i) => (
@@ -20,19 +21,24 @@ export default function SearchList({ places,pagination,onPageChange,onItemHover,
                     </li>
                 ))}
             </ul>
-            {pagination && (
-                <div className={styles.pagination}>
-                    {Array.from({length: pagination.last}, (_, idx) => (
-                        <button
-                            key={idx}
-                            className={pagination.current === idx + 1 ? styles.on : ''}
-                            onClick={() => onPageChange(idx + 1)}
-                        >
-                            {idx + 1}
-                        </button>
-                    ))}
-                </div>
-            )}
+            <div>
+          {pagination && (
+              <div className={styles.pagination}>
+                {Array.from({ length: pagination.last }, (_, idx) => (
+                    <button
+                        key={idx}
+                        className={pagination.current === idx + 1 ? styles.on : ''}
+                        onClick={() => onPageChange(idx + 1)}
+                    >
+                      {idx + 1}
+                    </button>
+                ))}
+              </div>
+          )}
+            </div>
+
         </div>
-    )
+    );
+
+
 }
