@@ -41,8 +41,14 @@
     border-radius: 0.2rem;
 }
 
+.info{
+    flex:1;
+}
 
 .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0.8rem 0;
     border-bottom: 1px solid var(--color-border);
     cursor: pointer;
@@ -102,4 +108,17 @@
     padding: 2rem;
     color: var(--color-subtext);
     font-size: var(--font-14);
+}
+
+
+.addBtn {
+    all: unset;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0 0.8rem;
+    color: var(--main-color);
+    transition: transform 0.2s ease;
+}
+.addBtn:hover {
+    transform: scale(1.2);
 }

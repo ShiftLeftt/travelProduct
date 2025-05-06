@@ -21,10 +21,18 @@ export default function SearchList({ places,onItemHover, pagination, onAdd }) {
                           onMouseOver={() => onItemHover(p, i)}
                           onMouseOut={() => onItemHover(null, null)}
                       >
+                        <div className={styles.info}>
                         <strong>{p.place_name}</strong><br/>
                         <small>{p.road_address_name || p.address_name}</small><br/>
                         <small>{p.phone}</small>
+                        </div>
+                        <button className={styles.addBtn} onClick={() => onAdd(p)}>
+                          +
+                        </button>
+
+
                       </li>
+
                   ))}
                 </ul>
                 <div>

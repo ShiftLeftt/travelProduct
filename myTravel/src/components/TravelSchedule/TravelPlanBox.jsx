@@ -28,6 +28,10 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose}) {
     searchPage(page);
   };
 
+  const handleAddPlace = (place) => {
+    alert(`장소 추가 되었습니다.: ${place.place_name}`);
+  }
+
   useEffect(() => {
     if(!hasSearched) return;
     if(searchKeyword.trim() && places.length === 0 ){
@@ -250,6 +254,7 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose}) {
                           pagination={pagination}
                           onItemHover={(place, idx) => setHoveredPlace({place, idx})}
                           onPageChange={handlePageChange}
+                          onAdd={handleAddPlace}
                         />
                       </div>
 
