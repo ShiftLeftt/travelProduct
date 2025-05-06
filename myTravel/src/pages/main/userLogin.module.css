@@ -40,17 +40,18 @@
 .loginPanel {
   position: fixed;
   top: 4rem;
-  right: 14rem;
+  right: 14.8rem;
   width: 0;
   opacity: 0;
   height: calc(100vh - 9rem);
-  border-radius: 5rem;
+  border-radius: 4rem;
   background-color: #fff;
   box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
   padding: 11rem 5rem 0 5rem;
   z-index: 10;
   overflow-y: auto;
   transition: width 0.4s ease, opacity 0.4s ease;
+  overflow: hidden;
 }
 
 .slideIn {
@@ -61,6 +62,7 @@
 .slideOut {
   width: 0;
   opacity: 0;
+  display: none;
 }
 
 .loginPanel h2 {
