@@ -145,7 +145,7 @@
 .nextButton {
     align-self: center;
     padding: 1rem 3rem;
-    background-color: #fc4e00;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -156,7 +156,7 @@
 }
 
 .nextButton:hover {
-    background-color: #fc4e00;
+    background-color: var(--hovver-color);
 }
 
 .nextButton:disabled {

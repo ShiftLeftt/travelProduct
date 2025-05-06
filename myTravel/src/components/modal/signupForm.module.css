@@ -13,6 +13,13 @@
     width: 2rem;
 }
 
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .formTitle {
     position: relative;
     padding-bottom: 2.4rem;
@@ -84,10 +91,11 @@
 }
 
 .helperText {
-    margin-left: 10rem;
     font-size: 1.2rem;
     color: #666;
-    margin-bottom: 2rem;
+    margin: 0 0 .25rem 10rem;
+    text-align: left;
+    align-self: flex-start;
 }
 
 .verifyButton {
@@ -102,14 +110,19 @@
 }
 
 .submitButton {
-    width: 100%;
+    width: 16rem;
     height: 5rem;
-    background: #ff5722;
+    background-color: var(--primary-color);
     color: white;
     font-size: 1.6rem;
     font-weight: 500;
     border: none;
     border-radius: 0.4rem;
-    margin-top: 2.4rem;
+    margin-top: 3rem;
     cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+    background-color: var(--hover-color);
 }

@@ -28,16 +28,15 @@ function Random() {
     return (
         <div className={style.randomContainer}>
             <div className={style.resultContainer}>
-                <div className={style.textBox}>
-                    <p>랜덤여행 Go!</p>
-                    <p><span>{displayedLabel}</span>입니다</p>
-                </div>
-                <div className={style.commentBox}>
+            <div className={style.commentBox}>
                     <p>
                         여행지 선택이 고민이라면? <br/>
-                        랜덤 룰렛을 통해 오늘의 여행지를 찾아보세요! <br/>
-                        운명처럼 결정되는 여행지에서 특별한 경험을 즐기세요.
+                        랜덤 룰렛을 통해 오늘의 여행지를 찾아보세요.
                     </p>
+                </div>
+                <div className={style.textBox}>
+                    <p>랜덤여행 시작</p>
+                    <p className={style.textBoxUnder}><span>{displayedLabel}</span>입니다 !</p>
                 </div>
             </div>
             <div className={style.wheelContainer}>

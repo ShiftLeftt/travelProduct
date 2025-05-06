@@ -11,7 +11,7 @@
 
 .resultContainer{
   width: 40%;
-  padding: 2rem;
+  padding: 0 6rem 10rem;
 }
 
 .resultContainer .textBox{
@@ -22,19 +22,22 @@
 }
 
 .textBox span{
-  color: var(--point-color);
+  color: var(--primary-color);
+  margin-right: 1rem;
 }
 
-.textBox p:nth-child(2){
-  text-decoration: underline dashed .3rem;
+.textBoxUnder{
+  width: max-content;
+  padding-bottom: .25rem;
+  border-bottom: 5px dashed var(--main-color);
   text-underline-offset: 1rem;
 }
 
 .resultContainer .commentBox{
-  font-size: var(--font-12);
-  line-height: 150%;
-  color: var(--light-black);
-  padding-top: 6rem;
+  font-size: var(--font-16);
+  line-height: 1.5;
+  color: var(--dim-black);
+  margin-bottom: 3rem;
 }
 
 .wheelContainer{

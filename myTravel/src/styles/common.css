@@ -5,6 +5,8 @@ html {
 :root {
   --main-color: #2d336b;
   --point-color: #fc4e00;
+  --primary-color: #007AD5;
+  --hover-color: #005ba0;;
   --black: #000000;
   --dark-black: #333333;
   --dim-black: #555555;
