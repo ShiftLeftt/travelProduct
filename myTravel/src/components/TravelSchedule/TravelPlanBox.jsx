@@ -18,12 +18,12 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
     step, setStep,
     tab, setTab,
     activeTab, setActiveTab,
-    map
+    map,center
   } = useContext(LocationContext);
 
 
 
-  const {places, pagination} = useSearch(searchKeyword, map);
+  const {places, pagination} = useSearch(searchKeyword, map, center, 5000);
   const [hoveredPlace, setHoveredPlace] = useState(null);
 
   const handlePageChange = page => {

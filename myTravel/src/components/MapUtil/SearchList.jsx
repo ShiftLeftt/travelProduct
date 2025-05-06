@@ -1,5 +1,8 @@
 import styles from './SearchList.module.css';
-export default function SearchList({ places,pagination,onPageChange,onItemHover }) {
+
+
+
+export default function SearchList({ places,pagination,onPageChange,onItemHover, onAdd }) {
 
     return (
         <div className={styles.resultsWrap}>
