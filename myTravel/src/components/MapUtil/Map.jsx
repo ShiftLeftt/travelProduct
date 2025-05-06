@@ -11,6 +11,7 @@ export default function KakaoMap() {
     const [mapLoad, setMapLoad] = useState(false);
     const [markers, setMarkers] = useState([]);
     const [cityBounds, setCityBounds] = useState(null);
+    const [page, setPage] = useState(1);
     const [searchResults, setSearchResults] = useState([]);
     const [searchPagination, setSearchPagination] = useState(null);
 

@@ -73,7 +73,7 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
               <h5>다정이김밥 제주공동점</h5>
             </div>
             <p>
-            15년 전통, 온가족이 운영하는 다정이네 김밥이 정말 맛있어하는 김밥집입니다.ssssssssssssss
+            15년 전통, 온가족이 운영하는 다정이네 김밥이 정말 맛있어하는 김밥집입니다.
             </p>
           </div>
           <button className={styles.listBtnSelect}>
