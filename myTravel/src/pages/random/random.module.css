@@ -22,15 +22,20 @@
 }
 
 .textBox span{
-  color: var(--primary-color);
   margin-right: 1rem;
 }
 
 .textBoxUnder{
+  color: var(--primary-color);
   width: max-content;
   padding-bottom: .25rem;
-  border-bottom: 5px dashed var(--main-color);
-  text-underline-offset: 1rem;
+  border-bottom: 4px dashed var(--main-color);
+  border-image: repeating-linear-gradient(
+    to right,
+    var(--main-color) 0 2.2rem,
+    transparent 20px 36px
+  );
+  border-image-slice: 1;
 }
 
 .resultContainer .commentBox{
