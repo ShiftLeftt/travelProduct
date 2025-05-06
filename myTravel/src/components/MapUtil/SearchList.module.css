@@ -17,7 +17,6 @@
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     height:auto;
-    overflow:visible;
 
 }
 
@@ -29,6 +28,7 @@
     margin-top: 1rem;
     max-height: 40rem;
     overflow-y: auto;
+
 }
 .placesList::-webkit-scrollbar {
     width: 0.4rem;
@@ -95,9 +95,9 @@
     color: var(--color-text);
     transition: background-color 0.2s ease, color 0.2s ease;
 }
-.pagination button:hover {
-    background-color: var(--color-hover);
-}
+/*.pagination button:hover {*/
+/*    background-color: var(--color-hover);*/
+/*}*/
 .pagination .on {
     background-color: var(--main-color);
     color: #fff;

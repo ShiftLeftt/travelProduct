@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myTravel/src/components/MapUtil/SearchList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/myTravel/src/components/MapUtil/SearchList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myTravel/src/components/MapUtil/SearchList.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/myTravel/src/components/MapUtil/SearchList.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myTravel/src/components/TravelSchedule/TravelPlanBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/myTravel/src/components/TravelSchedule/TravelPlanBox.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +146,7 @@
       <workItem from="1745909767720" duration="1000" />
       <workItem from="1745995298528" duration="273000" />
       <workItem from="1746532709621" duration="447000" />
-      <workItem from="1746533164005" duration="9036000" />
+      <workItem from="1746533164005" duration="9557000" />
     </task>
     <servers />
   </component>

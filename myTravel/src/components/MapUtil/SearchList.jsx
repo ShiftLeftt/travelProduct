@@ -2,7 +2,7 @@ import styles from './SearchList.module.css';
 
 
 
-export default function SearchList({ places,onItemHover, pagination, onAdd }) {
+export default function SearchList({ places,onItemHover, pagination, onAdd, onPageChange}) {
 
   const noResults = !pagination && places.length === 0;
 
