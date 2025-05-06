@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Calendar from 'react-calendar';
 import { LocationContext } from '../../contexts/LocationContext';
 import styles from './travelPlanBox.module.css';
@@ -20,15 +20,22 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose}) {
     activeTab, setActiveTab,
     map,center
   } = useContext(LocationContext);
-
-
-
+  const [hasSearched, setHasSearched] = useState(false);
   const {places, pagination, searchPage} = useSearch(searchKeyword, map, center, 5000);
   const [hoveredPlace, setHoveredPlace] = useState(null);
 
   const handlePageChange = page => {
     searchPage(page);
   };
+
+  useEffect(() => {
+    if(!hasSearched) return;
+    if(searchKeyword.trim() && places.length === 0 ){
+      alert("검색 결과가 없습니다.");
+    }
+    setHasSearched(false);
+  }, [places, searchKeyword]);
+
 
 
   // 드롭다운 열림/닫힘 상태: 로컬 컴포넌트 상태로 관리
@@ -109,6 +116,8 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose}) {
       return;
     }
 
+
+
     // SQL Injection 방지
     if(sqlInjectionValidation(kw)){
         alert('SQL Injection 방지를 위해 특수문자 사용이 제한됩니다.');
@@ -116,6 +125,7 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose}) {
         return;
     }
     setSearchKeyword(kw);
+    setHasSearched(true);
   };
 
   return (
@@ -232,7 +242,7 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose}) {
                         ))}
                       </div>
                       <div className={styles.tabContent}>
-                        {/*{activeTab === '명소' && <PlaceList/>}*/}
+                        {activeTab === '명소' }
                         {activeTab === '음식' && <FoodList/>}
                         {activeTab === '카페' && <CafeList/>}
                         <SearchList

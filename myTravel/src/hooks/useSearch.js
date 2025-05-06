@@ -20,6 +20,10 @@ export function useSearch(keyword, map, center, radius = 5000) {
                     setPlaces(data);
                     setPagination(pagination);
                 }
+                else if (status === window.kakao.maps.services.Status.ZERO_RESULT) {
+                    setPlaces([]);
+                    setPagination(null);
+                }
             },
             {
                 location: new window.kakao.maps.LatLng(center.lat, center.lng),
