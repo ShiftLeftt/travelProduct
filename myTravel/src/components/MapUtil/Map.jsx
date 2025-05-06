@@ -11,6 +11,8 @@ export default function KakaoMap() {
     const [mapLoad, setMapLoad] = useState(false);
     const [markers, setMarkers] = useState([]);
     const [cityBounds, setCityBounds] = useState(null);
+    const [searchResults, setSearchResults] = useState([]);
+    const [searchPagination, setSearchPagination] = useState(null);
 
     useEffect(() => {
         if (window.kakao && window.kakao.maps) {
@@ -38,6 +40,10 @@ export default function KakaoMap() {
             setMarkers([]);
             return;
         }
+
+
+
+
         const ps = new window.kakao.maps.services.Places();
 
         const selectQuery = `${kw} ${selectedCity}`;
@@ -55,11 +61,15 @@ export default function KakaoMap() {
                     return { position: { lat, lng }, title: p.place_name, place:p};
                 });
                 setMarkers(newMarkers);
+
+                if(newMarkers.length > 0 ){
+                    map.setBounds(bounds);
+                }
                 map.setBounds(bounds);
             } else {
                 setMarkers([]);
             }
-        }, { bounds: cityBounds });
+        }, { bounds: cityBounds, page });
 
     }, [searchKeyword, mapLoad, map, selectedCity, selectedRegion, cityBounds]);
 
