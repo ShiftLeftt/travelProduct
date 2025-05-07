@@ -1,19 +1,19 @@
-// src/components/MapUtil/Map.jsx
+
 import React, { useEffect, useState, useContext } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import { LocationContext } from '../../contexts/LocationContext';
+import {regionOfficeMap} from "../../functions/regionCities.js";
 
-const regionOfficeMap = {
-    // … 앞서 드린 매핑 객체 그대로 …
-};
 
 export default function KakaoMap() {
-    const { selectedRegion, selectedCity, searchKeyword, map,setMap } = useContext(LocationContext);
+    const { selectedRegion, selectedCity, searchKeyword, map,setMap, center, setCenter } = useContext(LocationContext);
 
     const [mapLoad, setMapLoad] = useState(false);
-    // 기본 좌표: 대전광역시
-    const [center, setCenter] = useState({ lat: 36.3504119, lng:127.3845475 });
     const [markers, setMarkers] = useState([]);
+    const [cityBounds, setCityBounds] = useState(null);
+    const [page, setPage] = useState(1);
+    const [searchResults, setSearchResults] = useState([]);
+    const [searchPagination, setSearchPagination] = useState(null);
 
     useEffect(() => {
         if (window.kakao && window.kakao.maps) {
@@ -37,25 +37,42 @@ export default function KakaoMap() {
     useEffect(() => {
         if (!mapLoad || !map) return;
         const kw = (searchKeyword || '').trim();
-        if (!kw) {
+        if (!kw || !selectedCity) {
             setMarkers([]);
             return;
         }
+
+
+
+
         const ps = new window.kakao.maps.services.Places();
-        ps.keywordSearch(kw, (data, status) => {
+
+        const selectQuery = `${kw} ${selectedCity}`;
+        ps.keywordSearch(selectQuery, (data, status) => {
             if (status === window.kakao.maps.services.Status.OK) {
                 const bounds = new window.kakao.maps.LatLngBounds();
+                const filteredData = data.filter(place =>{
+                    return place.address_name.includes(selectedCity) ||
+                    place.road_address_name.includes(selectedRegion);
+                })
                 const newMarkers = data.map(p => {
                     const lat = parseFloat(p.y);
                     const lng = parseFloat(p.x);
                     bounds.extend(new window.kakao.maps.LatLng(lat, lng));
-                    return { position: { lat, lng }, title: p.place_name };
+                    return { position: { lat, lng }, title: p.place_name, place:p};
                 });
                 setMarkers(newMarkers);
+
+                if(newMarkers.length > 0 ){
+                    map.setBounds(bounds);
+                }
                 map.setBounds(bounds);
+            } else {
+                setMarkers([]);
             }
-        });
-    }, [searchKeyword, mapLoad, map]);
+        }, { bounds: cityBounds, page });
+
+    }, [searchKeyword, mapLoad, map, selectedCity, selectedRegion, cityBounds]);
 
     if (!mapLoad) return <div>지도 로딩 중...</div>;
 

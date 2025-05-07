@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Calendar from 'react-calendar';
 import { LocationContext } from '../../contexts/LocationContext';
 import styles from './travelPlanBox.module.css';
@@ -9,7 +9,7 @@ import {sqlInjectionValidation} from "../../util/Validation.js";
 import {useSearch} from "../../hooks/useSearch.js";
 import SearchList from "../MapUtil/SearchList.jsx";
 
-export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
+export default function TravelPlanBox({ formatDate, getDuration, onClose}) {
   const {
     selectedDates, setSelectedDates,
     selectedRegion, setSelectedRegion,
@@ -18,17 +18,28 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
     step, setStep,
     tab, setTab,
     activeTab, setActiveTab,
-    map
+    map,center
   } = useContext(LocationContext);
-
-
-
-  const {places, pagination} = useSearch(searchKeyword, map);
+  const [hasSearched, setHasSearched] = useState(false);
+  const {places, pagination, searchPage} = useSearch(searchKeyword, map, center, 5000);
   const [hoveredPlace, setHoveredPlace] = useState(null);
 
   const handlePageChange = page => {
-    if (pagination) pagination.gotoPage(page);
+    searchPage(page);
   };
+
+  const handleAddPlace = (place) => {
+    alert(`장소 추가 되었습니다.: ${place.place_name}`);
+  }
+
+  useEffect(() => {
+    if(!hasSearched) return;
+    if(searchKeyword.trim() && places.length === 0 ){
+      alert("검색 결과가 없습니다.");
+    }
+    setHasSearched(false);
+  }, [places, searchKeyword]);
+
 
 
   // 드롭다운 열림/닫힘 상태: 로컬 컴포넌트 상태로 관리
@@ -59,30 +70,30 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
     제주특별자치도: ['서귀포시','제주시']
   };
 
-  const PlaceList = () => 
-  <ul>
-    <li>
-      <div className={styles.listWrap}>
-        <div className={styles.listBox}>
-          <div className={styles.listImg}>
-            <img src="/img/임시이미지.jpg" alt="임시" />
-          </div>
-          <div className={styles.listText}>
-            <div className={styles.listTitle}>
-              <span>추천</span>
-              <h5>다정이김밥 제주공동점</h5>
-            </div>
-            <p>
-            15년 전통, 온가족이 운영하는 다정이네 김밥이 정말 맛있어하는 김밥집입니다.ssssssssssssss
-            </p>
-          </div>
-          <button className={styles.listBtnSelect}>
-            <img src="/img/plusBtn.svg" alt="plusBtn" />
-          </button>
-        </div>
-      </div>
-    </li>
-  </ul>;
+  // const PlaceList = () =>
+  // <ul>
+  //   <li>
+  //     <div className={styles.listWrap}>
+  //       <div className={styles.listBox}>
+  //         <div className={styles.listImg}>
+  //           <img src="/img/임시이미지.jpg" alt="임시" />
+  //         </div>
+  //         <div className={styles.listText}>
+  //           <div className={styles.listTitle}>
+  //             <span>추천</span>
+  //             <h5>다정이김밥 제주공동점</h5>
+  //           </div>
+  //           <p>
+  //           15년 전통, 온가족이 운영하는 다정이네 김밥이 정말 맛있어하는 김밥집입니다.
+  //           </p>
+  //         </div>
+  //         <button className={styles.listBtnSelect}>
+  //           <img src="/img/plusBtn.svg" alt="plusBtn" />
+  //         </button>
+  //       </div>
+  //     </div>
+  //   </li>
+  // </ul>;
   const FoodList = () => <ul><li>음식</li></ul>;
   const CafeList = () => <ul><li>카페</li></ul>;
 
@@ -109,6 +120,8 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
       return;
     }
 
+
+
     // SQL Injection 방지
     if(sqlInjectionValidation(kw)){
         alert('SQL Injection 방지를 위해 특수문자 사용이 제한됩니다.');
@@ -116,6 +129,7 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
         return;
     }
     setSearchKeyword(kw);
+    setHasSearched(true);
   };
 
   return (
@@ -232,17 +246,17 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose }) {
                         ))}
                       </div>
                       <div className={styles.tabContent}>
-                        {activeTab === '명소' && <PlaceList/>}
+                        {activeTab === '명소' }
                         {activeTab === '음식' && <FoodList/>}
                         {activeTab === '카페' && <CafeList/>}
-                      </div>
-
-                      <SearchList
+                        <SearchList
                           places={places}
                           pagination={pagination}
                           onItemHover={(place, idx) => setHoveredPlace({place, idx})}
                           onPageChange={handlePageChange}
-                      />
+                          onAdd={handleAddPlace}
+                        />
+                      </div>
 
 
                     </>

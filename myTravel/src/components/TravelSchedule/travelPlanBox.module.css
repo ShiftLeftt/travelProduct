@@ -7,7 +7,8 @@
   border-radius: var(--radius-40);
   box-shadow: 0 0 6rem rgba(0, 0, 0, 0.25);
   background-color: white;
-  overflow: hidden;
+  overflow-y:hidden;
+  overflow-x:visible;
   opacity: 0;
   pointer-events: none;
   transition: width 0.3s ease-in-out, opacity 0.2s ease;
@@ -21,7 +22,7 @@
 }
 
 .travelPlanBoxContent {
-  height: inherit;
+
   opacity: 0;
   transition: opacity 0.3s ease 0.3s;
 }
@@ -327,7 +328,7 @@
   /* border: 1px solid #ff0000; */
   min-height: 40rem;
   max-height: 40rem;
-  overflow-y: auto;
+  overflow-y: visible;
   padding-right: 1rem;
 }
 
@@ -338,11 +339,12 @@
 .tabContent::-webkit-scrollbar-track {
   background: var(--dim-gray);
   border-radius: 1rem;
+
 }
 
 .tabContent::-webkit-scrollbar-thumb {
-  background: var(--black);
-  border-radius: 1rem;
+
+  display: none;
 }
 
 .listWrap {
@@ -408,3 +410,6 @@
 .listBtnSelect:hover img{
   transform: rotate(90deg);
 }
+
+
+
