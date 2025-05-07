@@ -1,5 +1,5 @@
 // async function CommunityApi(method, data) {
-async function CommunityApi(url, method = "get", data = "null") {
+async function CommunityApi(url, method = "get", data) {
   try {
     // if (url === "select") {
     //   const communityApi = await fetch(`http://localhost:8000/${url}`);
@@ -28,7 +28,7 @@ async function CommunityApi(url, method = "get", data = "null") {
         "Content-Type": "application/json",
       },
     };
-    if (method === "post" && data) {
+    if (method === "post") {
       communityOptions.body = JSON.stringify(data);
     }
     const response = await fetch(
