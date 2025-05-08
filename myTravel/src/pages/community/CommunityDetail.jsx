@@ -22,12 +22,13 @@ function CommunityDetail() {
     communityData();
   }, [id]);
   console.log(CommunityApiData);
+  console.log(id);
   const communityDeleteBtn = async () => {
-    const deleteResponse = await CommunityApi("delete", "post", { id });
+    const deleteResponse = await CommunityApi("delete", "delete", { id });
     if (deleteResponse.success) {
       alert("삭제되었습니다.");
       // 삭제 후 페이지 이동
-      // window.location.href = "/Community";
+      window.location.href = "/Community";
     } else {
       alert("실패했습니다.");
     }
