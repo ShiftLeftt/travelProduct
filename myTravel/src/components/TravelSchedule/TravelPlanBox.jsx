@@ -9,7 +9,7 @@ import {sqlInjectionValidation} from "../../util/Validation.js";
 import {useSearch} from "../../hooks/useSearch.js";
 import SearchList from "../MapUtil/SearchList.jsx";
 
-export default function TravelPlanBox({ formatDate, getDuration, onClose, markers}) {
+export default function TravelPlanBox({ formatDate, getDuration, onClose, markers }) {
   const {
     selectedDates, setSelectedDates,
     selectedRegion, setSelectedRegion,
@@ -18,7 +18,7 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose, marker
     step, setStep,
     tab, setTab,
     activeTab, setActiveTab,
-    map,center
+    map,center,
   } = useContext(LocationContext);
   const [hasSearched, setHasSearched] = useState(false);
   const {places, pagination, searchPage} = useSearch(searchKeyword, map, center, 5000);
