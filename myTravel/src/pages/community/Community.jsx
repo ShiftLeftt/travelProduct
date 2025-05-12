@@ -9,7 +9,7 @@ function Community() {
     navigate(`/Community/${id}/CommunityDetail`, { state: { id } });
   };
   const modifyHandleClick = () => {
-    navigate("/Community/CommunityModify");
+    navigate("/Community/CommunityUpdate");
   };
 
   const [CommunityApiData, setCommunityApiData] = useState([]);
