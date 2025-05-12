@@ -16,6 +16,7 @@ export function LocationProvider({ children }) {
     const [focusMarker, setFocusMarker] = useState(null);
     const [infoIndex, setInfoIndex] = useState(null);
     const [zoomLevel, setZoomLevel] = useState(4);
+    const [markers, setMarkers] = useState([]);
 
 
 
@@ -34,6 +35,7 @@ export function LocationProvider({ children }) {
             focusMarker, setFocusMarker,
             infoIndex, setInfoIndex,
             zoomLevel, setZoomLevel,
+            markers, setMarkers
         }}>
             {children}
         </LocationContext.Provider>

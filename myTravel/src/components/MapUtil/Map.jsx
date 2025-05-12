@@ -10,11 +10,11 @@ export default function KakaoMap() {
 
 
     const [mapLoad, setMapLoad] = useState(false);
-    const [markers, setMarkers] = useState([]);
     const [cityBounds, setCityBounds] = useState(null);
     const [page, setPage] = useState(1);
     const [searchResults, setSearchResults] = useState([]);
     const [searchPagination, setSearchPagination] = useState(null);
+    const {markers, setMarkers} = useContext(LocationContext);
 
 
     // SearchList에서 클릭한 요소, 검색 리스트 클릭이벤트 상태값
@@ -95,14 +95,14 @@ export default function KakaoMap() {
                                 setZoomLevel(1);
                                 setCenter(m.position);
                            }}>
-                    {infoIndex === i || focusMarker === i && (
+                    {infoIndex === i || focusMarker === i ? (
                         <div style={{ background: '#fff', padding: '5px', borderRadius: '5px', whiteSpace: 'pre-line', fontSize: '12px', maxWidth:`20rem` }}>
                             <h4>{m.title}</h4>
                             <p>{m.place.address_name}</p>
                             <p>{m.place.phone || "번호 없음"}</p>
                             <p>{m.place.road_address_name}</p>
                         </div>
-                    )}
+                    ) : null}
 
 
 
