@@ -3,10 +3,10 @@ import { useContext } from 'react';
 import {LocationContext} from '../../contexts/LocationContext.jsx'
 
 
-export default function SearchList({ places,onItemHover, pagination, onAdd, onPageChange, markers}) {
+export default function SearchList({ places,onItemHover, pagination, onAdd, onPageChange,}) {
 
   const noResults = !pagination && places.length === 0;
-  const {setFocusMarker,setCenter,setZoomLevel,setInfoIndex} = useContext(LocationContext);
+  const {setFocusMarker,setCenter,setZoomLevel,setInfoIndex, markers} = useContext(LocationContext);
 
     return (
 
@@ -25,8 +25,10 @@ export default function SearchList({ places,onItemHover, pagination, onAdd, onPa
                           // 클릭된 요소 저장
                           onClick={() => {
                             const markerIndex = markers.findIndex(m => m.title === p.place_name);
-                            setFocusMarker({ index: markerIndex, marker: p }); // 객체 저장
+                            setFocusMarker({ markerIndex }); // 객체 저장
                             onItemHover(p, markerIndex);
+                            setCenter({ lat: parseFloat(p.y), lng: parseFloat(p.x) });
+                            setZoomLevel(1);
                           }}
                       >
                         <div className={styles.info}>
