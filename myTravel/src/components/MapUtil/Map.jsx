@@ -6,7 +6,8 @@ import {regionOfficeMap} from "../../functions/regionCities.js";
 
 
 export default function KakaoMap() {
-    const { selectedRegion, selectedCity, searchKeyword, map,setMap, center, setCenter } = useContext(LocationContext);
+    const { selectedRegion, selectedCity, searchKeyword, map,setMap, center, setCenter,infoIndex,setInfoIndex, setZoomLevel, zoomLevel } = useContext(LocationContext);
+
 
     const [mapLoad, setMapLoad] = useState(false);
     const [markers, setMarkers] = useState([]);
@@ -14,6 +15,11 @@ export default function KakaoMap() {
     const [page, setPage] = useState(1);
     const [searchResults, setSearchResults] = useState([]);
     const [searchPagination, setSearchPagination] = useState(null);
+
+
+    // SearchList에서 클릭한 요소, 검색 리스트 클릭이벤트 상태값
+    const{focusMarker} = useContext(LocationContext)
+
 
     useEffect(() => {
         if (window.kakao && window.kakao.maps) {
@@ -77,10 +83,31 @@ export default function KakaoMap() {
     if (!mapLoad) return <div>지도 로딩 중...</div>;
 
     return (
-        <Map center={center} level={4} style={{ flex: 1, height: '100%' }}onCreate={mapInstanc => {setMap(mapInstanc)} }>
+        //1. 맵에 줌 레벨 주고
+        <Map center={center}  level={zoomLevel} style={{ flex: 1, height: '100%' }}onCreate={mapInstanc => {setMap(mapInstanc)} }>
             <MapMarker position={center} />
             {markers.map((m, i) => (
-                <MapMarker key={i} position={m.position} title={m.title} />
+                <MapMarker key={i} position={m.position}
+                           title={m.title}
+                           //2. 클릭이벤트에 해당 마커에 대한 줌 주고 정보 툴팁 띄우기 줌 레벨은 작을수록 가까이 보임
+                           onClick={() => {
+                                setInfoIndex(i);
+                                setZoomLevel(1);
+                                setCenter(m.position);
+                           }}>
+                    {infoIndex === i || focusMarker === i && (
+                        <div style={{ background: '#fff', padding: '5px', borderRadius: '5px', whiteSpace: 'pre-line', fontSize: '12px', maxWidth:`20rem` }}>
+                            <h4>{m.title}</h4>
+                            <p>{m.place.address_name}</p>
+                            <p>{m.place.phone || "번호 없음"}</p>
+                            <p>{m.place.road_address_name}</p>
+                        </div>
+                    )}
+
+
+
+                </MapMarker>
+
             ))}
         </Map>
     );
