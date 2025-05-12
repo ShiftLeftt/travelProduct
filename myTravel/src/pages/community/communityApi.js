@@ -1,5 +1,5 @@
 // async function CommunityApi(method, data) {
-async function CommunityApi(url, method = "get", data = "null") {
+async function CommunityApi(url, method = "get", data = null) {
   try {
     // if (url === "select") {
     //   const communityApi = await fetch(`http://localhost:8000/${url}`);
@@ -22,19 +22,22 @@ async function CommunityApi(url, method = "get", data = "null") {
     //   const communityData = await communityApi.json();
     //   return communityData;
     // }
+    const methodString = method.toLowerCase();
     const communityOptions = {
-      method: method,
+      method: methodString,
       headers: {
         "Content-Type": "application/json",
       },
     };
-    if (method === "post" && data) {
+    if (methodString === "post" || methodString === "delete") {
       communityOptions.body = JSON.stringify(data);
     }
     const response = await fetch(
       `http://localhost:8000/${url}`,
       communityOptions
     );
+    console.log("요청 URL:", `http://localhost:8000/${url}`);
+    console.log("요청 옵션:", communityOptions);
     if (!response.ok) {
       throw new Error(`${response.status}`);
     }
@@ -42,7 +45,7 @@ async function CommunityApi(url, method = "get", data = "null") {
     return responseData;
   } catch (err) {
     console.log("에러발생", err);
-    return [];
+    return { success: false };
   }
 }
 
