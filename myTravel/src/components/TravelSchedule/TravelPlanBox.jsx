@@ -224,7 +224,7 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose, marker
                         {activeTab === '음식' && <FoodList/>}
                         {activeTab === '카페' && <CafeList/>}
                         <SearchList
-                            marker={markers}
+                            markers={markers}
                           places={places}
                           pagination={pagination}
                           onItemHover={(place, idx) => setHoveredPlace({place, idx})}
