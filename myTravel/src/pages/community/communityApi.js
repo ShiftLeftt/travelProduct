@@ -29,7 +29,11 @@ async function CommunityApi(url, method = "get", data = null) {
         "Content-Type": "application/json",
       },
     };
-    if (methodString === "post" || methodString === "delete") {
+    if (
+      methodString === "post" ||
+      methodString === "delete" ||
+      methodString === "put"
+    ) {
       communityOptions.body = JSON.stringify(data);
     }
     const response = await fetch(

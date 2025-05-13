@@ -2,11 +2,15 @@ import React, { useEffect } from "react";
 import style from "./CommunityUpdate.module.css";
 import { useState } from "react";
 import CommunityApi from "./CommunityApi.js";
+import { useLocation } from "react-router-dom";
 // import { communityApi } from "./CommunityApi.js";
 function CommunityModify() {
+  const location = useLocation();
+  const { id } = location.state || {};
   // const location = useLocation();
   // const { id } = location.state || {};
   const [formData, setFormData] = useState({
+    id: id,
     name: "버섯농가삼대독자",
     region: "",
     title: "",
@@ -21,16 +25,26 @@ function CommunityModify() {
   };
   const updateCommunity = async (e) => {
     e.preventDefault();
-    const CommunityApiData = await CommunityApi("update", "update", {
-      formData,
-    });
-    if (CommunityApiData.success) {
-      alert("삭제되었습니다.");
-      // 삭제 후 페이지 이동
-      window.location.href = "/Community";
-    } else {
-      alert("실패했습니다.");
+    console.log(formData);
+
+    try {
+      const CommunityApiData = await CommunityApi("update", "put", {
+        formData,
+      });
+      if (CommunityApiData.success) {
+        alert("등록 되었습니다.");
+        // 삭제 후 페이지 이동
+        window.location.href = "/Community";
+      } else {
+        alert("실패 했습니다.");
+      }
+      const responseData = await CommunityApiData.json();
+      console.log("응답 데이터:", responseData);
+      return responseData;
+    } catch (error) {
+      console.error("업데이트 실패", error);
     }
+
     // try {
     //   const response = await fetch("http://localhost:8000/insert", {
     //     method: "post",
