@@ -71,7 +71,7 @@ function SignupForm({ onClose }) {
         <em className={styles.requiredNotice}>* 필수입력사항</em>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
         <div className={styles.inputGroup}>
           <label className={styles.label}>
             아이디<span className={styles.required}>*</span>
