@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from "react";
-import style from "./CommunityModify.module.css";
-import CommunityApi from "./CommunityApi.js"; // 수정된 import 문
-
+import React, { useEffect } from "react";
+import style from "./CommunityUpdate.module.css";
+import { useState } from "react";
+import CommunityApi from "./CommunityApi.js";
+import { useLocation } from "react-router-dom";
+// import { communityApi } from "./CommunityApi.js";
 function CommunityModify() {
+  const location = useLocation();
+  const { id } = location.state || {};
+  // const location = useLocation();
+  // const { id } = location.state || {};
   const [formData, setFormData] = useState({
+    id: id,
     name: "버섯농가삼대독자",
     region: "",
     title: "",
     content: "",
   });
-
   const inputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -17,20 +23,47 @@ function CommunityModify() {
       [name]: value,
     });
   };
-
   const updateCommunity = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+
     try {
-      e.preventDefault();
-      const CommunityApiData = await CommunityApi("insert", "post", formData);
+      const CommunityApiData = await CommunityApi("update", "put", {
+        formData,
+      });
       if (CommunityApiData.success) {
         alert("등록 되었습니다.");
+        // 삭제 후 페이지 이동
         window.location.href = "/Community";
       } else {
         alert("실패 했습니다.");
       }
+      const responseData = await CommunityApiData.json();
+      console.log("응답 데이터:", responseData);
+      return responseData;
     } catch (error) {
       console.error("업데이트 실패", error);
     }
+
+    // try {
+    //   const response = await fetch("http://localhost:8000/insert", {
+    //     method: "post",
+    //     headers: {
+    //       "content-type": "application/json",
+    //     },
+    //     body: JSON.stringify(formData),
+    //   });
+    //   if (response.ok) {
+    //     const result = await response.json(); // 서버에서 반환된 JSON 데이터
+    //     console.log("업데이트 성공:", result);
+    //     alert("수정이 완료되었습니다!");
+    //   } else {
+    //     console.error("업데이트 실패:", response.statusText);
+    //     alert("수정에 실패했습니다.");
+    //   }
+    // } catch (error) {
+    //   console.error("에러", error);
+    // }
   };
 
   return (
@@ -39,6 +72,11 @@ function CommunityModify() {
       <form onSubmit={updateCommunity}>
         <div className={style.communitySelect}>
           <div className={style.selectBox}>
+            {/* <select name="" id="">
+            <option value="" title>
+              지역
+            </option>
+          </select> */}
             <select
               name="region"
               value={formData.region}
@@ -81,6 +119,7 @@ function CommunityModify() {
           </div>
         </div>
         <div>
+          {/* <button>수정하기</button> */}
           <button type="submit">등록하기</button>
         </div>
       </form>

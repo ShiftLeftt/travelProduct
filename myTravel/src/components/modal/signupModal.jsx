@@ -13,7 +13,7 @@ function SignupModal({ isOpen, onClose }) {
 
     const handleNextStep = () => {
         if (isChecked) {
-            setModalStatus(2);ㅌ
+            setModalStatus(2);
         }
     };
 
@@ -21,7 +21,7 @@ function SignupModal({ isOpen, onClose }) {
         <div className={`${style.modal} ${isOpen ? style.modalOpen : ""}`}>
             <div className={style.modalFrame}>
                 {modalStatus === 1 ? (
-                    <>
+                    <div className={style.modalWrap}>
                         <div className={style.modalHeader}>
                             <h1>회원가입</h1>
                             <p>회원이 되어 다양한 혜택을 경험해보세요!</p>
@@ -91,7 +91,7 @@ function SignupModal({ isOpen, onClose }) {
                                 다음
                             </button>
                         </div>
-                    </>
+                    </div>
                 ) : (
                     <SignupForm onClose={onClose} />
                 )}
