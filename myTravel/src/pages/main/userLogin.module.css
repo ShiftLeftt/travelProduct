@@ -39,11 +39,11 @@
 /* loginPanel */
 .loginPanel {
   position: fixed;
-  top: 4rem;
-  right: 14.8rem;
+  top: 4.5%;
+  right: 7.94%;
   width: 0;
   opacity: 0;
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 8.5rem);
   border-radius: 4rem;
   background-color: #fff;
   box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
