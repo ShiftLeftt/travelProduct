@@ -29,7 +29,6 @@ const rotateValues = [
   [-130, 190]
 ];
 
-
 const Roulette = ({ onSelect }) => {
   const [rotateDeg, setRotateDeg] = useState(0);
   const center = 250;
@@ -73,8 +72,8 @@ const Roulette = ({ onSelect }) => {
         selected = randomCity;
       }
 
-      onSelect(selected);
-    }, 4000);
+      onSelect(selected); 
+    }, 4000); 
   };
 
   return (
@@ -82,24 +81,23 @@ const Roulette = ({ onSelect }) => {
       <div
         style={{
           position: "absolute",
-          top: -50,
+          top: -30,
           left: "50%",
-          transform: "translateX(-50%) rotate(180deg)",
-          width: 0,
-          height: 0,
-          borderLeft: "45px solid transparent",
-          borderRight: "45px solid transparent",
-          borderBottom: "90px solid var(--point-color)",
-          zIndex: 10,
+          transform: "translateX(-50%)",
+          width: '55px',
+          height: '70px',
+          zIndex: 100,
+          background: "url(/img/rouletteArrow.png) no-repeat center center",
+          backgroundSize: "contain",
         }}
       />
 
       <svg width={center * 2} height={center * 2}>
         <g
           style={{
-            transition: "transform 4s cubic-bezier(0.33, 1, 0.68, 1)",
-            transform: `rotate(${rotateDeg}deg)`,
-            transformOrigin: "50% 50%",
+            transition: "transform 4s cubic-bezier(0.33, 1, 0.68, 1)",  
+            transform: `rotate(${rotateDeg}deg)`, 
+            transformOrigin: "50% 50%", 
           }}
         >
           {cities.map((city, i) => {
@@ -115,8 +113,8 @@ const Roulette = ({ onSelect }) => {
                   stroke="#fff"
                 />
                 <text
-                  x = {x}
-                  y = {y}
+                  x={x}
+                  y={y}
                   transform={`rotate(${360 / 14 * (i - 3)})`}
                   textAnchor="middle"
                   fill="#000"
@@ -138,20 +136,26 @@ const Roulette = ({ onSelect }) => {
           strokeWidth="12"
           fill="none"
         />
-  {Array.from({ length: 14 }).map((_, index) => {
-    const angleDeg = (360 / 14) * index;
-    const { x, y } = polarToCartesian(angleDeg + angle / 2);
 
-    return (
-      <circle
-        key={index}
-        cx={x}
-        cy={y}
-        r="3"
-        fill="white"
-      />
-    );
-  })}
+        {Array.from({ length: 14 }).map((_, index) => {
+          const angleDeg = (360 / 14) * index;
+          const { x, y } = polarToCartesian(angleDeg + angle / 2);
+
+          return (
+            <circle
+              key={index}
+              cx={x}
+              cy={y}
+              r="3"
+              fill="white"
+              style={{
+                transition: "transform 4s cubic-bezier(0.33, 1, 0.68, 1)", 
+                transform: `rotate(${rotateDeg}deg)`, 
+                transformOrigin: "50% 50%",  
+              }}
+            />
+          );
+        })}
       </svg>
 
       <div
