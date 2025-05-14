@@ -111,7 +111,7 @@ const Roulette = ({ onSelect }) => {
               <g key={i}>
                 <path
                   d={getPath(start, end)}
-                  fill={i % 2 === 0 ? "#A4A4A4" : "#616161"}
+                  fill={i % 2 === 0 ? "#EBEEF0" : "#FEFFFF"}
                   stroke="#fff"
                 />
                 <text
@@ -119,7 +119,7 @@ const Roulette = ({ onSelect }) => {
                   y = {y}
                   transform={`rotate(${360 / 14 * (i - 3)})`}
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="#000"
                   fontSize="20"
                   alignmentBaseline="middle"
                 >
@@ -129,6 +129,29 @@ const Roulette = ({ onSelect }) => {
             );
           })}
         </g>
+
+        <circle
+          cx={center}
+          cy={center}
+          r={radius}
+          stroke="var(--main-color)"
+          strokeWidth="12"
+          fill="none"
+        />
+  {Array.from({ length: 14 }).map((_, index) => {
+    const angleDeg = (360 / 14) * index;
+    const { x, y } = polarToCartesian(angleDeg + angle / 2);
+
+    return (
+      <circle
+        key={index}
+        cx={x}
+        cy={y}
+        r="3"
+        fill="white"
+      />
+    );
+  })}
       </svg>
 
       <div
@@ -140,7 +163,7 @@ const Roulette = ({ onSelect }) => {
           transform: "translate(-50%, -50%)",
           width: 100,
           height: 100,
-          backgroundColor: "#f1f1f1",
+          backgroundColor: "var(--point-color)",
           borderRadius: "50%",
           display: "flex",
           justifyContent: "center",
@@ -148,11 +171,10 @@ const Roulette = ({ onSelect }) => {
           flexDirection: "column",
           cursor: "pointer",
           zIndex: 5,
-          boxShadow: "0 0 10px rgba(0,0,0,0.2)"
+          boxShadow: "inset 0px 4px 4px rgba(252, 78, 0, 0.54), inset -5px -6px 14.9px #FC4E00, inset 4px 14px 10.5px rgba(255, 255, 255, 0.6)"
         }}
       >
-        <span style={{ fontWeight: "bold", fontSize: "16px" }}>출발</span>
-        <span style={{ fontWeight: "bold", fontSize: "16px" }}>준비 완료!</span>
+        <span style={{ fontWeight: "bold", fontSize: "var(--font-20)", color:"#fff" }}>Start!</span>
       </div>
     </div>
   );
