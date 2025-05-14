@@ -2,13 +2,15 @@
 import React from "react";
 // import { useState, useEffect } from "react";
 import style from "./CommunityDetail.module.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CommunityApi from "./CommunityApi.js";
+
 // import CommunityApi from "./CommunityApi.js";/
 
 function CommunityDetail() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { id } = location.state || {};
   const [CommunityApiData, setCommunityApiData] = useState([]);
   useEffect(() => {
@@ -32,6 +34,10 @@ function CommunityDetail() {
     } else {
       alert("실패했습니다.");
     }
+  };
+
+  const updateHandleClick = () => {
+    navigate("/Community/CommunityUpdate", { state: { id } });
   };
 
   return (
@@ -62,7 +68,7 @@ function CommunityDetail() {
         <p>로딩 중...</p>
       )}
       <div className={style.CommunityDetailContentBtn}>
-        <button>수정</button>
+        <button onClick={updateHandleClick}>수정</button>
         <button onClick={communityDeleteBtn}>삭제</button>
       </div>
       <div className={style.CommunityDetailContentComment}>
