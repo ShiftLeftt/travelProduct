@@ -19,6 +19,7 @@
   line-height: 8rem;
   font-weight: var(--weight-bold);
   color: var(--main-color);
+  white-space:nowrap
 }
 
 .textBox span{

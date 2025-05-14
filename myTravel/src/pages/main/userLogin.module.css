@@ -87,11 +87,11 @@
   border: 1px solid var(--black);
   margin-bottom: 1rem;
   font-size: 1rem;
+  text-indent: 2rem;
 }
 
 .loginInput input::placeholder {
   color: var(--dark-gray);
-  padding-left: 1rem;
 }
 
 .authButtons {
