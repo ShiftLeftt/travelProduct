@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Calendar from 'react-calendar';
 import { LocationContext } from '../../contexts/LocationContext';
+import {LoginContext} from "../../contexts/LoginContext";
 import styles from './travelPlanBox.module.css';
 import './travelPlanBox.calender.css';
 import '../../styles/common.css';
@@ -20,16 +21,27 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose, marker
     activeTab, setActiveTab,
     map,center,
   } = useContext(LocationContext);
+
+  const {isLogin, setIsLogin} = useContext(LoginContext);
+
   const [hasSearched, setHasSearched] = useState(false);
   const {places, pagination, searchPage} = useSearch(searchKeyword, map, center, 5000);
   const [hoveredPlace, setHoveredPlace] = useState(null);
+
+
 
   const handlePageChange = page => {
     searchPage(page);
   };
 
   const handleAddPlace = (place) => {
-    alert(`장소 추가 되었습니다.: ${place.place_name}`);
+    if(!isLogin){
+    alert("로그인이 필요합니다.")
+    } else{
+      alert(`장소 추가 되었습니다.: ${place.place_name}`);
+    }
+
+
   }
 
   useEffect(() => {
