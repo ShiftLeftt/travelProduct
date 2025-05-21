@@ -37,6 +37,13 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose, marker
     setHasSearched(false);
   }, [places, searchKeyword]);
 
+  // 검색어가 변경될 때마다 검색 수행(active button 클릭 시)
+  useEffect(() => {
+    if(searchKeyword){
+      searchPage(1);
+    }
+  }, [searchKeyword]);
+
 
 
   // 드롭다운 열림/닫힘 상태: 로컬 컴포넌트 상태로 관리
@@ -216,13 +223,13 @@ export default function TravelPlanBox({ formatDate, getDuration, onClose, marker
                       <div className={styles.tabMenu}>
                         {['명소', '음식', '카페'].map(name => (
                             <button key={name} className={activeTab === name ? styles.activeTab : styles.tab}
-                                    onClick={() => setActiveTab(name)}>{name}</button>
+                                    onClick={() => {setActiveTab(name); setSearchKeyword(name); setInputKeyword(name);}}>{name}</button>
                         ))}
                       </div>
                       <div className={styles.tabContent}>
                         {activeTab === '명소' }
-                        {activeTab === '음식' && <FoodList/>}
-                        {activeTab === '카페' && <CafeList/>}
+                        {activeTab === '음식'}
+                        {activeTab === '카페'}
                         <SearchList
                             markers={markers}
                           places={places}
