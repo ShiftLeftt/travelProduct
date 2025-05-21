@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LocationProvider } from "./contexts/LocationContext.jsx";
+import {LoginProvider} from "./contexts/LoginContext.jsx";
 import Seasons from "./pages/seasons/seasons";
 import Community from "./pages/community/Community";
 import CommunityDetail from "./pages/community/CommunityDetail";
@@ -19,6 +20,7 @@ import "./styles/reset.css";
 function App() {
   return (
     <Router>
+      <LoginProvider>
       <LocationProvider>
         <div className={styles.displayFlex}>
           <TravelPlan />
@@ -47,6 +49,7 @@ function App() {
           <UserLogin />
         </div>
       </LocationProvider>
+      </LoginProvider>
     </Router>
   );
 }
