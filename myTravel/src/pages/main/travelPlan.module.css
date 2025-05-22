@@ -45,6 +45,13 @@
   padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.travelPlanMainBtn button:hover{
+  background-color: var(--dark-color);
 }
 
 .liveSearch h3 {
