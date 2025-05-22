@@ -32,12 +32,7 @@ function TravelPlan() {
     const fetchPopularKeywords = async () => {
       try {
         const response = await fetch(
-          "https://apis.data.go.kr/B551011/KorService1/searchKeyword1" +
-            "?serviceKey=NnU2o9Xt8mC8kWsGnSb%2BI7l%2FQ5JU9d2gkAkzvVr%2Fs%2F7Jdb5NUS6wl73o3HR7trRivcA05bsXg0b7QjI6QGeqXw%3D%3D" +
-            "&MobileOS=ETC" +
-            "&MobileApp=JourneeWeb" +
-            "&numOfRows=5" +
-            "&keyword=여행"
+          "https://apis.data.go.kr/B551011/KorService1/searchKeyword1serviceKey=NnU2o9Xt8mC8kWsGnSb%2BI7l%2FQ5JU9d2gkAkzvVr%2Fs%2F7Jdb5NUS6wl73o3HR7trRivcA05bsXg0b7QjI6QGeqXw%3D%3D&MobileOS=ETC&MobileApp=JourneeWeb&numOfRows=5&keyword=여행"
         );
 
         const text = await response.text();
