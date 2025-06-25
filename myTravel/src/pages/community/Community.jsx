@@ -94,7 +94,7 @@ function Community() {
               </p>
               <p>{data.region}</p>
               <p>{data.name}</p>
-              <p>{data.date.split("T")[0]}</p>
+              <p>{data.createdAt.split("T")[0]}</p>
             </div>
           );
         })}
