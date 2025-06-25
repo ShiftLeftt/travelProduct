@@ -37,10 +37,10 @@ async function CommunityApi(url, method = "get", data = null) {
       communityOptions.body = JSON.stringify(data);
     }
     const response = await fetch(
-      `http://localhost:8000/${url}`,
+      `http://localhost:8080/api/v1/article`,
       communityOptions
     );
-    console.log("요청 URL:", `http://localhost:8000/${url}`);
+    console.log("요청 URL:", `http://localhost:8080/api/v1/article`);
     console.log("요청 옵션:", communityOptions);
     if (!response.ok) {
       throw new Error(`${response.status}`);
