@@ -39,8 +39,6 @@ export default function SearchList({ places,onItemHover, pagination, onAdd, onPa
                         <button className={styles.addBtn} onClick={() => onAdd(p)}>
                           +
                         </button>
-
-
                       </li>
 
                   ))}

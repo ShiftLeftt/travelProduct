@@ -31,6 +31,7 @@ function TravelPlan() {
   useEffect(() => {
     const fetchPopularKeywords = async () => {
       try {
+        // URL에서 ? 이후의 쿼리 매개변수 앞에 누락된 ?를 추가했습니다
         const response = await fetch(
           "https://apis.data.go.kr/B551011/KorService2/searchKeyword2?serviceKey=NnU2o9Xt8mC8kWsGnSb%2BI7l%2FQ5JU9d2gkAkzvVr%2Fs%2F7Jdb5NUS6wl73o3HR7trRivcA05bsXg0b7QjI6QGeqXw%3D%3D&numOfRows=5&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&arrange=C&keyword=%EC%8B%9C%EC%9E%A5&sigunguCode=3&cat1=A04&cat2=A0401&cat3=A04010100&lclsSystm2=SH06&lclsSystm3=SH060100"
         );
@@ -46,6 +47,8 @@ function TravelPlan() {
         console.log("api확인",textApiData)
       } catch (error) {
         console.error("인기 검색어 불러오기 실패:", error);
+        // 오류 발생 시 기본 키워드 설정
+        setPopularKeywords(["서울", "제주도", "부산", "강릉", "경주"]);
       }
     };
     

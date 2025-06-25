@@ -88,6 +88,10 @@
   position: relative;
 }
 
+.regionSelect h1{
+  margin-bottom: 1rem;
+}
+
 .regionToggle,
 .cityToggle {
   width: 100%;
@@ -102,7 +106,7 @@
   position: relative;
 }
 .cityToggle {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .regionToggle::after,
@@ -324,11 +328,13 @@
 }
 
 .tabContent {
-  margin: 0 2rem;
-  /* border: 1px solid #ff0000; */
+  margin: 1rem 2rem;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  background-color: var(--color-bg);
   min-height: 40rem;
   max-height: 40rem;
-  overflow-y: visible;
+  overflow-y: auto;
   padding-right: 1rem;
 }
 
