@@ -32,32 +32,25 @@ function TravelPlan() {
     const fetchPopularKeywords = async () => {
       try {
         const response = await fetch(
-          "https://apis.data.go.kr/B551011/KorService1/searchKeyword1" +
-            "?serviceKey=NnU2o9Xt8mC8kWsGnSb%2BI7l%2FQ5JU9d2gkAkzvVr%2Fs%2F7Jdb5NUS6wl73o3HR7trRivcA05bsXg0b7QjI6QGeqXw%3D%3D" +
-            "&MobileOS=ETC" +
-            "&MobileApp=JourneeWeb" +
-            "&numOfRows=5" +
-            "&keyword=여행"
+          "https://apis.data.go.kr/B551011/KorService2/searchKeyword2?serviceKey=NnU2o9Xt8mC8kWsGnSb%2BI7l%2FQ5JU9d2gkAkzvVr%2Fs%2F7Jdb5NUS6wl73o3HR7trRivcA05bsXg0b7QjI6QGeqXw%3D%3D&numOfRows=5&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&arrange=C&keyword=%EC%8B%9C%EC%9E%A5&sigunguCode=3&cat1=A04&cat2=A0401&cat3=A04010100&lclsSystm2=SH06&lclsSystm3=SH060100"
         );
 
-        const text = await response.text();
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(text, "text/xml");
-        const items = xml.getElementsByTagName("item");
+        const text = await response.json();
+        const textApiData = text.response.body.items.item;
+        // for (let i = 0; i < items.length; i++) {
+          // const title = items[i].getElementsByTagName("title")[0]?.textContent;
+          //  keywords.push(text);
+        // }
 
-        const keywords = [];
-        for (let i = 0; i < items.length; i++) {
-          const title = items[i].getElementsByTagName("title")[0]?.textContent;
-          if (title) keywords.push(title);
-        }
-
-        setPopularKeywords(keywords);
+        setPopularKeywords(textApiData);
+        console.log("api확인",textApiData)
       } catch (error) {
         console.error("인기 검색어 불러오기 실패:", error);
       }
     };
-
+    
     fetchPopularKeywords();
+    
   }, []);
 
   const toggleBox = () => {
@@ -136,7 +129,7 @@ function TravelPlan() {
             {popularKeywords.length > 0 ? (
               popularKeywords.map((keyword, index) => (
                 <li key={index}>
-                  {index + 1}. {keyword}
+                  {index+1}. {keyword.title}
                 </li>
               ))
             ) : (
